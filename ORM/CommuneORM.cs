@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using ProjetTransDev.Ctrl;
 using ProjetTransDev.Ctrl.ProjetTransDev.Ctrl;
 
 namespace ProjetTransDev.ORM
@@ -9,7 +10,9 @@ namespace ProjetTransDev.ORM
         public static CommuneViewModel getCommune(int idCommune)
         {
             CommuneDAO pDAO = CommuneDAO.getCommune(idCommune);
-            CommuneViewModel p = new CommuneViewModel(pDAO.idCommuneDAO, pDAO.nomCommuneDAO, pDAO.DepartementCommuneDAO);
+            int idDepartement = pDAO.DepartementCommuneDAO;
+            DepartementViewModel m = DepartementORM.getDepartement(idDepartement);
+            CommuneViewModel p = new CommuneViewModel(pDAO.idCommuneDAO, pDAO.nomCommuneDAO, m);
             return p;
         }
 
@@ -19,8 +22,10 @@ namespace ProjetTransDev.ORM
             ObservableCollection<CommuneViewModel> l = new ObservableCollection<CommuneViewModel>();
             foreach (CommuneDAO element in lDAO)
             {
-                CommuneViewModel p = new CommuneViewModel(element.idCommuneDAO, element.nomCommuneDAO, element.DepartementCommuneDAO);
-                l.Add(p);
+                int idDepartement = element.DepartementCommuneDAO;
+                DepartementViewModel m = DepartementORM.getDepartement(idDepartement);
+                CommuneViewModel p = new CommuneViewModel(element.idCommuneDAO, element.nomCommuneDAO,m);
+                l.Add(p);             
             }
             return l;
         }
@@ -28,7 +33,7 @@ namespace ProjetTransDev.ORM
 
         public static void updateCommune(CommuneViewModel p)
         {
-            CommuneDAO.updateCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty, p.DepartementCommuneProperty));
+            CommuneDAO.updateCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty, p.DepartementCommuneProperty.idDepartementProperty));
         }
 
         public static void supprimerCommune(int id)
@@ -38,7 +43,7 @@ namespace ProjetTransDev.ORM
 
         public static void insertCommune(CommuneViewModel p)
         {
-            CommuneDAO.insertCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty, p.DepartementCommuneProperty));
+            CommuneDAO.insertCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty, p.DepartementCommuneProperty.idDepartementProperty));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using ProjetTransDev.Ctrl;
 
 namespace ProjetTransDev.ORM
@@ -11,6 +12,11 @@ namespace ProjetTransDev.ORM
             DepartementDAO pDAO = DepartementDAO.getDepartement(idDepartement);
             DepartementViewModel p = new DepartementViewModel(pDAO.idDepartementDAO, pDAO.nomDepartementDAO);
             return p;
+        }
+
+        internal static DepartementViewModel getDepartement(object idDepartement)
+        {
+            throw new NotImplementedException();
         }
 
         public static ObservableCollection<DepartementViewModel> ListeDepartements()
