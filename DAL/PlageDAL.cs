@@ -42,7 +42,7 @@ namespace ProjetTransDev.DAL
 
         public static void updatePlage(PlageDAO p)
         {
-            string query = "UPDATE Plage set nomPlage=\"" + p.nomPlageDAO + "\",superficEtudePlage=\"" + p.superficEtudePlageDAO + "\"  where idPlage=" + p.idPlageDAO + ";";
+            string query = "UPDATE Plage set Nom=\"" + p.nomPlageDAO + "\",SuperficEtude=\"" + p.superficEtudePlageDAO + "\"  where idPlage=" + p.idPlageDAO + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();

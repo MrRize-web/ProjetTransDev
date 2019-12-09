@@ -40,13 +40,10 @@ namespace ProjetTransDev.ORM
 
         public static void supprimerDepartement(int id)
         {
-            DepartementDAL.selectDepartement(id);
+            DepartementDAL.supprimerDepartement(id);
         }
-        public static void selectDepartement(int id)
-        {
-            DepartementDAL.selectDepartement(id);
-        }
-        public static void insertDepartement(CommunePlageDAO p)
+
+            public static void insertDepartement(CommunePlageDAO p)
         {
             DepartementDAL.insertDepartement(p);
         }

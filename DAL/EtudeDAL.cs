@@ -42,7 +42,7 @@ namespace ProjetTransDev.DAL
 
         public static void updateEtude(DAO.EtudeDAO p)
         {
-            string query = "UPDATE Etude set nomEtude=\"" + p.TitreEtudeEtudeDAO + "\",NbPersonne=\"" + p.NbPersonneEtudeDAO + "\",NbPlage=\"" + p.PlageEtudeDAO + "\"  where idEtude=" + p.idEtudeDAO + ";";
+            string query = "UPDATE Etude set Titre=\"" + p.TitreEtudeEtudeDAO + "\",NbPersonne=\"" + p.NbPersonneEtudeDAO + "\",NbPlage=\"" + p.PlageEtudeDAO + "\"  where idEtude=" + p.idEtudeDAO + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();

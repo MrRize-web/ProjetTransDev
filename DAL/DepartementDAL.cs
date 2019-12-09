@@ -41,36 +41,36 @@ namespace ProjetTransDev.DAL
 
             public static void updateDepartement(CommunePlageDAO p)
             {
-                string query = "UPDATE departement set nomDepartement=\"" + p.nomDepartementDAO + "\" where Departement=" + p.idDepartementDAO + ";";
+                string query = "UPDATE departement set Nom=\"" + p.nomDepartementDAO + "\" where Departement=" + p.idDepartementDAO + ";";
                 MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
                 cmd.ExecuteNonQuery();
             }
             public static void insertDepartement(CommunePlageDAO p)
             {
-                string query = "INSERT INTO departement (Nom) VALUES (\"" + p.nomDepartementDAO + "\");";
+   
+            string query = "INSERT INTO departement (Nom) VALUES (\"" + p.nomDepartementDAO + "\");";
                 MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
                 cmd2.ExecuteNonQuery();
             }
-            public static void selectDepartement(int id)
+            public static void supprimerDepartement(int id)
             {
                 string query = "DELETE FROM departement WHERE Departement = \"" + id + "\";";
                 MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
                 cmd.ExecuteNonQuery();
             }
-        public static void SelectDepartement(int id)
+      /*  public static void SelectDepartement(int id)
         {
             string query = "SELECT * FROM Departement WHERE Departement= \"" + id + "\";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
-        }
+        }*/
         public static CommunePlageDAO getDepartement(int idDepartement)
-            {
-             
-            string query = "SELECT * FROM Users departement id=" + idDepartement + ";";
+            {           
+            string query = "SELECT * FROM Users departement Departement=" + idDepartement + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -79,7 +79,8 @@ namespace ProjetTransDev.DAL
             reader.Close();
             return pers;
         }
-        }
+    
+    }
     }
 
 

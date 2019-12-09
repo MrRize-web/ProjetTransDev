@@ -42,7 +42,7 @@ namespace ProjetTransDev.DAL
 
             public static void updateCommune(CommuneDAO p)
             {
-                string query = "UPDATE Commune set nom=\"" + p.nomCommuneDAO + "\",CodePostale=\"" + p.CodePostaleDAO + "\" where idCommune=" + p.idCommuneDAO + ";";
+                string query = "UPDATE Commune set Nom=\"" + p.nomCommuneDAO + "\",CodePostale=\"" + p.CodePostaleDAO + "\" where idCommune=" + p.idCommuneDAO + ";";
                 MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
                 cmd.ExecuteNonQuery();

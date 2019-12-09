@@ -146,7 +146,6 @@ namespace ProjetTransDev
             PlageViewModel nouveau = new PlageViewModel(myDataObject1.idPlageProperty, myDataObject1.nomPlageProperty, myDataObject1.superficEtudePlageProperty, myDataObject1.CommunePlage);
             lp1.Add(nouveau);
             PlageORM.insertPlage(nouveau);
-            CommuneORM.selectCommune(selectedCommunesId);
 
             listePlages.Items.Refresh();
             listeDepartements.Items.Refresh();
@@ -192,7 +191,6 @@ namespace ProjetTransDev
             lp2.Add(nouveau);
 
             CommuneORM.insertCommune(nouveau);
-            CommuneORM.selectCommune(selectedCommunesId);
 
             listeDepartements.Items.Refresh();
             listeCommunes.Items.Refresh();
@@ -237,11 +235,9 @@ namespace ProjetTransDev
             lp3.Add(nouveau);
             DepartementORM.insertDepartement(nouveau);
             DepartementORM.getDepartement(selectedDepartementsId);
-            CommuneORM.selectCommune(selectedCommunesId);
             CommuneORM.getCommune(selectedCommunesId);
             PlageORM.getPlage(selectedPlagesId);
-            CommuneORM.selectCommune(selectedCommunesId);
-
+ 
             listeDepartements.Items.Refresh();
             listeCommunes.Items.Refresh();
             listePlages.Items.Refresh();

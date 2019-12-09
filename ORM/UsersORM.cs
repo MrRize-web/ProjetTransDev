@@ -41,10 +41,5 @@ namespace ProjetTransDev.ORM
         {
             UsersDAO.insertUsers(new UsersDAO(p.idUsersProperty, p.nomUsersProperty, p.prenomUsersProperty, p.identifiantUsersProperty, p.adresseMailUsersProperty, p.motDePasseUsersProperty, p.administrateurUsersProperty));
         }
-
-        internal static void updateEtude(EtudeViewModel etudeViewModel)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

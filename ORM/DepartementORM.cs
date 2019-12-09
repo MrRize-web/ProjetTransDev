@@ -13,7 +13,6 @@ namespace ProjetTransDev.ORM
             DepartementViewModel p = new DepartementViewModel(pDAO.idDepartementDAO, pDAO.nomDepartementDAO);
             return p;
         }
-
         internal static DepartementViewModel getDepartement(object idDepartement)
         {
             throw new NotImplementedException();
@@ -31,7 +30,6 @@ namespace ProjetTransDev.ORM
             return l;
         }
 
-
         public static void updateDepartement(DepartementViewModel p)
         {
             CommunePlageDAO.updateDepartement(new CommunePlageDAO(p.idDepartementProperty, p.nomDepartementProperty));
@@ -41,13 +39,10 @@ namespace ProjetTransDev.ORM
         {
             CommunePlageDAO.supprimerDepartement(id);
         }
-        public static void selectDepartement(int id)
-        {
-            CommunePlageDAO.selectDepartement(id);
-        }
         public static void insertDepartement(DepartementViewModel p)
         {
             CommunePlageDAO.insertDepartement(new CommunePlageDAO(p.idDepartementProperty, p.nomDepartementProperty));
         }
+
     }
 }

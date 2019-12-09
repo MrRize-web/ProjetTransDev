@@ -40,11 +40,10 @@ namespace ProjetTransDev.ORM
         {
             CommuneDAO.supprimerCommune(id);
         }
-        public static void selectCommune(int id)
+       /* public static void selectCommune(int id)
         {
             CommuneDAO.selectCommune(id);
-        }
-
+        }*/
 
         public static void insertCommune(CommuneViewModel p)
         {

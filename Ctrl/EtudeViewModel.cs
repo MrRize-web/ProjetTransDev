@@ -79,7 +79,7 @@ namespace ProjetTransDev.Ctrl
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(info));
-                UsersORM.updateEtude(this);
+                EtudeORM.updateEtude(this);
             }
         }
     }
