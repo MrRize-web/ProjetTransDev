@@ -55,7 +55,9 @@ namespace ProjetTransDev
             lp1 = PlageORM.listePlages();
             listePlages.ItemsSource = lp1;
 
-            
+            lp1 = PlageORM.listePlages();
+            listePlagesCombo.ItemsSource = lp1;
+
             lp2 = CommuneORM.ListeCommunes();
             listeCommunes.ItemsSource = lp2;
 
@@ -71,8 +73,7 @@ namespace ProjetTransDev
             lp4 = EtudeORM.ListeEtude();
             listeEtudes.ItemsSource = lp4;
 
-            lp4 = EtudeORM.ListeEtude();
-            listePlagesCombo.ItemsSource = lp4;
+         
             
             lp5 = EspeceORM.listeEspeces();
             listeEspeces.ItemsSource = lp5;

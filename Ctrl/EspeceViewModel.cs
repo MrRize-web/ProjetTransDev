@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ProjetTransDev.ORM;
-using System;
 using System.ComponentModel;
 
 namespace ProjetTransDev.Ctrl

@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:ProjetTransDev"
         mc:Ignorable="d"
         Title="Ifrocean" Height="600" Width="800">
-    <DockPanel>
 
+    <DockPanel>
         <StackPanel>
             <TabControl Margin="0,0,0,0" Height="575" Width="779">
                 <TabItem Header="Ajouter un User">
@@ -201,7 +201,7 @@
 
                         <Grid Margin="10">
                             <Label Content="liste Departements"></Label>
-                            <DataGrid Name="listeDepartements" ItemsSource="{Binding lp3}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeDepartements_SelectionChanged" Width="95" RenderTransformOrigin="0.5,0.5">
+                            <DataGrid Name="listeDepartements" ItemsSource="{Binding lp3}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeDepartements_SelectionChanged" Width="95">
                                 <DataGrid.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
