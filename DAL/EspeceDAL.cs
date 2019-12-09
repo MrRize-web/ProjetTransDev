@@ -17,7 +17,7 @@ namespace ProjetTransDev.DAL
         public EspeceDAL()
         {
             DALConnection.OpenConnection();
-            connection = DALConnection.connection;
+            connection = DALConnection.OpenConnection();
         }
 
         public static ObservableCollection<EspeceDAO> selectEspeces()

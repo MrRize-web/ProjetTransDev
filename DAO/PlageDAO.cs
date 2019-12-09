@@ -6,16 +6,16 @@ namespace ProjetTransDev.ORM
     public class PlageDAO
     {
         public int idPlageDAO;
+        public string nomPlageDAO;
         public int CommunePlageDAO;
-        public string nomPlageDAO; 
         public string superficEtudePlageDAO;
    
-        public PlageDAO(int idPlageDAO, string nomPlageDAO, string superficEtudePlageDAO, int CommuneDAO)
+        public PlageDAO(int idPlageDAO, string nomPlageDAO, string superficEtudePlageDAO, int CommunePlageDAO)
         {
             this.idPlageDAO = idPlageDAO;
             this.nomPlageDAO = nomPlageDAO;
             this.superficEtudePlageDAO = superficEtudePlageDAO;
-            this.CommunePlageDAO = CommuneDAO;
+            this.CommunePlageDAO = CommunePlageDAO;
         }
 
         public static ObservableCollection<PlageDAO> listePlages()

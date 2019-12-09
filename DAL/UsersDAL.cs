@@ -13,7 +13,7 @@ namespace ProjetTransDev.DAL
         {
             //  si la connexion est déjà ouverte, il ne la refera pas (voir code dans DALConnection)
             DALConnection.OpenConnection();
-            connection = DALConnection.connection;
+            connection = DALConnection.OpenConnection();
         }
 
         public static ObservableCollection<UsersDAO> selectUsers()

@@ -13,7 +13,7 @@ namespace ProjetTransDev.DAL
             public CommuneDAL()
             {
                 DALConnection.OpenConnection();
-                connection = DALConnection.connection;
+                connection = DALConnection.OpenConnection();
             }
 
             public static ObservableCollection<CommuneDAO> selectCommunes()
@@ -54,13 +54,14 @@ namespace ProjetTransDev.DAL
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
                 cmd2.ExecuteNonQuery();
             }
-            public static void supprimerCommune(int id)
-            {
-                string query = "DELETE FROM Commune WHERE idCommune= \"" + id + "\";";
-                MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
-                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-                cmd.ExecuteNonQuery();
-            }
+        
+        public static void supprimerCommune(int id)
+        {
+            string query = "DELETE FROM Commune WHERE idCommune = \"" + id + "\";";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+        }
         public static void SelectCommune(int id)
         {
             string query = "SELECT * FROM Commune WHERE idCommune= \"" + id + "\";";

@@ -12,7 +12,7 @@ namespace ProjetTransDev.DAL
             public DepartementDAL()
             {
                 DALConnection.OpenConnection();
-                connection = DALConnection.connection;
+                connection = DALConnection.OpenConnection();
             }
 
             public static ObservableCollection<CommunePlageDAO> selectDepartements()
@@ -69,15 +69,16 @@ namespace ProjetTransDev.DAL
         }
         public static CommunePlageDAO getDepartement(int idDepartement)
             {
-                string query = "SELECT * FROM departement WHERE Departement =" + idDepartement + ";";
-                MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
-                cmd.ExecuteNonQuery();
-                MySqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-                CommunePlageDAO pers = new CommunePlageDAO(reader.GetInt32(0), reader.GetString(1));
-                reader.Close();
-                return pers;
-            }
+             
+            string query = "SELECT * FROM Users departement id=" + idDepartement + ";";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.ExecuteNonQuery();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            CommunePlageDAO pers = new CommunePlageDAO(reader.GetInt32(0), reader.GetString(1));
+            reader.Close();
+            return pers;
+        }
         }
     }
 

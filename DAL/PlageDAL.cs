@@ -13,7 +13,7 @@ namespace ProjetTransDev.DAL
         public PlageDAL()
         {
             DALConnection.OpenConnection();
-            connection = DALConnection.connection;
+            connection = DALConnection.OpenConnection();
         }
 
         public static ObservableCollection<PlageDAO> selectPlages()

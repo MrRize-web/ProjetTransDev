@@ -7,19 +7,17 @@ namespace ProjetTransDev.Ctrl
     {
         private int idEtude;
         private decimal NbPersonne;
-        private decimal NbPlage;
         private string Titre;
-
-
+        public PlageViewModel PlageEtude;
         //private string concat;
 
         public EtudeViewModel() { }
 
-        public EtudeViewModel(int id, decimal NbPersonne, decimal NbPlage, string Titre)
+        public EtudeViewModel(int id, decimal NbPersonne, PlageViewModel PlageEtude, string Titre)
         {
             this.idEtude = id;
             this.NbPersonneEtudeProperty = NbPersonne;
-            this.NbPlageEtudeProperty = NbPlage;
+            this.PlageEtudeProperty = PlageEtude;
             this.TitreEtudeProperty = Titre;
         }
         public int idEtudeProperty
@@ -39,16 +37,15 @@ namespace ProjetTransDev.Ctrl
             }
 
         }
-        public Decimal NbPlageEtudeProperty
+        public PlageViewModel PlageEtudeProperty
         {
-            get { return NbPlage; }
+            get { return PlageEtude; }
             set
             {
-                this.NbPlage = value;
-                this.concatProperty = this.NbPlage + " " + value;
-                OnPropertyChanged("NbPlageEtudeProperty");
+                PlageEtude = value;
             }
         }
+   
         public String TitreEtudeProperty
         {
             get { return Titre; }

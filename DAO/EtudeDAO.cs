@@ -12,14 +12,14 @@ namespace ProjetTransDev.DAO
     {
         public int idEtudeDAO;
         public Decimal NbPersonneEtudeDAO;
-        public Decimal NbPlageEtudeDAO;
+        public int PlageEtudeDAO;
         public string TitreEtudeEtudeDAO;
 
-        public EtudeDAO(int idEtudeDAO, Decimal NbPersonneEtudeDAO, Decimal NbPlageEtudeDAO, string TitreEtudeEtudeDAO)
+        public EtudeDAO(int idEtudeDAO, Decimal NbPersonneEtudeDAO, int PlageEtudeDAO, string TitreEtudeEtudeDAO)
         {
             this.idEtudeDAO = idEtudeDAO;
             this.NbPersonneEtudeDAO = NbPersonneEtudeDAO;
-            this.NbPlageEtudeDAO = NbPlageEtudeDAO;
+            this.PlageEtudeDAO = PlageEtudeDAO;
             this.TitreEtudeEtudeDAO = TitreEtudeEtudeDAO;
         }
 

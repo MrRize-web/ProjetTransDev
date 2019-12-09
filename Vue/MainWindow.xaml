@@ -97,7 +97,8 @@
                             <ComboBox Name="listeCommunesCombo"
                                       DisplayMemberPath="nomCommuneProperty" 
                                       ItemsSource="{Binding}" 
-                                      SelectedItem="{Binding idCommuneProperty}">
+                                      SelectedItem="{Binding idCommuneProperty}" 
+                                      SelectionChanged="listeCommunesCombo_SelectionChanged">
                             </ComboBox>
 
 
@@ -117,7 +118,7 @@
 
                             <Label Content="Code Postale :"></Label>
                             <TextBox Name="CodePostale" Height="20"/>
-                            
+
                             <Label Content="Departement :"></Label>
                             <ComboBox Name="listeDepartementsCombo2"
                                       DisplayMemberPath="nomDepartementProperty" 
@@ -153,13 +154,17 @@
                 <TabItem Header="Liste Plage">
                     <StackPanel>
                         <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="215*"/>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="529*"/>
+                            </Grid.ColumnDefinitions>
                             <Label Content="liste Plages" Grid.ColumnSpan="3" Margin="0,0,-0.4,-0.4"></Label>
-                            <DataGrid Name="listePlages" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listePlages_SelectionChanged" Width="285">
+                            <DataGrid Name="listePlages" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listePlages_SelectionChanged" Width="285" Grid.ColumnSpan="3">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Nom de la Plage" Binding="{Binding nomPlageProperty, Mode=TwoWay}" />
-                                    <!-- <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding nomCommuneProperty, Mode=TwoWay}" />-->                                  
+                                    <!-- <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding nomCommuneProperty, Mode=TwoWay}" />-->
                                     <DataGridTextColumn Header="Superficie" Binding="{Binding superficEtudePlageProperty, Mode=TwoWay}" />
-                                    <DataGridTextColumn Header="TEST" Binding="{Binding CommunePlage, Mode=TwoWay}" />
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
@@ -179,7 +184,7 @@
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding nomCommuneProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="Code Postale" Binding="{Binding CodePostaleProperty, Mode=TwoWay}" />
-                                    <DataGridTextColumn Header="" Binding="{Binding DepartementCommuneProperty, Mode=TwoWay}" /> 
+                                    <DataGridTextColumn Header="" Binding="{Binding DepartementCommuneProperty, Mode=TwoWay}" />
                                     <!--<DataGridTextColumn Header="Nom de la Departement" Binding="{Binding DepartementCommuneProperty, Mode=TwoWay}" />-->
                                 </DataGrid.Columns>
                             </DataGrid>
@@ -196,7 +201,7 @@
 
                         <Grid Margin="10">
                             <Label Content="liste Departements"></Label>
-                            <DataGrid Name="listeDepartements" ItemsSource="{Binding lp3}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeDepartements_SelectionChanged" Width="65">
+                            <DataGrid Name="listeDepartements" ItemsSource="{Binding lp3}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-12.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeDepartements_SelectionChanged" Width="160">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="nom" Binding="{Binding nomDepartementProperty, Mode=TwoWay}" />
                                 </DataGrid.Columns>
@@ -218,8 +223,13 @@
                         <StackPanel>
                             <Label Content="Nombre de Personne :"></Label>
                             <TextBox Name="NbEtude" Height="20"/>
-                            <Label Content="Numéro de la plage :"></Label>
-                            <TextBox Name="NbEtudePlage" Height="20" Margin="0,0,0.300,0" />
+                            <Label Content="Plage :"/>
+                            <ComboBox Name="listePlagesCombo"
+                                      DisplayMemberPath="nomPlageProperty" 
+                                      ItemsSource="{Binding}" 
+                                      SelectedItem="{Binding idPlageProperty}" 
+                                      SelectionChanged="listePlages_SelectionChanged">
+                            </ComboBox>
                             <Label Content="Nom de l'etude :"></Label>
                             <TextBox Name="Titre" Height="20" Margin="0,0,0.300,0" />
                             <Button x:Name="VlidePlage4" Content="Ajouter D'une Etude" MouseDoubleClick="nomPrenomButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="VlideEtude_Click" >
@@ -237,9 +247,9 @@
                 <TabItem Header="Etude">
                     <StackPanel>
                         <Grid Margin="10">
-                            <DataGrid Name="listeEtudes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="252,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEtude_SelectionChanged" Width="307">
+                            <DataGrid Name="listeEtudes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="252,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunesCombo_SelectionChanged" Width="307">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Numéro d'Etude :" Binding="{Binding NbPlageEtudeProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="Numéro de la plage :" Binding="{Binding CommunePlageProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="Nombre de participant :" Binding="{Binding NbPersonneEtudeProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="Tire de l'Etude :" Binding="{Binding TitreEtudeProperty, Mode=TwoWay}" />
                                 </DataGrid.Columns>

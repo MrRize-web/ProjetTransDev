@@ -10,7 +10,9 @@ namespace ProjetTransDev.ORM
         public static EtudeViewModel getEtude(int idEtude)
         {
             EtudeDAO pDAO = EtudeDAO.getEtude(idEtude);
-            EtudeViewModel p = new EtudeViewModel(pDAO.idEtudeDAO, pDAO.NbPersonneEtudeDAO,pDAO.NbPlageEtudeDAO, pDAO.TitreEtudeEtudeDAO);
+            int idPlage = pDAO.PlageEtudeDAO;
+            PlageViewModel m = PlageORM.getPlage(idPlage);
+            EtudeViewModel p = new EtudeViewModel(pDAO.idEtudeDAO, pDAO.NbPersonneEtudeDAO, m, pDAO.TitreEtudeEtudeDAO);
             return p;
         }
 
@@ -20,7 +22,9 @@ namespace ProjetTransDev.ORM
             ObservableCollection<EtudeViewModel> l = new ObservableCollection<EtudeViewModel>();
             foreach (EtudeDAO element in lDAO)
             {
-                EtudeViewModel p = new EtudeViewModel(element.idEtudeDAO, element.NbPersonneEtudeDAO, element.NbPlageEtudeDAO, element.TitreEtudeEtudeDAO);
+                int idPlage = element.PlageEtudeDAO;
+                PlageViewModel m = PlageORM.getPlage(idPlage);
+                EtudeViewModel p = new EtudeViewModel(element.idEtudeDAO, element.NbPersonneEtudeDAO, m , element.TitreEtudeEtudeDAO);
                 l.Add(p);
             }
             return l;
@@ -29,7 +33,7 @@ namespace ProjetTransDev.ORM
 
         public static void updateEtude(EtudeViewModel p)
         {
-            EtudeDAO.updateEtude(new EtudeDAO(p.idEtudeProperty, p.NbPersonneEtudeProperty, p.NbPlageEtudeProperty, p.TitreEtudeProperty));
+            EtudeDAO.updateEtude(new EtudeDAO(p.idEtudeProperty, p.NbPersonneEtudeProperty, p.PlageEtudeProperty.idPlageProperty, p.TitreEtudeProperty));
         }
 
         public static void supprimerEtude(int id)
@@ -39,7 +43,7 @@ namespace ProjetTransDev.ORM
 
         public static void insertEtude(EtudeViewModel p)
         {
-            EtudeDAO.insertEtude(new EtudeDAO(p.idEtudeProperty, p.NbPersonneEtudeProperty, p.NbPlageEtudeProperty, p.TitreEtudeProperty));
+            EtudeDAO.insertEtude(new EtudeDAO(p.idEtudeProperty, p.NbPersonneEtudeProperty, p.PlageEtudeProperty.idPlageProperty, p.TitreEtudeProperty));
         }
     }
 }

@@ -13,7 +13,7 @@ namespace ProjetTransDev.DAL
         public EtudeDAL()
         {
             DALConnection.OpenConnection();
-            connection = DALConnection.connection;
+            connection = DALConnection.OpenConnection();
         }
 
         public static ObservableCollection<DAO.EtudeDAO> selectEtude()
@@ -28,7 +28,7 @@ namespace ProjetTransDev.DAL
 
                 while (reader.Read())
                 {
-                    DAO.EtudeDAO p = new DAO.EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetDecimal(2), reader.GetString(3));
+                    DAO.EtudeDAO p = new DAO.EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetString(3));
                     l.Add(p);
                 }
                 reader.Close();
@@ -42,14 +42,14 @@ namespace ProjetTransDev.DAL
 
         public static void updateEtude(DAO.EtudeDAO p)
         {
-            string query = "UPDATE Etude set nomEtude=\"" + p.TitreEtudeEtudeDAO + "\",NbPersonne=\"" + p.NbPersonneEtudeDAO + "\",NbPlage=\"" + p.NbPlageEtudeDAO + "\"  where idEtude=" + p.idEtudeDAO + ";";
+            string query = "UPDATE Etude set nomEtude=\"" + p.TitreEtudeEtudeDAO + "\",NbPersonne=\"" + p.NbPersonneEtudeDAO + "\",NbPlage=\"" + p.PlageEtudeDAO + "\"  where idEtude=" + p.idEtudeDAO + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
         public static void insertEtude(DAO.EtudeDAO p)
         {
-            string query = "INSERT INTO Etude (NbPersonne,NbEtude,Titre) VALUES (\"" + p.NbPersonneEtudeDAO + "\"+\"" + p.NbPlageEtudeDAO + "\",\"" + p.TitreEtudeEtudeDAO + "\");";
+            string query = "INSERT INTO Etude (NbPersonne,NbPlage,Titre) VALUES (\"" + p.NbPersonneEtudeDAO + "\"+\"" + p.PlageEtudeDAO + "\",\"" + p.TitreEtudeEtudeDAO + "\");";
             MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
@@ -69,7 +69,7 @@ namespace ProjetTransDev.DAL
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            DAO.EtudeDAO pers = new DAO.EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetDecimal(2), reader.GetString(3));
+            DAO.EtudeDAO pers = new DAO.EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetString(3));
             reader.Close();
             return pers;
         }
