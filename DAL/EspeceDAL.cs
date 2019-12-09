@@ -47,21 +47,21 @@ namespace ProjetTransDev.DAL
         public static void updateEspece(EspeceDAO p)
         {
             string query = "UPDATE espece set nomEspece=\"" + p.nomEspeceDAO + "\"  where idEspece=" + p.idEspeceDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
         public static void insertEspece(EspeceDAO p)
         {
             string query = "INSERT INTO espece (Nom) VALUES (\"" + p.nomEspeceDAO + "\");";
-            MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.connection);
+            MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
         public static void supprimerEspece(int id)
         {
             string query = "DELETE FROM espece WHERE idEspece = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -69,7 +69,7 @@ namespace ProjetTransDev.DAL
         public static EspeceDAO getEspece(int idEspece)
         {
             string query = "SELECT * FROM espece WHERE id=" + idEspece + ";";
-            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();

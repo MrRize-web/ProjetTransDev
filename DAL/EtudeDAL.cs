@@ -43,21 +43,21 @@ namespace ProjetTransDev.DAL
         public static void updateEtude(DAO.EtudeDAO p)
         {
             string query = "UPDATE Etude set nomEtude=\"" + p.TitreEtudeEtudeDAO + "\",NbPersonne=\"" + p.NbPersonneEtudeDAO + "\",NbPlage=\"" + p.NbPlageEtudeDAO + "\"  where idEtude=" + p.idEtudeDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
         public static void insertEtude(DAO.EtudeDAO p)
         {
             string query = "INSERT INTO Etude (NbPersonne,NbEtude,Titre) VALUES (\"" + p.NbPersonneEtudeDAO + "\"+\"" + p.NbPlageEtudeDAO + "\",\"" + p.TitreEtudeEtudeDAO + "\");";
-            MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.connection);
+            MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
         public static void supprimerEtude(int id)
         {
             string query = "DELETE FROM Etude WHERE idEtude = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -65,7 +65,7 @@ namespace ProjetTransDev.DAL
         public static EtudeDAO getEtude(int idEtude)
         {
             string query = "SELECT * FROM Etude WHERE id=" + idEtude + ";";
-            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();

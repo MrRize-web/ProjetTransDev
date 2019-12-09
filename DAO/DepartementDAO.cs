@@ -8,42 +8,45 @@ using ProjetTransDev.DAL;
 
 namespace ProjetTransDev.ORM
 {
-    public class DepartementDAO
+    public class CommunePlageDAO
     {
         public int idDepartementDAO;
         public string nomDepartementDAO;
         public string departementDepartementDAO;
     
-        public DepartementDAO(int idDepartementDAO, string nomDepartementDAO)
+        public CommunePlageDAO(int idDepartementDAO, string nomDepartementDAO)
         {
             this.idDepartementDAO = idDepartementDAO;
             this.nomDepartementDAO = nomDepartementDAO;
 
         }
 
-        public static ObservableCollection<DepartementDAO> listeDepartements()
+        public static ObservableCollection<CommunePlageDAO> listeDepartements()
         {
-            ObservableCollection<DepartementDAO> l = DepartementDAL.selectDepartements();
+            ObservableCollection<CommunePlageDAO> l = DepartementDAL.selectDepartements();
             return l;
         }
 
-        public static DepartementDAO getDepartement(int idDepartement)
+        public static CommunePlageDAO getDepartement(int idDepartement)
         {
-            DepartementDAO p = DepartementDAL.getDepartement(idDepartement);
+            CommunePlageDAO p = DepartementDAL.getDepartement(idDepartement);
             return p;
         }
 
-        public static void updateDepartement(DepartementDAO p)
+        public static void updateDepartement(CommunePlageDAO p)
         {
             DepartementDAL.updateDepartement(p);
         }
 
         public static void supprimerDepartement(int id)
         {
-            DepartementDAL.supprimerDepartement(id);
+            DepartementDAL.selectDepartement(id);
         }
-
-        public static void insertDepartement(DepartementDAO p)
+        public static void selectDepartement(int id)
+        {
+            DepartementDAL.selectDepartement(id);
+        }
+        public static void insertDepartement(CommunePlageDAO p)
         {
             DepartementDAL.insertDepartement(p);
         }

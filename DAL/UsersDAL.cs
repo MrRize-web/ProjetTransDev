@@ -43,21 +43,21 @@ namespace ProjetTransDev.DAL
         public static void updateUsers(UsersDAO p)
         {
             string query = "UPDATE users (Nom,Prenom,Identifiant,MotDePasse,AdresseMail,Administrateur) set ( Nom=\"" + p.nomUsersDAO + "\", Prenom=\"" + p.prenomUsersDAO + "\", Identifiant=\"" + p.identifiantUsersDAO + "\", MotDePasse=\"" + p.motDePasseUsersDAO + "\", AdresseMail=\"" + p.adresseMailUsersDAO + "\", Administrateur=\"" + p.administrateurUsersDAO +"\" where idUsers=" + p.idUsersDAO + ");";
-            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
         public static void insertUsers(UsersDAO p)
         {   
             string query = "INSERT INTO users (Nom,Prenom,Identifiant,MotDePasse,AdresseMail,Administrateur) VALUES (\"" + p.nomUsersDAO + "\",\"" + p.prenomUsersDAO + "\",\"" + p.identifiantUsersDAO + "\",\"" + p.motDePasseUsersDAO + "\",\"" + p.adresseMailUsersDAO + "\",\"" + p.administrateurUsersDAO + "\");";
-            MySqlCommand cmd1 = new MySqlCommand(query, DALConnection.connection);
+            MySqlCommand cmd1 = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd1);
             cmd1.ExecuteNonQuery();
         }
         public static void supprimerUsers(int id)
         {
             string query = "DELETE FROM users WHERE idUsers = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -65,7 +65,7 @@ namespace ProjetTransDev.DAL
         public static UsersDAO getUsers(int idUsers)
         {
             string query = "SELECT * FROM Users WHERE id=" + idUsers + ";";
-            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();

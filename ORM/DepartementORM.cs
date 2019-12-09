@@ -9,7 +9,7 @@ namespace ProjetTransDev.ORM
 
         public static DepartementViewModel getDepartement(int idDepartement)
         {
-            DepartementDAO pDAO = DepartementDAO.getDepartement(idDepartement);
+            CommunePlageDAO pDAO = CommunePlageDAO.getDepartement(idDepartement);
             DepartementViewModel p = new DepartementViewModel(pDAO.idDepartementDAO, pDAO.nomDepartementDAO);
             return p;
         }
@@ -21,9 +21,9 @@ namespace ProjetTransDev.ORM
 
         public static ObservableCollection<DepartementViewModel> ListeDepartements()
         {
-            ObservableCollection<DepartementDAO> lDAO = DepartementDAO.listeDepartements();
+            ObservableCollection<CommunePlageDAO> lDAO = CommunePlageDAO.listeDepartements();
             ObservableCollection<DepartementViewModel> l = new ObservableCollection<DepartementViewModel>();
-            foreach (DepartementDAO element in lDAO)
+            foreach (CommunePlageDAO element in lDAO)
             {
                 DepartementViewModel p = new DepartementViewModel(element.idDepartementDAO, element.nomDepartementDAO);
                 l.Add(p);
@@ -34,17 +34,20 @@ namespace ProjetTransDev.ORM
 
         public static void updateDepartement(DepartementViewModel p)
         {
-            DepartementDAO.updateDepartement(new DepartementDAO(p.idDepartementProperty, p.nomDepartementProperty));
+            CommunePlageDAO.updateDepartement(new CommunePlageDAO(p.idDepartementProperty, p.nomDepartementProperty));
         }
 
         public static void supprimerDepartement(int id)
         {
-            DepartementDAO.supprimerDepartement(id);
+            CommunePlageDAO.supprimerDepartement(id);
         }
-
+        public static void selectDepartement(int id)
+        {
+            CommunePlageDAO.selectDepartement(id);
+        }
         public static void insertDepartement(DepartementViewModel p)
         {
-            DepartementDAO.insertDepartement(new DepartementDAO(p.idDepartementProperty, p.nomDepartementProperty));
+            CommunePlageDAO.insertDepartement(new CommunePlageDAO(p.idDepartementProperty, p.nomDepartementProperty));
         }
     }
 }

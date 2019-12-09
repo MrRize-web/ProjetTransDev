@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using ProjetTransDev.Ctrl;
+using ProjetTransDev.Ctrl.ProjetTransDev.Ctrl;
 
 namespace ProjetTransDev.ORM
 {
@@ -8,9 +9,11 @@ namespace ProjetTransDev.ORM
     {
 
         public static PlageViewModel getPlage(int idPlage)
-        {
+        {      
             PlageDAO pDAO = PlageDAO.getPlage(idPlage);
-            PlageViewModel p = new PlageViewModel(pDAO.idPlageDAO, pDAO.nomPlageDAO, pDAO.superficEtudePlageDAO);
+            int idCommune = pDAO.CommunePlageDAO;
+            CommuneViewModel m = CommuneORM.getCommune(idCommune);
+            PlageViewModel p = new PlageViewModel(pDAO.idPlageDAO, pDAO.nomPlageDAO,pDAO.superficEtudePlageDAO, m);
             return p;
         }
 
@@ -20,8 +23,11 @@ namespace ProjetTransDev.ORM
             ObservableCollection<PlageViewModel> l = new ObservableCollection<PlageViewModel>();
             foreach (PlageDAO element in lDAO)
             {
-                PlageViewModel p = new PlageViewModel(element.idPlageDAO, element.nomPlageDAO, element.superficEtudePlageDAO);
+                int idCommune = element.CommunePlageDAO;
+                CommuneViewModel m = CommuneORM.getCommune(idCommune);
+                PlageViewModel p = new PlageViewModel(element.idPlageDAO, element.nomPlageDAO, element.superficEtudePlageDAO, m);
                 l.Add(p);
+             
             }
             return l;
         }
@@ -29,7 +35,7 @@ namespace ProjetTransDev.ORM
 
         public static void updatePlage(PlageViewModel p)
         {
-            PlageDAO.updatePlage(new PlageDAO(p.idPlageProperty, p.nomPlageProperty, p.superficEtudePlageProperty));
+            PlageDAO.updatePlage(new PlageDAO(p.idPlageProperty, p.nomPlageProperty, p.superficEtudePlageProperty, p.CommunePlageProperty.idCommuneProperty));
         }
 
         public static void supprimerPlage(int id)
@@ -39,12 +45,9 @@ namespace ProjetTransDev.ORM
 
         public static void insertPlage(PlageViewModel p)
         {
-            PlageDAO.insertPlage(new PlageDAO(p.idPlageProperty, p.nomPlageProperty, p.superficEtudePlageProperty));
+            PlageDAO.insertPlage(new PlageDAO(p.idPlageProperty, p.nomPlageProperty, p.superficEtudePlageProperty, p.CommunePlageProperty.idCommuneProperty));
         }
 
-        internal static void UpdatePlage(PlageViewModel PlageViewModel)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }

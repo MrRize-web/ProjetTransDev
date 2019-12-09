@@ -12,11 +12,16 @@ namespace ProjetTransDev.Ctrl
             public DepartementViewModel DepartementCommune;
             private int idCommune;
             private string nomCommune;
-            
-            public CommuneViewModel(int id, string nom, DepartementViewModel Departement)
+            private string CodePostale;
+            public CommuneViewModel()
+            {
+            }
+
+            public CommuneViewModel(int id, string nom, string CodePostale, DepartementViewModel Departement)
             {
                 this.idCommune = id;
                 this.nomCommuneProperty = nom;
+                this.CodePostaleProperty = CodePostale;
                 this.DepartementCommuneProperty = Departement;
             }
             public int idCommuneProperty
@@ -42,7 +47,17 @@ namespace ProjetTransDev.Ctrl
                 }
 
             }
-     
+            public String CodePostaleProperty
+            {
+                get { return CodePostale; }
+                set
+                {
+                    CodePostale = value;
+                    OnPropertyChanged("CodePostaleProperty");
+                }
+
+            }
+
 
 
             public String concatProperty

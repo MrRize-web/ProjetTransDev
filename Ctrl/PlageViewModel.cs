@@ -1,4 +1,5 @@
-﻿using ProjetTransDev.ORM;
+﻿using ProjetTransDev.Ctrl.ProjetTransDev.Ctrl;
+using ProjetTransDev.ORM;
 using System;
 using System.ComponentModel;
 
@@ -9,22 +10,31 @@ namespace ProjetTransDev.Ctrl
         private int idPlage;
         private string nomPlage;
         private string superficEtudePlage;
-            //private string concat;
+        public CommuneViewModel CommunePlage;
+        //private string concat;
 
-            public PlageViewModel() { }
+        public PlageViewModel() { }
 
-            public PlageViewModel(int id, string nom, string superficEtude)
+            public PlageViewModel(int id, string nom, string superficEtude, CommuneViewModel CommunePlage)
             {
                 this.idPlage = id;
                 this.nomPlageProperty = nom;
                 this.superficEtudePlageProperty = superficEtude;
+                this.CommunePlageProperty = CommunePlage;
         }
             public int idPlageProperty
         {
                 get { return idPlage; }
             }
-
-            public String nomPlageProperty
+        public CommuneViewModel CommunePlageProperty
+        {
+            get { return CommunePlage; }
+            set
+            {
+                CommunePlage = value;
+            }
+        }
+        public String nomPlageProperty
         {
                 get { return nomPlage; }
                 set

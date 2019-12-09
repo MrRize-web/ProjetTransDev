@@ -15,9 +15,9 @@ namespace ProjetTransDev.DAL
                 connection = DALConnection.connection;
             }
 
-            public static ObservableCollection<DepartementDAO> selectDepartements()
+            public static ObservableCollection<CommunePlageDAO> selectDepartements()
             {
-                ObservableCollection<DepartementDAO> l = new ObservableCollection<DepartementDAO>();
+                ObservableCollection<CommunePlageDAO> l = new ObservableCollection<CommunePlageDAO>();
                 string query = "SELECT * FROM departement;";
                 MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
                 try
@@ -27,7 +27,7 @@ namespace ProjetTransDev.DAL
 
                     while (reader.Read())
                     {
-                    DepartementDAO p = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+                    CommunePlageDAO p = new CommunePlageDAO(reader.GetInt32(0), reader.GetString(1));
                         l.Add(p);
                     }
                     reader.Close();
@@ -39,36 +39,42 @@ namespace ProjetTransDev.DAL
                 return l;
             }
 
-            public static void updateDepartement(DepartementDAO p)
+            public static void updateDepartement(CommunePlageDAO p)
             {
                 string query = "UPDATE departement set nomDepartement=\"" + p.nomDepartementDAO + "\" where Departement=" + p.idDepartementDAO + ";";
-                MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+                MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
                 cmd.ExecuteNonQuery();
             }
-            public static void insertDepartement(DepartementDAO p)
+            public static void insertDepartement(CommunePlageDAO p)
             {
                 string query = "INSERT INTO departement (Nom) VALUES (\"" + p.nomDepartementDAO + "\");";
-                MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.connection);
+                MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
                 cmd2.ExecuteNonQuery();
             }
-            public static void supprimerDepartement(int id)
+            public static void selectDepartement(int id)
             {
                 string query = "DELETE FROM departement WHERE Departement = \"" + id + "\";";
-                MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+                MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
                 cmd.ExecuteNonQuery();
             }
-
-            public static DepartementDAO getDepartement(int idDepartement)
+        public static void SelectDepartement(int id)
+        {
+            string query = "SELECT * FROM Departement WHERE Departement= \"" + id + "\";";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+        }
+        public static CommunePlageDAO getDepartement(int idDepartement)
             {
                 string query = "SELECT * FROM departement WHERE Departement =" + idDepartement + ";";
-                MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+                MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
                 cmd.ExecuteNonQuery();
                 MySqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
-                DepartementDAO pers = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+                CommunePlageDAO pers = new CommunePlageDAO(reader.GetInt32(0), reader.GetString(1));
                 reader.Close();
                 return pers;
             }

@@ -12,7 +12,7 @@ namespace ProjetTransDev.ORM
             CommuneDAO pDAO = CommuneDAO.getCommune(idCommune);
             int idDepartement = pDAO.DepartementCommuneDAO;
             DepartementViewModel m = DepartementORM.getDepartement(idDepartement);
-            CommuneViewModel p = new CommuneViewModel(pDAO.idCommuneDAO, pDAO.nomCommuneDAO, m);
+            CommuneViewModel p = new CommuneViewModel(pDAO.idCommuneDAO, pDAO.nomCommuneDAO,pDAO.CodePostaleDAO, m);
             return p;
         }
 
@@ -24,7 +24,7 @@ namespace ProjetTransDev.ORM
             {
                 int idDepartement = element.DepartementCommuneDAO;
                 DepartementViewModel m = DepartementORM.getDepartement(idDepartement);
-                CommuneViewModel p = new CommuneViewModel(element.idCommuneDAO, element.nomCommuneDAO,m);
+                CommuneViewModel p = new CommuneViewModel(element.idCommuneDAO, element.nomCommuneDAO,element.CodePostaleDAO,m);
                 l.Add(p);             
             }
             return l;
@@ -33,17 +33,22 @@ namespace ProjetTransDev.ORM
 
         public static void updateCommune(CommuneViewModel p)
         {
-            CommuneDAO.updateCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty, p.DepartementCommuneProperty.idDepartementProperty));
+            CommuneDAO.updateCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty,p.CodePostaleProperty, p.DepartementCommuneProperty.idDepartementProperty));
         }
 
         public static void supprimerCommune(int id)
         {
             CommuneDAO.supprimerCommune(id);
         }
+        public static void selectCommune(int id)
+        {
+            CommuneDAO.selectCommune(id);
+        }
+
 
         public static void insertCommune(CommuneViewModel p)
         {
-            CommuneDAO.insertCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty, p.DepartementCommuneProperty.idDepartementProperty));
+            CommuneDAO.insertCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty,p.CodePostaleProperty, p.DepartementCommuneProperty.idDepartementProperty));
         }
     }
 }

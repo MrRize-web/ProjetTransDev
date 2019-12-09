@@ -14,14 +14,16 @@ namespace ProjetTransDev.ORM
         public int idCommuneDAO;
         public int DepartementCommuneDAO;
         public string nomCommuneDAO;
+        public string CodePostaleDAO;
         public string superficEtudePlageDAO;
     
 
 
-        public CommuneDAO(int idCommuneDAO, string nomCommuneDAO, int DepartementDAO)
+        public CommuneDAO(int idCommuneDAO, string nomCommuneDAO,string CodePostaleDAO, int DepartementDAO)
         {
             this.idCommuneDAO = idCommuneDAO;
             this.nomCommuneDAO = nomCommuneDAO;
+            this.CodePostaleDAO = CodePostaleDAO;
             this.DepartementCommuneDAO = DepartementDAO;
         }
 
@@ -46,7 +48,10 @@ namespace ProjetTransDev.ORM
         {
             CommuneDAL.supprimerCommune(id);
         }
-
+        public static void selectCommune(int id)
+        {
+            CommuneDAL.SelectCommune(id);
+        }
         public static void insertCommune(CommuneDAO p)
         {
             CommuneDAL.insertCommune(p);
