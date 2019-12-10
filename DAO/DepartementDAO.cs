@@ -8,32 +8,32 @@ using ProjetTransDev.DAL;
 
 namespace ProjetTransDev.ORM
 {
-    public class CommunePlageDAO
+    public class DepartementDAO
     {
         public int idDepartementDAO;
         public string nomDepartementDAO;
         public string departementDepartementDAO;
     
-        public CommunePlageDAO(int idDepartementDAO, string nomDepartementDAO)
+        public DepartementDAO(int idDepartementDAO, string nomDepartementDAO)
         {
             this.idDepartementDAO = idDepartementDAO;
             this.nomDepartementDAO = nomDepartementDAO;
 
         }
 
-        public static ObservableCollection<CommunePlageDAO> listeDepartements()
+        public static ObservableCollection<DepartementDAO> listeDepartements()
         {
-            ObservableCollection<CommunePlageDAO> l = DepartementDAL.selectDepartements();
+            ObservableCollection<DepartementDAO> l = DepartementDAL.selectDepartements();
             return l;
         }
 
-        public static CommunePlageDAO getDepartement(int idDepartement)
+        public static DepartementDAO getDepartement(int idDepartement)
         {
-            CommunePlageDAO p = DepartementDAL.getDepartement(idDepartement);
+            DepartementDAO p = DepartementDAL.getDepartement(idDepartement);
             return p;
         }
 
-        public static void updateDepartement(CommunePlageDAO p)
+        public static void updateDepartement(DepartementDAO p)
         {
             DepartementDAL.updateDepartement(p);
         }
@@ -43,7 +43,7 @@ namespace ProjetTransDev.ORM
             DepartementDAL.supprimerDepartement(id);
         }
 
-            public static void insertDepartement(CommunePlageDAO p)
+            public static void insertDepartement(DepartementDAO p)
         {
             DepartementDAL.insertDepartement(p);
         }

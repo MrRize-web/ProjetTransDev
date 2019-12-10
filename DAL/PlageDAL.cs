@@ -49,10 +49,10 @@ namespace ProjetTransDev.DAL
         }
         public static void insertPlage(PlageDAO p)
         {
-            string query = "INSERT INTO Plage (Nom,SuperficEtude,Commune_idCommune) VALUES (\"" + p.nomPlageDAO + "\",\"" + p.superficEtudePlageDAO + "\",\"" + p.CommunePlageDAO + "\");";
-            MySqlCommand cmd1 = new MySqlCommand(query, DALConnection.OpenConnection());
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd1);
-            cmd1.ExecuteNonQuery();
+            string query = "INSERT INTO Plage (Nom,SuperficEtude,Commune_idCommune) VALUES (\"" + p.nomPlageDAO + "\",\"" + p.superficEtudePlageDAO + "\",\"" + p.CommuneDAO+ "\");";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
         }
         public static void supprimerPlage(int id)
         {

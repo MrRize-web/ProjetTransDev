@@ -78,9 +78,9 @@ namespace ProjetTransDev
             lp5 = EspeceORM.listeEspeces();
             listeEspeces.ItemsSource = lp5;
         }
-       
-        /////////////////////////////////////        /////////////////////////////////////
-        ///        /////////////////////////////////////        /////////////////////////////////////
+
+        /////////////////////////////////////     Users   /////////////////////////////////////
+        ///        /////////////////////////////////////   Users     /////////////////////////////////////
         private void nomPrenomButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             myDataObject = new UsersViewModel(); 
@@ -135,51 +135,52 @@ namespace ProjetTransDev
                     listePlages.Items.Refresh();
             } 
         }
-        /////////////////////////////////////        /////////////////////////////////////
-        /////////////////////////////////////        /////////////////////////////////////
-        private void VlidePlage_Click(object sender, RoutedEventArgs e)
+
+        /////////////////////////////////////   Departement     /////////////////////////////////////
+        /////////////////////////////////////   Departement     /////////////////////////////////////
+        private void VlideDepartement_Click(object sender, RoutedEventArgs e)
         {
-            myDataObject1 = new PlageViewModel();
-            myDataObject1.nomPlageProperty = nomPlage.Text;
-            myDataObject1.superficEtudePlageProperty = SuperficiePlage.Text;
-            myDataObject1.CommunePlageProperty= (CommuneViewModel)listeCommunesCombo.SelectedItem;
+            myDataObject3 = new DepartementViewModel();
+            myDataObject3.nomDepartementProperty = NomDepartement.Text;
 
-            PlageViewModel nouveau = new PlageViewModel(myDataObject1.idPlageProperty, myDataObject1.nomPlageProperty, myDataObject1.superficEtudePlageProperty, myDataObject1.CommunePlage);
-            lp1.Add(nouveau);
-            PlageORM.insertPlage(nouveau);
+            DepartementViewModel nouveau = new DepartementViewModel(myDataObject3.idDepartementProperty, myDataObject3.nomDepartementProperty);
+            lp3.Add(nouveau);
+            DepartementORM.insertDepartement(nouveau);
 
-            listePlages.Items.Refresh();
             listeDepartements.Items.Refresh();
             listeCommunes.Items.Refresh();
-            compteur = lp1.Count();
+            listePlages.Items.Refresh();
+            compteur = lp3.Count();
 
-            ((TextBox)nomPlage).Text = string.Empty;
-            ((TextBox)SuperficiePlage).Text = string.Empty;
+            ((TextBox)NomDepartement).Text = string.Empty;
 
-            MessageBox.Show("Plage ajoutée avec succes ! ");
+            MessageBox.Show("Département ajouté avec succes ! ");
         }
-        private void listePlages_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listeDepartements_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((listePlages.SelectedIndex < lp1.Count) && (listePlages.SelectedIndex >= 0))
+            if ((listeDepartements.SelectedIndex < lp3.Count) && (listeDepartements.SelectedIndex >= 0))
             {
-                selectedPlagesId = (lp1.ElementAt<PlageViewModel>(listePlages.SelectedIndex)).idPlageProperty;
+                selectedDepartementsId = (lp3.ElementAt<DepartementViewModel>(listeDepartements.SelectedIndex)).idDepartementProperty;
                 listeDepartements.Items.Refresh();
                 listeCommunes.Items.Refresh();
                 listePlages.Items.Refresh();
             }
         }
-        private void supprimerButton_MouseDoubleClick1(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton_MouseDoubleClick3(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            PlageViewModel toRemove = (PlageViewModel)listePlages.SelectedItem;
-            lp1.Remove(toRemove);
+            DepartementViewModel toRemove = (DepartementViewModel)listeDepartements.SelectedItem;
+            lp3.Remove(toRemove);
 
             listeDepartements.Items.Refresh();
             listeCommunes.Items.Refresh();
             listePlages.Items.Refresh();
 
-            PlageORM.supprimerPlage(selectedPlagesId);
-            MessageBox.Show("Plage supprimée avec succes ! ");
+            DepartementORM.supprimerDepartement(selectedDepartementsId);
+
+            MessageBox.Show("Departement supprimé avec succes ! ");
         }
+
+
         /////////////////////////////////////   Commune     /////////////////////////////////////
         /////////////////////////////////////   Commune     /////////////////////////////////////
         private void VlideCommune_Click(object sender, RoutedEventArgs e)
@@ -188,7 +189,7 @@ namespace ProjetTransDev
             myDataObject2.nomCommuneProperty = NomCommune.Text;
             myDataObject2.CodePostaleProperty = CodePostale.Text;
             myDataObject2.DepartementCommuneProperty = (DepartementViewModel)listeDepartementsCombo2.SelectedItem;
-             CommuneViewModel nouveau = new CommuneViewModel(myDataObject2.idCommuneProperty, myDataObject2.nomCommuneProperty, myDataObject2.CodePostaleProperty, myDataObject2.DepartementCommune);
+            CommuneViewModel nouveau = new CommuneViewModel(myDataObject2.idCommuneProperty, myDataObject2.nomCommuneProperty, myDataObject2.CodePostaleProperty, myDataObject2.DepartementCommune);
             lp2.Add(nouveau);
 
             CommuneORM.insertCommune(nouveau);
@@ -225,51 +226,52 @@ namespace ProjetTransDev
             CommuneORM.supprimerCommune(selectedCommunesId);
             MessageBox.Show("Commune supprimée avec succes ! ");
         }
-        /////////////////////////////////////   Departement     /////////////////////////////////////
-        /////////////////////////////////////   Departement     /////////////////////////////////////
-        private void VlideDepartement_Click(object sender, RoutedEventArgs e)
-        {
-            myDataObject3 = new DepartementViewModel();
-            myDataObject3.nomDepartementProperty = NomDepartement.Text;
+    
 
-            DepartementViewModel nouveau = new DepartementViewModel(myDataObject3.idDepartementProperty, myDataObject3.nomDepartementProperty);
-            lp3.Add(nouveau);
-            DepartementORM.insertDepartement(nouveau);
-            DepartementORM.getDepartement(selectedDepartementsId);
-            CommuneORM.getCommune(selectedCommunesId);
-            PlageORM.getPlage(selectedPlagesId);
- 
+        /////////////////////////////////////   Plage     /////////////////////////////////////
+        /////////////////////////////////////    Plage    /////////////////////////////////////
+        private void VlidePlage_Click(object sender, RoutedEventArgs e)
+        {
+            myDataObject1 = new PlageViewModel();
+            myDataObject1.nomPlageProperty = nomPlage.Text;
+            myDataObject1.superficEtudePlageProperty = SuperficiePlage.Text;
+            myDataObject1.CommunePlageProperty = (CommuneViewModel)listeCommunesCombo.SelectedItem;
+
+            PlageViewModel nouveau = new PlageViewModel(myDataObject1.idPlageProperty, myDataObject1.nomPlageProperty, myDataObject1.superficEtudePlageProperty, myDataObject1.CommunePlage);
+            lp1.Add(nouveau);
+            PlageORM.insertPlage(nouveau);
+
+            listePlages.Items.Refresh();
             listeDepartements.Items.Refresh();
             listeCommunes.Items.Refresh();
-            listePlages.Items.Refresh();
-            compteur = lp3.Count();
+            compteur = lp1.Count();
 
-            ((TextBox)NomDepartement).Text = string.Empty;
+            ((TextBox)nomPlage).Text = string.Empty;
+            ((TextBox)SuperficiePlage).Text = string.Empty;
 
-            MessageBox.Show("Département ajouté avec succes ! ");
+            MessageBox.Show("Plage ajoutée avec succes ! ");
         }
-        private void listeDepartements_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listePlages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((listeDepartements.SelectedIndex < lp3.Count) && (listeDepartements.SelectedIndex >= 0))
+            if ((listePlages.SelectedIndex < lp1.Count) && (listePlages.SelectedIndex >= 0))
             {
-                selectedDepartementsId = (lp3.ElementAt<DepartementViewModel>(listeDepartements.SelectedIndex)).idDepartementProperty;
+                selectedPlagesId = (lp1.ElementAt<PlageViewModel>(listePlages.SelectedIndex)).idPlageProperty;
                 listeDepartements.Items.Refresh();
                 listeCommunes.Items.Refresh();
                 listePlages.Items.Refresh();
             }
         }
-        private void supprimerButton_MouseDoubleClick3(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton_MouseDoubleClick1(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            DepartementViewModel toRemove = (DepartementViewModel)listeDepartements.SelectedItem;
-            lp3.Remove(toRemove);
+            PlageViewModel toRemove = (PlageViewModel)listePlages.SelectedItem;
+            lp1.Remove(toRemove);
 
             listeDepartements.Items.Refresh();
             listeCommunes.Items.Refresh();
             listePlages.Items.Refresh();
 
-            DepartementORM.supprimerDepartement(selectedDepartementsId);
-
-            MessageBox.Show("Departement supprimé avec succes ! ");
+            PlageORM.supprimerPlage(selectedPlagesId);
+            MessageBox.Show("Plage supprimée avec succes ! ");
         }
         /////////////////////////////////////    Etudes    /////////////////////////////////////
         /////////////////////////////////////    Etudes    /////////////////////////////////////

@@ -29,8 +29,6 @@ namespace ProjetTransDev.ORM
             }
             return l;
         }
-
-
         public static void updateCommune(CommuneViewModel p)
         {
             CommuneDAO.updateCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty,p.CodePostaleProperty, p.DepartementCommuneProperty.idDepartementProperty));
@@ -40,11 +38,6 @@ namespace ProjetTransDev.ORM
         {
             CommuneDAO.supprimerCommune(id);
         }
-       /* public static void selectCommune(int id)
-        {
-            CommuneDAO.selectCommune(id);
-        }*/
-
         public static void insertCommune(CommuneViewModel p)
         {
             CommuneDAO.insertCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty,p.CodePostaleProperty, p.DepartementCommuneProperty.idDepartementProperty));

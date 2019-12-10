@@ -11,7 +11,7 @@ namespace ProjetTransDev.ORM
         public static PlageViewModel getPlage(int idPlage)
         {      
             PlageDAO pDAO = PlageDAO.getPlage(idPlage);
-            int idCommune = pDAO.CommunePlageDAO;
+            int idCommune = pDAO.CommuneDAO;
             CommuneViewModel m = CommuneORM.getCommune(idCommune);
             PlageViewModel p = new PlageViewModel(pDAO.idPlageDAO, pDAO.nomPlageDAO,pDAO.superficEtudePlageDAO, m);
             return p;
@@ -23,7 +23,7 @@ namespace ProjetTransDev.ORM
             ObservableCollection<PlageViewModel> l = new ObservableCollection<PlageViewModel>();
             foreach (PlageDAO element in lDAO)
             {
-                int idCommune = element.CommunePlageDAO;
+                int idCommune = element.CommuneDAO;
                 CommuneViewModel m = CommuneORM.getCommune(idCommune);
                 PlageViewModel p = new PlageViewModel(element.idPlageDAO, element.nomPlageDAO, element.superficEtudePlageDAO, m);
                 l.Add(p);

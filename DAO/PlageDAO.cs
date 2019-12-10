@@ -7,7 +7,7 @@ namespace ProjetTransDev.ORM
     {
         public int idPlageDAO;
         public string nomPlageDAO;
-        public int CommunePlageDAO;
+        public int CommuneDAO;
         public string superficEtudePlageDAO;
    
         public PlageDAO(int idPlageDAO, string nomPlageDAO, string superficEtudePlageDAO, int CommunePlageDAO)
@@ -15,7 +15,7 @@ namespace ProjetTransDev.ORM
             this.idPlageDAO = idPlageDAO;
             this.nomPlageDAO = nomPlageDAO;
             this.superficEtudePlageDAO = superficEtudePlageDAO;
-            this.CommunePlageDAO = CommunePlageDAO;
+            this.CommuneDAO = CommunePlageDAO;
         }
 
         public static ObservableCollection<PlageDAO> listePlages()
