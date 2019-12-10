@@ -80,7 +80,7 @@ namespace ProjetTransDev
         }
 
         /////////////////////////////////////     Users   /////////////////////////////////////
-        ///        /////////////////////////////////////   Users     /////////////////////////////////////
+        ////////////////////////////////////////   Users     /////////////////////////////////////
         private void nomPrenomButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             myDataObject = new UsersViewModel(); 
@@ -144,11 +144,11 @@ namespace ProjetTransDev
             myDataObject3 = new DepartementViewModel();
             myDataObject3.nomDepartementProperty = NomDepartement.Text;
 
-            DepartementViewModel nouveau = new DepartementViewModel(myDataObject3.idDepartementProperty, myDataObject3.nomDepartementProperty);
+            DepartementViewModel nouveau = new DepartementViewModel(DepartementDAL.getMaxIdDepartement() + 1, myDataObject3.nomDepartementProperty);
             lp3.Add(nouveau);
             DepartementORM.insertDepartement(nouveau);
 
-            listeDepartements.Items.Refresh();
+            listeDepartementsCombo.ItemsSource=lp3;
             listeCommunes.Items.Refresh();
             listePlages.Items.Refresh();
             listeDepartementsCombo.Items.Refresh();
@@ -192,8 +192,8 @@ namespace ProjetTransDev
             myDataObject2 = new CommuneViewModel();
             myDataObject2.nomCommuneProperty = NomCommune.Text;
             myDataObject2.CodePostaleProperty = CodePostale.Text;
-            myDataObject2.DepartementCommuneProperty = (DepartementViewModel)listeDepartementsCombo.SelectedItem;
-            CommuneViewModel nouveau = new CommuneViewModel(myDataObject2.idCommuneProperty, myDataObject2.nomCommuneProperty, myDataObject2.CodePostaleProperty, myDataObject2.DepartementCommune);
+            myDataObject2.DepartementCommune = (DepartementViewModel)listeDepartementsCombo.SelectedItem;
+            CommuneViewModel nouveau = new CommuneViewModel(CommuneDAL.getMaxIdCommune() + 1, myDataObject2.nomCommuneProperty, myDataObject2.CodePostaleProperty, myDataObject2.DepartementCommune);
             lp2.Add(nouveau);
 
             CommuneORM.insertCommune(nouveau);
@@ -242,9 +242,9 @@ namespace ProjetTransDev
             myDataObject1 = new PlageViewModel();
             myDataObject1.nomPlageProperty = nomPlage.Text;
             myDataObject1.superficEtudePlageProperty = SuperficiePlage.Text;
-            myDataObject1.CommunePlageProperty = (CommuneViewModel)listeCommunesCombo.SelectedItem;
+            myDataObject1.CommunePlage = (CommuneViewModel)listeCommunesCombo.SelectedItem;
 
-            PlageViewModel nouveau = new PlageViewModel(myDataObject1.idPlageProperty, myDataObject1.nomPlageProperty, myDataObject1.superficEtudePlageProperty, myDataObject1.CommunePlage);
+            PlageViewModel nouveau = new PlageViewModel(PlageDAL.getMaxIdPlage() + 1, myDataObject1.nomPlageProperty, myDataObject1.superficEtudePlageProperty, myDataObject1.CommunePlage);
             lp1.Add(nouveau);
             PlageORM.insertPlage(nouveau);
             listePlages.Items.Refresh();
@@ -252,7 +252,6 @@ namespace ProjetTransDev
             listeCommunes.Items.Refresh();
             listeDepartementsCombo.Items.Refresh();
             compteur = lp1.Count();
-
             ((TextBox)nomPlage).Text = string.Empty;
             ((TextBox)SuperficiePlage).Text = string.Empty;
 
@@ -288,10 +287,11 @@ namespace ProjetTransDev
         private void VlideEtude_Click(object sender, RoutedEventArgs e)
         {
             myDataObject4 = new EtudeViewModel();
-            myDataObject4.NbPersonneEtudeProperty = Convert.ToDecimal(NbEtude.Text);
-            myDataObject4.PlageEtudeProperty = (PlageViewModel)listePlagesCombo.SelectedItem;
+            myDataObject4.NbPersonneEtudeProperty = Convert.ToDecimal(NbPersonne.SelectionBoxItem);
+            //myDataObject4.NbPersonneEtudeProperty = NbPersonne.SelectedValue.ToString();
+            myDataObject4.PlageEtude = (PlageViewModel)listePlagesCombo.SelectedItem;
             myDataObject4.TitreEtudeProperty = Titre.Text;
-            EtudeViewModel nouveau = new EtudeViewModel(myDataObject4.idEtudeProperty, myDataObject4.NbPersonneEtudeProperty, myDataObject4.PlageEtudeProperty, myDataObject4.TitreEtudeProperty);
+            EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject4.NbPersonneEtudeProperty, myDataObject4.PlageEtudeProperty, myDataObject4.TitreEtudeProperty);
             lp4.Add(nouveau);
             EtudeORM.insertEtude(nouveau);
 
@@ -302,7 +302,6 @@ namespace ProjetTransDev
 
             compteur = lp4.Count();
 
-            ((TextBox)NbEtude).Text = string.Empty;
             ((TextBox)Titre).Text = string.Empty;
 
             MessageBox.Show("Etude ajoutée avec succes ! ");
@@ -362,7 +361,5 @@ namespace ProjetTransDev
             EspeceORM.supprimerEspece(selectedEspeceId);
             MessageBox.Show("Espece supprimée avec succes ! ");
         }
-
-      
     }
 }

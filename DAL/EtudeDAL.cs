@@ -49,7 +49,8 @@ namespace ProjetTransDev.DAL
         }
         public static void insertEtude(DAO.EtudeDAO p)
         {
-            string query = "INSERT INTO Etude (NbPersonne,NbPlage,Titre) VALUES (\"" + p.NbPersonneEtudeDAO + "\"+\"" + p.PlageEtudeDAO + "\",\"" + p.TitreEtudeEtudeDAO + "\");";
+            int id = getMaxIdEtude() + 1;
+            string query = "INSERT INTO Etude VALUES (\"" + id + "\",\"" + p.NbPersonneEtudeDAO + "\",\"" + p.PlageEtudeDAO + "\",\"" + p.TitreEtudeEtudeDAO + "\");";
             MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
@@ -61,17 +62,37 @@ namespace ProjetTransDev.DAL
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
+        public static int getMaxIdEtude()
+        {
+            string query = "SELECT IFNULL(MAX(idEtude),0) FROM etude;";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.ExecuteNonQuery();
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            int maxIdEtude = reader.GetInt32(0);
+            reader.Close();
+            return maxIdEtude;
+        }
 
         public static EtudeDAO getEtude(int idEtude)
         {
-            string query = "SELECT * FROM Etude WHERE id=" + idEtude + ";";
+            string query = " SELECT * FROM Plage WHERE idPlage =" + idEtude + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            DAO.EtudeDAO pers = new DAO.EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetString(3));
+            EtudeDAO com;
+            if (reader.HasRows)
+            {
+                com = new EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetString(3));
+            }
+            else
+            {
+                com = new EtudeDAO(1, 0,1 , "Mauvaise superficie d'etude");
+            }
             reader.Close();
-            return pers;
+            return com;
         }
     }
 }

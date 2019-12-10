@@ -48,8 +48,8 @@ namespace ProjetTransDev.DAL
             }
             public static void insertDepartement(DepartementDAO p)
             {
-   
-            string query = "INSERT INTO departement (Nom) VALUES (\"" + p.nomDepartementDAO + "\");";
+                int id = getMaxIdDepartement() + 1;
+                string query = "INSERT INTO departement VALUES (\"" + id + "\",\"" + p.nomDepartementDAO + "\");";
                 MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
                 cmd2.ExecuteNonQuery();
@@ -61,26 +61,37 @@ namespace ProjetTransDev.DAL
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
                 cmd.ExecuteNonQuery();
             }
-        /*  public static void SelectDepartement(int id)
-          {
-              string query = "SELECT * FROM Departement WHERE Departement= \"" + id + "\";";
-              MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
-              MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-              cmd.ExecuteNonQuery();
-          }*/
+        public static int getMaxIdDepartement()
+        {
+            string query = "SELECT IFNULL(MAX(Departement),0) FROM departement;";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.ExecuteNonQuery();
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            int maxIdDepartement = reader.GetInt32(0);
+            reader.Close();
+            return maxIdDepartement;
+        }
 
         public static DepartementDAO getDepartement(int idDepartement)
         {
             string query = " SELECT * FROM departement WHERE Departement =" + idDepartement + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.ExecuteNonQuery();
-
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-
-            DepartementDAO pers = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+            DepartementDAO com;
+            if (reader.HasRows)
+            {
+                com = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+            }
+            else
+            {
+                com = new DepartementDAO(1, "Mauvais Num Commune");
+            }
             reader.Close();
-            return pers;
+            return com;
         }
     }
     }

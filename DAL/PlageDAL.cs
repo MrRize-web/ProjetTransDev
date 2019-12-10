@@ -49,7 +49,8 @@ namespace ProjetTransDev.DAL
         }
         public static void insertPlage(PlageDAO p)
         {
-            string query = "INSERT INTO Plage (Nom,SuperficEtude,Commune_idCommune) VALUES (\"" + p.nomPlageDAO + "\",\"" + p.superficEtudePlageDAO + "\",\"" + p.CommuneDAO+ "\");";
+            int id = getMaxIdPlage() + 1;
+            string query = "INSERT INTO Plage VALUES (\"" + id + "\",\"" + p.nomPlageDAO + "\",\"" + p.superficEtudePlageDAO + "\",\"" + p.CommuneDAO+ "\");";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
@@ -61,17 +62,36 @@ namespace ProjetTransDev.DAL
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
+        public static int getMaxIdPlage()
+        {
+            string query = "SELECT IFNULL(MAX(idPlage),0) FROM plage;";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.ExecuteNonQuery();
 
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            int maxIdDepartement = reader.GetInt32(0);
+            reader.Close();
+            return maxIdDepartement;
+        }
         public static PlageDAO getPlage(int idPlage)
         {
-            string query = "SELECT * FROM Plage WHERE id=" + idPlage + ";";
+            string query = " SELECT * FROM Plage WHERE idPlage =" + idPlage + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            PlageDAO pers = new PlageDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3));
+            PlageDAO com;
+            if (reader.HasRows)
+            {
+                com = new PlageDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3));
+            }
+            else
+            {
+                com = new PlageDAO(1, "Mauvais Nom de Plage","Mauvaise superficie d'etude",1);
+            }
             reader.Close();
-            return pers;
+            return com;
         }
     }
 }

@@ -49,7 +49,8 @@ namespace ProjetTransDev.DAL
             }
             public static void insertCommune(CommuneDAO p)
             {
-                string query = "INSERT INTO Commune (Nom,CodePostale,Departement_Departement) VALUES (\"" + p.nomCommuneDAO + "\",\"" + p.CodePostaleDAO + "\",\"" + p.DepartementCommuneDAO + "\");";
+            int id = getMaxIdCommune() + 1;
+            string query = "INSERT INTO Commune VALUES (\"" + id + "\",\"" + p.nomCommuneDAO + "\",\"" + p.CodePostaleDAO + "\",\"" + p.DepartementCommuneDAO + "\");";
                 MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
                 cmd2.ExecuteNonQuery();
@@ -69,17 +70,36 @@ namespace ProjetTransDev.DAL
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
+        public static int getMaxIdCommune()
+        {
+            string query = "SELECT IFNULL(MAX(idCommune),0) FROM commune;";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.ExecuteNonQuery();
 
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            int maxIdCommune = reader.GetInt32(0);
+            reader.Close();
+            return maxIdCommune;
+        }
         public static CommuneDAO getCommune(int idCommune)
+        {
+            string query = "SELECT * FROM commune WHERE idCommune=" + idCommune + ";";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.ExecuteNonQuery();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            CommuneDAO com;
+            if (reader.HasRows)
             {
-                string query = "SELECT * FROM Commune WHERE idCommune=" + idCommune + ";";
-                MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
-                cmd.ExecuteNonQuery();
-                MySqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-                CommuneDAO pers = new CommuneDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3));
-                reader.Close();
-                return pers;
+                com = new CommuneDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3));
             }
+            else
+            {
+                com = new CommuneDAO(1, "Mauvais Num Commune","Mauvais Code Postale", 1);
+            }
+            reader.Close();
+            return com;
+        }
         }
     }

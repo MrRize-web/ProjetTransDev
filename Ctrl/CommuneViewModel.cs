@@ -22,7 +22,7 @@ namespace ProjetTransDev.Ctrl
                 this.idCommune = id;
                 this.nomCommuneProperty = nom;
                 this.CodePostaleProperty = CodePostale;
-                this.DepartementCommuneProperty = Departement;
+                this.DepartementCommune = Departement;
             }
             public int idCommuneProperty
             {
@@ -31,13 +31,13 @@ namespace ProjetTransDev.Ctrl
             public DepartementViewModel DepartementCommuneProperty
             {
                 get { return DepartementCommune; }
-                set
-                {
-                    DepartementCommune = value;              
-                }
+            }
+            public String DepartementCommuneNameProperty
+            {
+                get { return DepartementCommune.nomDepartementProperty;  }
             }
 
-            public String nomCommuneProperty
+        public String nomCommuneProperty
             {
                 get { return nomCommune; }
                 set

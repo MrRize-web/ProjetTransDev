@@ -80,13 +80,15 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="120*"/>
                             <ColumnDefinition Width="192*"/>
-                            <ColumnDefinition Width="175*"/>
+                            <ColumnDefinition Width="123*"/>
+                            <ColumnDefinition Width="21*"/>
+                            <ColumnDefinition Width="33*"/>
                             <ColumnDefinition Width="70*"/>
                             <ColumnDefinition Width="30*"/>
                             <ColumnDefinition Width="15*"/>
                             <ColumnDefinition Width="171*"/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel Margin="10,0,0.023,-249" Grid.ColumnSpan="7">
+                        <StackPanel Margin="10,0,-0.4,-249" Grid.ColumnSpan="9">
 
                             <Label Content="Nom de la plage :"></Label>
                             <TextBox Name="nomPlage" Height="20"/>
@@ -164,7 +166,7 @@
                             <DataGrid Name="listePlages" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listePlages_SelectionChanged" Width="180" Grid.ColumnSpan="3">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Nom de la Plage" Binding="{Binding nomPlageProperty, Mode=TwoWay}" />
-                                    <!-- <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding nomCommuneProperty, Mode=TwoWay}" />-->
+                                    <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding CommunePlageNameProperty, Mode=OneWay}" />
                                     <DataGridTextColumn Header="Superficie" Binding="{Binding superficEtudePlageProperty, Mode=TwoWay}" />
                                 </DataGrid.Columns>
                             </DataGrid>
@@ -185,7 +187,7 @@
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding nomCommuneProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="Code Postale" Binding="{Binding CodePostaleProperty, Mode=TwoWay}" />
-                                    <DataGridTextColumn Header="" Binding="{Binding DepartementCommuneProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="Nom Departement" Binding="{Binding DepartementCommuneNameProperty, Mode=OneWay}" />
                                     <!--<DataGridTextColumn Header="Nom de la Departement" Binding="{Binding DepartementCommuneProperty, Mode=TwoWay}" />-->
                                 </DataGrid.Columns>
                             </DataGrid>
@@ -231,7 +233,19 @@
                     <Grid Name ="grigrid2" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                         <StackPanel>
                             <Label Content="Nombre de Personne :"></Label>
-                            <TextBox Name="NbEtude" Height="20"/>
+                            <ComboBox Name="NbPersonne" Height="20" >
+                                <ComboBoxItem>1</ComboBoxItem>
+                                <ComboBoxItem>2</ComboBoxItem>
+                                <ComboBoxItem>3</ComboBoxItem>
+                                <ComboBoxItem>4</ComboBoxItem>
+                                <ComboBoxItem>5</ComboBoxItem>
+                                <ComboBoxItem>6</ComboBoxItem>
+                                <ComboBoxItem>7</ComboBoxItem>
+                                <ComboBoxItem>8</ComboBoxItem>
+                                <ComboBoxItem>9</ComboBoxItem>
+                                <ComboBoxItem>10</ComboBoxItem>
+                            </ComboBox>
+
                             <Label Content="Plage :"/>
                             <ComboBox Name="listePlagesCombo"
                                       DisplayMemberPath="nomPlageProperty" 
@@ -258,7 +272,7 @@
                         <Grid Margin="10">
                             <DataGrid Name="listeEtudes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="252,0,0,10.2" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunesCombo_SelectionChanged" Width="368">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Numéro de la plage :" Binding="{Binding CommunePlageProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="Nom de la plage :" Binding="{Binding PlageEtudeNameProperty, Mode=OneWay}" />
                                     <DataGridTextColumn Header="Nombre de participant :" Binding="{Binding NbPersonneEtudeProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="Tire de l'Etude :" Binding="{Binding TitreEtudeProperty, Mode=TwoWay}" />
                                 </DataGrid.Columns>

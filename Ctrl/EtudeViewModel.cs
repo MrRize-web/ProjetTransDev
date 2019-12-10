@@ -17,7 +17,7 @@ namespace ProjetTransDev.Ctrl
         {
             this.idEtude = id;
             this.NbPersonneEtudeProperty = NbPersonne;
-            this.PlageEtudeProperty = PlageEtude;
+            this.PlageEtude = PlageEtude;
             this.TitreEtudeProperty = Titre;
         }
         public int idEtudeProperty
@@ -40,12 +40,12 @@ namespace ProjetTransDev.Ctrl
         public PlageViewModel PlageEtudeProperty
         {
             get { return PlageEtude; }
-            set
-            {
-                PlageEtude = value;
-            }
         }
-   
+        public String PlageEtudeNameProperty
+        {
+            get { return PlageEtude.nomPlageProperty; }
+        }
+
         public String TitreEtudeProperty
         {
             get { return Titre; }

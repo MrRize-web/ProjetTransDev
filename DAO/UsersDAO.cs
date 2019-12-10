@@ -36,6 +36,7 @@ namespace ProjetTransDev.ORM
             UsersDAO p = UsersDAL.getUsers(idUsers);
             return p;
         }
+      
 
         public static void updateUsers(UsersDAO p)
         {

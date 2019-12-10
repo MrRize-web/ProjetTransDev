@@ -20,19 +20,20 @@ namespace ProjetTransDev.Ctrl
                 this.idPlage = id;
                 this.nomPlageProperty = nom;
                 this.superficEtudePlageProperty = superficEtude;
-                this.CommunePlageProperty = CommunePlage;
+                this.CommunePlage = CommunePlage;
         }
             public int idPlageProperty
         {
                 get { return idPlage; }
             }
+    
         public CommuneViewModel CommunePlageProperty
         {
             get { return CommunePlage; }
-            set
-            {
-                CommunePlage = value;
-            }
+        }
+        public String CommunePlageNameProperty
+        {
+            get { return CommunePlage.nomCommuneProperty; }
         }
         public String nomPlageProperty
         {
