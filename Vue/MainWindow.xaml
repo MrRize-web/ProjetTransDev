@@ -120,10 +120,11 @@
                             <TextBox Name="CodePostale" Height="20"/>
 
                             <Label Content="Departement :"></Label>
-                            <ComboBox Name="listeDepartementsCombo2"
+                            <ComboBox Name="listeDepartementsCombo"
                                       DisplayMemberPath="nomDepartementProperty" 
                                       ItemsSource="{Binding}" 
-                                      SelectedItem="{Binding idDepartementProperty}">
+                                      SelectedItem="{Binding idDepartementProperty}"
+                                      SelectionChanged="listeDepartements_SelectionChanged">
                                 <!--<ComboBoxItem Selected="{Binding nomDepartementProperty}"/>-->
                             </ComboBox>
 
