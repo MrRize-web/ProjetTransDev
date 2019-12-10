@@ -164,7 +164,7 @@
                                 <ColumnDefinition Width="529*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="liste Plages" Grid.ColumnSpan="3" Margin="0,0,-0.4,-0.4"></Label>
-                            <DataGrid Name="listePlages" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listePlages_SelectionChanged" Width="290" Grid.ColumnSpan="3">
+                            <DataGrid Name="listePlages" ItemsSource="{Binding lp1}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listePlages_SelectionChanged" Width="290" Grid.ColumnSpan="3">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Nom de la Plage" Binding="{Binding nomPlageProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding CommunePlageNameProperty, Mode=OneWay}" />
@@ -184,7 +184,7 @@
 
                         <Grid Margin="10">
                             <Label Content="liste Communes"></Label>
-                            <DataGrid Name="listeCommunes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunes_SelectionChanged" Width="310">
+                            <DataGrid Name="listeCommunes" ItemsSource="{Binding lp2}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunes_SelectionChanged" Width="310">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding nomCommuneProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="Code Postale" Binding="{Binding CodePostaleProperty, Mode=TwoWay}" />
@@ -249,8 +249,11 @@
                             </ComboBox>
                             <Label Content="Nom de l'etude :"></Label>
                             <TextBox Name="Titre" Height="20" Margin="0,0,0.300,0" />
-                            <Label Content="Date"></Label>
-                            
+                            <Label Content="Date création"></Label>
+                            <DatePicker  x:Name="dateCreationDatePicker" Height="29" Margin="0,0,0.6,0" />
+                            <Label Content="Date Fin"/>
+                            <DatePicker x:Name="dateFinDatePicker" Height="30" Margin="0,0,0.6,0" />
+
                             <Button x:Name="VlidePlage4" Content="Ajouter D'une Etude" MouseDoubleClick="nomPrenomButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="VlideEtude_Click" >
                                 <Button.Background>
                                     <RadialGradientBrush>
@@ -306,9 +309,9 @@
                 <TabItem Header="Espece">
                     <StackPanel>
                         <Grid Margin="10">
-                            <DataGrid Name="listeEspeces" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="252,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEspece_SelectionChanged" Width="307">
+                            <DataGrid Name="listeEspeces" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="252,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEspece_SelectionChanged" Width="103">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="nom" Binding="{Binding nomEspeceProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="Nom de l'espece " Binding="{Binding nomEspeceProperty, Mode=TwoWay}" />
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>

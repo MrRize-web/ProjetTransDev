@@ -8,23 +8,44 @@ namespace ProjetTransDev.Ctrl
         private int idEtude;
         private decimal NbPersonne;
         private string Titre;
+        public DateTime date_creation;
+        public DateTime date_fin;
         public PlageViewModel PlageEtude;
         //private string concat;
 
         public EtudeViewModel() { }
 
-        public EtudeViewModel(int id, decimal NbPersonne, PlageViewModel PlageEtude, string Titre)
+        public EtudeViewModel(int id, decimal NbPersonne, PlageViewModel PlageEtude, string Titre, DateTime date_creation, DateTime date_fin)
         {
             this.idEtude = id;
             this.NbPersonneEtudeProperty = NbPersonne;
             this.PlageEtude = PlageEtude;
             this.TitreEtudeProperty = Titre;
+            this.date_creation = date_creation;
+            this.date_fin = date_fin;
         }
         public int idEtudeProperty
         {
             get { return idEtude; }
         }
+        public DateTime dateCreationProperty
+        {
 
+            get { return date_creation; }
+            set
+            {
+                date_creation = value;
+            }
+        }
+
+        public DateTime dateFinProperty
+        {
+            get { return date_fin; }
+            set
+            {
+                date_fin = value;
+            }
+        }
 
         public Decimal NbPersonneEtudeProperty
         {

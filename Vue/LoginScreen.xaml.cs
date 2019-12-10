@@ -1,4 +1,5 @@
-﻿using ProjetTransDev.DAL;
+﻿using MySql.Data.MySqlClient;
+using ProjetTransDev.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,6 +24,7 @@ namespace ProjetTransDev.Vue
     /// </summary>
     public partial class LoginScreen : Window
     {
+        private static MySqlConnection connection;
         public LoginScreen()
         {
             InitializeComponent();
@@ -32,20 +34,19 @@ namespace ProjetTransDev.Vue
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\sqle2012; Initial Catalog=LoginDB; Integrated Security=True;");
+
+            DALConnection.OpenConnection();
             try
             {
-                if (sqlCon.State == ConnectionState.Closed)
+                if (DALConnection.OpenConnection().State == ConnectionState.Closed)
+                    DALConnection.OpenConnection();
+                String query = "SELECT COUNT(1) FROM users WHERE Identifiant=@Username AND MotDePasse=@Password";
+                MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Username", Identifiant.Text);
+                cmd.Parameters.AddWithValue("@Password", MotDePasse.Password);
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    sqlCon.Open();
-                String query = "SELECT COUNT(1) FROM tblUser WHERE Username=@Username AND Password=@Password";
-                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                sqlCmd.CommandType = CommandType.Text;
-
-                sqlCmd.Parameters.AddWithValue("@Username", Identifiant.Text);
-                sqlCmd.Parameters.AddWithValue("@Password", MotDePasse.Password);
-
-                int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
                 if (count == 1)
                 {
                     MainWindow dashboard = new MainWindow();
@@ -60,10 +61,6 @@ namespace ProjetTransDev.Vue
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                sqlCon.Close();
             }
         }
     }

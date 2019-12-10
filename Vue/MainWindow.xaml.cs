@@ -7,7 +7,6 @@ using ProjetTransDev.ORM;
 using ProjetTransDev.Ctrl;
 using ProjetTransDev.Ctrl.ProjetTransDev.Ctrl;
 using System;
-using Google.Protobuf.WellKnownTypes;
 
 namespace ProjetTransDev
 {
@@ -162,7 +161,7 @@ namespace ProjetTransDev
         {
             if ((listeDepartements.SelectedIndex < lp3.Count) && (listeDepartements.SelectedIndex >= 0))
             {
-                listeDepartements.Items.Refresh();
+                listeDepartementsCombo.ItemsSource = lp3;
                 listeCommunes.Items.Refresh();
                 listePlages.Items.Refresh();
                 listeDepartementsCombo.Items.Refresh();
@@ -176,7 +175,7 @@ namespace ProjetTransDev
             lp3.Remove(toRemove);
 
             DepartementORM.supprimerDepartement(selectedDepartementsId);
-            listeDepartements.Items.Refresh();
+            listeDepartementsCombo.ItemsSource = lp3;
             listeCommunes.Items.Refresh();
             listePlages.Items.Refresh();
             listeDepartementsCombo.Items.Refresh();
@@ -197,10 +196,11 @@ namespace ProjetTransDev
 
             CommuneORM.insertCommune(nouveau);
 
-            listeDepartements.Items.Refresh();
+            listeDepartementsCombo.ItemsSource = lp3;
             listeCommunes.Items.Refresh();
             listePlages.Items.Refresh();
             listeDepartementsCombo.Items.Refresh();
+            listeCommunes.ItemsSource = lp2;
             compteur = lp2.Count();
 
             ((TextBox)NomCommune).Text = string.Empty;
@@ -210,13 +210,17 @@ namespace ProjetTransDev
         }
         private void listeCommunes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((listeCommunes.SelectedIndex < lp3.Count) && (listeCommunes.SelectedIndex >= 0))
+          
+
+            if ((listeCommunes.SelectedIndex < lp2.Count) && (listeCommunes.SelectedIndex >= 0))
             {
-                selectedCommunesId = (lp2.ElementAt<CommuneViewModel>(listeCommunes.SelectedIndex)).idCommuneProperty;
-                listeDepartements.Items.Refresh();
+                listeDepartementsCombo.ItemsSource = lp3;
                 listeCommunes.Items.Refresh();
-                listeDepartementsCombo.Items.Refresh();
                 listePlages.Items.Refresh();
+                listeDepartementsCombo.Items.Refresh();
+
+                selectedCommunesId = (lp2.ElementAt<CommuneViewModel>(listeCommunes.SelectedIndex)).idCommuneProperty;
+            
             }
         }
         private void supprimerButton_MouseDoubleClick2(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -224,10 +228,10 @@ namespace ProjetTransDev
             CommuneViewModel toRemove = (CommuneViewModel)listeCommunes.SelectedItem;
             lp2.Remove(toRemove);
 
-            listeDepartements.Items.Refresh();
+            listeDepartementsCombo.ItemsSource = lp3;
             listeCommunes.Items.Refresh();
-            listeDepartementsCombo.Items.Refresh();
             listePlages.Items.Refresh();
+            listeDepartementsCombo.Items.Refresh();
 
             CommuneORM.supprimerCommune(selectedCommunesId);
             MessageBox.Show("Commune supprimée avec succes ! ");
@@ -250,6 +254,7 @@ namespace ProjetTransDev
             listeDepartements.Items.Refresh();
             listeCommunes.Items.Refresh();
             listeDepartementsCombo.Items.Refresh();
+            listePlages.ItemsSource = lp1;
             compteur = lp1.Count();
             ((TextBox)nomPlage).Text = string.Empty;
             ((TextBox)SuperficiePlage).Text = string.Empty;
@@ -261,10 +266,10 @@ namespace ProjetTransDev
             if ((listePlages.SelectedIndex < lp1.Count) && (listePlages.SelectedIndex >= 0))
             {
                 selectedPlagesId = (lp1.ElementAt<PlageViewModel>(listePlages.SelectedIndex)).idPlageProperty;
-                listeDepartements.Items.Refresh();
+                listeDepartementsCombo.ItemsSource = lp3;
                 listeCommunes.Items.Refresh();
-                listeDepartementsCombo.Items.Refresh();
                 listePlages.Items.Refresh();
+                listeDepartementsCombo.Items.Refresh();
             }
         }
         private void supprimerButton_MouseDoubleClick1(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -272,10 +277,10 @@ namespace ProjetTransDev
             PlageViewModel toRemove = (PlageViewModel)listePlages.SelectedItem;
             lp1.Remove(toRemove);
 
-            listeDepartements.Items.Refresh();
+            listeDepartementsCombo.ItemsSource = lp3;
             listeCommunes.Items.Refresh();
-            listeDepartementsCombo.Items.Refresh();
             listePlages.Items.Refresh();
+            listeDepartementsCombo.Items.Refresh();
 
             PlageORM.supprimerPlage(selectedPlagesId);
             MessageBox.Show("Plage supprimée avec succes ! ");
@@ -290,14 +295,14 @@ namespace ProjetTransDev
             //myDataObject4.NbPersonneEtudeProperty = NbPersonne.SelectedValue.ToString();
             myDataObject4.PlageEtude = (PlageViewModel)listePlagesCombo.SelectedItem;
             myDataObject4.TitreEtudeProperty = Titre.Text;
-            EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject4.NbPersonneEtudeProperty, myDataObject4.PlageEtudeProperty, myDataObject4.TitreEtudeProperty);
+            EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject4.NbPersonneEtudeProperty, myDataObject4.PlageEtudeProperty, myDataObject4.TitreEtudeProperty, myDataObject4.dateCreationProperty, myDataObject4.dateFinProperty);
             lp4.Add(nouveau);
             EtudeORM.insertEtude(nouveau);
 
-            listeDepartements.Items.Refresh();
+            listeDepartementsCombo.ItemsSource = lp3;
             listeCommunes.Items.Refresh();
-            listeDepartementsCombo.Items.Refresh();
             listePlages.Items.Refresh();
+            listeDepartementsCombo.Items.Refresh();
 
             compteur = lp4.Count();
 
@@ -317,10 +322,10 @@ namespace ProjetTransDev
             EtudeViewModel toRemove = (EtudeViewModel)listeEtudes.SelectedItem;
             lp4.Remove(toRemove);
 
-            listeDepartements.Items.Refresh();
+            listeDepartementsCombo.ItemsSource = lp3;
             listeCommunes.Items.Refresh();
-            listeDepartementsCombo.Items.Refresh();
             listePlages.Items.Refresh();
+            listeDepartementsCombo.Items.Refresh();
 
             EtudeORM.supprimerEtude(selectedEtudeId);
 
@@ -336,7 +341,9 @@ namespace ProjetTransDev
             EspeceViewModel nouveau = new EspeceViewModel(myDataObject5.idEspeceProperty, myDataObject5.nomEspeceProperty);
             lp5.Add(nouveau);
             EspeceORM.insertEspece(nouveau);
-            listeEspeces.Items.Refresh();
+            listeDepartementsCombo.ItemsSource = lp3;
+            listeCommunes.Items.Refresh();
+            listePlages.Items.Refresh();
             listeDepartementsCombo.Items.Refresh();
             compteur = lp5.Count();
             ((TextBox)nomEspece).Text = string.Empty;

@@ -14,13 +14,17 @@ namespace ProjetTransDev.DAO
         public Decimal NbPersonneEtudeDAO;
         public int PlageEtudeDAO;
         public string TitreEtudeEtudeDAO;
+        public DateTime dateCreationDAO;
+        public DateTime dateFinDAO;
 
-        public EtudeDAO(int idEtudeDAO, Decimal NbPersonneEtudeDAO, int PlageEtudeDAO, string TitreEtudeEtudeDAO)
+        public EtudeDAO(int idEtudeDAO, Decimal NbPersonneEtudeDAO, int PlageEtudeDAO, string TitreEtudeEtudeDAO, DateTime dateCreationDAO, DateTime dateFinDAO)
         {
             this.idEtudeDAO = idEtudeDAO;
             this.NbPersonneEtudeDAO = NbPersonneEtudeDAO;
             this.PlageEtudeDAO = PlageEtudeDAO;
             this.TitreEtudeEtudeDAO = TitreEtudeEtudeDAO;
+            this.dateCreationDAO = dateCreationDAO;
+            this.dateFinDAO = dateFinDAO;
         }
 
         public static ObservableCollection<EtudeDAO> listeEtudes()

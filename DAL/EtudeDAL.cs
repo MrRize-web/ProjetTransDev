@@ -28,7 +28,7 @@ namespace ProjetTransDev.DAL
 
                 while (reader.Read())
                 {
-                    DAO.EtudeDAO p = new DAO.EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetString(3));
+                    DAO.EtudeDAO p = new DAO.EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetString(3), reader.GetDateTime(4), reader.GetDateTime(5));
                     l.Add(p);
                 }
                 reader.Close();
@@ -42,7 +42,7 @@ namespace ProjetTransDev.DAL
 
         public static void updateEtude(DAO.EtudeDAO p)
         {
-            string query = "UPDATE Etude set Titre=\"" + p.TitreEtudeEtudeDAO + "\",NbPersonne=\"" + p.NbPersonneEtudeDAO + "\",NbPlage=\"" + p.PlageEtudeDAO + "\"  where idEtude=" + p.idEtudeDAO + ";";
+            string query = "UPDATE Etude set Titre=\"" + p.TitreEtudeEtudeDAO + "\",NbPersonne=\"" + p.NbPersonneEtudeDAO + "\",NbPlage=\"" + p.PlageEtudeDAO + "\",dateCreation=\"" + p.dateCreationDAO + "\", dateFin=\"" + p.dateFinDAO + "\"  where idEtude=" + p.idEtudeDAO + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
@@ -50,7 +50,7 @@ namespace ProjetTransDev.DAL
         public static void insertEtude(DAO.EtudeDAO p)
         {
             int id = getMaxIdEtude() + 1;
-            string query = "INSERT INTO Etude VALUES (\"" + id + "\",\"" + p.NbPersonneEtudeDAO + "\",\"" + p.PlageEtudeDAO + "\",\"" + p.TitreEtudeEtudeDAO + "\");";
+            string query = "INSERT INTO Etude VALUES (\"" + id + "\",\"" + p.NbPersonneEtudeDAO + "\",\"" + p.PlageEtudeDAO + "\",\"" + p.TitreEtudeEtudeDAO + "\",\"" + p.dateCreationDAO + "\",\"" + p.dateFinDAO + "\");";
             MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
@@ -85,11 +85,11 @@ namespace ProjetTransDev.DAL
             EtudeDAO com;
             if (reader.HasRows)
             {
-                com = new EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetString(3));
+                com = new EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetString(3), reader.GetDateTime(4), reader.GetDateTime(5));
             }
             else
             {
-                com = new EtudeDAO(1, 0,1 , "Mauvaise superficie d'etude");
+                com = new EtudeDAO(1, 0, 1 , "Mauvaise superficie d'etude", DateTime.Now, DateTime.Now);
             }
             reader.Close();
             return com;
