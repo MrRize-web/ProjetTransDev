@@ -7,16 +7,17 @@ namespace ProjetTransDev.Ctrl
 
     public class DepartementViewModel : INotifyPropertyChanged
             {
-           
+                private string CodePostale;
                 private string nomDepartement;
                 private int idDepartement;
                 public DepartementViewModel() { }
 
-                public DepartementViewModel(int id, string nom)
+                public DepartementViewModel(int id, string nom, string CodePostale)
                 {
                     this.idDepartement = id;
                     this.nomDepartementProperty = nom;
-                }
+                    this.CodePostalePropertie = CodePostale;
+                 }
                 public int idDepartementProperty
                 {
                     get { return idDepartement; }
@@ -39,9 +40,18 @@ namespace ProjetTransDev.Ctrl
 
                 }
 
+        public String CodePostalePropertie
+        {
+            get { return CodePostale; }
+            set
+            {
+                CodePostale = value;
+                OnPropertyChanged("CodePostaleProperty");
+            }
 
+        }
 
-                public String concatProperty
+        public String concatProperty
                 {
                     get { return ""; }
                     set

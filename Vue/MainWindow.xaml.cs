@@ -143,8 +143,8 @@ namespace ProjetTransDev
         {
             myDataObject3 = new DepartementViewModel();
             myDataObject3.nomDepartementProperty = NomDepartement.Text;
-
-            DepartementViewModel nouveau = new DepartementViewModel(DepartementDAL.getMaxIdDepartement() + 1, myDataObject3.nomDepartementProperty);
+            myDataObject3.CodePostalePropertie = CodePostaleDep.Text;
+            DepartementViewModel nouveau = new DepartementViewModel(DepartementDAL.getMaxIdDepartement() + 1, myDataObject3.nomDepartementProperty,myDataObject3.CodePostalePropertie);
             lp3.Add(nouveau);
             DepartementORM.insertDepartement(nouveau);
 
@@ -166,7 +166,6 @@ namespace ProjetTransDev
                 listeCommunes.Items.Refresh();
                 listePlages.Items.Refresh();
                 listeDepartementsCombo.Items.Refresh();
-                compteur = lp2.Count();
                 selectedDepartementsId = (lp3.ElementAt<DepartementViewModel>(listeDepartements.SelectedIndex)).idDepartementProperty;
            
             }

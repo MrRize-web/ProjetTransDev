@@ -12,13 +12,14 @@ namespace ProjetTransDev.ORM
     {
         public int idDepartementDAO;
         public string nomDepartementDAO;
+        public string CodePostaleDAO;
         public string departementDepartementDAO;
     
-        public DepartementDAO(int idDepartementDAO, string nomDepartementDAO)
+        public DepartementDAO(int idDepartementDAO, string nomDepartementDAO, string CodePostaleDAO)
         {
             this.idDepartementDAO = idDepartementDAO;
             this.nomDepartementDAO = nomDepartementDAO;
-
+            this.CodePostaleDAO = CodePostaleDAO;
         }
 
         public static ObservableCollection<DepartementDAO> listeDepartements()

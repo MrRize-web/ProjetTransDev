@@ -29,10 +29,10 @@
                             <TextBox Name="AdresseMailUsers" Height="20" Margin="0,0,0.300,0" />
                             <Label Content="Identifiant :"></Label>
                             <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
-                            <TextBox Name="Identifiant" Height="20" Margin="0,0,0.300,0" />
+                            <TextBox Name="Identifiant" Height="20" Margin="0,0,0.300,0"/>
                             <Label Content="Mot De Passe :"></Label>
                             <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
-                            <PasswordBox Name="MotDePasse" Height="20" Margin="0,0,0.300,0" />
+                            <PasswordBox Name="MotDePasse" Height="20" Margin="0,0,0.300,0"/>
                             <Label Content="Administrateur :"></Label>
                             <CheckBox Name="administrateurUsers" Margin="0,0,0.300,0" />
                             <Button x:Name="nomPrenomButton" Content="Ajouter un User"  MouseDoubleClick="nomPrenomButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="52" Margin="0,5,206.8,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31">
@@ -140,8 +140,9 @@
                                 </Button.Background>
                             </Button>
                             <Label Content="Nom du département :"/>
-
                             <TextBox Name="NomDepartement" Height="25" Margin="0,0,0.4,0"/>
+                            <Label Content="Code Postale :"/>
+                            <TextBox Name="CodePostaleDep" Height="25" Margin="0,0,0.4,0"/>
                             <Button x:Name="VlideDepartement" Content="Ajouter un Département" MouseDoubleClick="nomPrenomButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.521,2.714" Click="VlideDepartement_Click">
                                 <Button.Background>
                                     <RadialGradientBrush>
@@ -163,7 +164,7 @@
                                 <ColumnDefinition Width="529*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="liste Plages" Grid.ColumnSpan="3" Margin="0,0,-0.4,-0.4"></Label>
-                            <DataGrid Name="listePlages" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listePlages_SelectionChanged" Width="180" Grid.ColumnSpan="3">
+                            <DataGrid Name="listePlages" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listePlages_SelectionChanged" Width="290" Grid.ColumnSpan="3">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Nom de la Plage" Binding="{Binding nomPlageProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding CommunePlageNameProperty, Mode=OneWay}" />
@@ -183,7 +184,7 @@
 
                         <Grid Margin="10">
                             <Label Content="liste Communes"></Label>
-                            <DataGrid Name="listeCommunes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunes_SelectionChanged" Width="215">
+                            <DataGrid Name="listeCommunes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunes_SelectionChanged" Width="310">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding nomCommuneProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="Code Postale" Binding="{Binding CodePostaleProperty, Mode=TwoWay}" />
@@ -204,17 +205,10 @@
 
                         <Grid Margin="10">
                             <Label Content="liste Departements"></Label>
-                            <DataGrid Name="listeDepartements" ItemsSource="{Binding lp3}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeDepartements_SelectionChanged" Width="95">
-                                <DataGrid.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform Angle="-1.293"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </DataGrid.RenderTransform>
+                            <DataGrid Name="listeDepartements" ItemsSource="{Binding lp3}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeDepartements_SelectionChanged" Width="210">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="nom" Binding="{Binding nomDepartementProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="Nom du Departement" Binding="{Binding nomDepartementProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="Code Postale" Binding="{Binding CodePostalePropertie, Mode=TwoWay}" />
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
@@ -255,6 +249,8 @@
                             </ComboBox>
                             <Label Content="Nom de l'etude :"></Label>
                             <TextBox Name="Titre" Height="20" Margin="0,0,0.300,0" />
+                            <Label Content="Date"></Label>
+                            
                             <Button x:Name="VlidePlage4" Content="Ajouter D'une Etude" MouseDoubleClick="nomPrenomButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="VlideEtude_Click" >
                                 <Button.Background>
                                     <RadialGradientBrush>

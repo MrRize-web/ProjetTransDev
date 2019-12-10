@@ -10,7 +10,7 @@ namespace ProjetTransDev.ORM
         public static DepartementViewModel getDepartement(int idDepartement)
         {
             DepartementDAO pDAO = DepartementDAO.getDepartement(idDepartement);
-            DepartementViewModel p = new DepartementViewModel(pDAO.idDepartementDAO, pDAO.nomDepartementDAO);
+            DepartementViewModel p = new DepartementViewModel(pDAO.idDepartementDAO, pDAO.nomDepartementDAO, pDAO.CodePostaleDAO);
             return p;
         }
         internal static DepartementViewModel getDepartement(object idDepartement)
@@ -24,7 +24,7 @@ namespace ProjetTransDev.ORM
             ObservableCollection<DepartementViewModel> l = new ObservableCollection<DepartementViewModel>();
             foreach (DepartementDAO element in lDAO)
             {
-                DepartementViewModel p = new DepartementViewModel(element.idDepartementDAO, element.nomDepartementDAO);
+                DepartementViewModel p = new DepartementViewModel(element.idDepartementDAO, element.nomDepartementDAO, element.CodePostaleDAO);
                 l.Add(p);
             }
             return l;
@@ -32,7 +32,7 @@ namespace ProjetTransDev.ORM
 
         public static void updateDepartement(DepartementViewModel p)
         {
-            DepartementDAO.updateDepartement(new DepartementDAO(p.idDepartementProperty, p.nomDepartementProperty));
+            DepartementDAO.updateDepartement(new DepartementDAO(p.idDepartementProperty, p.nomDepartementProperty,p.CodePostalePropertie));
         }
 
         public static void supprimerDepartement(int id)
@@ -41,7 +41,7 @@ namespace ProjetTransDev.ORM
         }
         public static void insertDepartement(DepartementViewModel p)
         {
-            DepartementDAO.insertDepartement(new DepartementDAO(p.idDepartementProperty, p.nomDepartementProperty));
+            DepartementDAO.insertDepartement(new DepartementDAO(p.idDepartementProperty, p.nomDepartementProperty, p.CodePostalePropertie));
         }
 
     }

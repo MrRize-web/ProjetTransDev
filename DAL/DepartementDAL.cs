@@ -27,7 +27,7 @@ namespace ProjetTransDev.DAL
 
                     while (reader.Read())
                     {
-                    DepartementDAO p = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+                    DepartementDAO p = new DepartementDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
                         l.Add(p);
                     }
                     reader.Close();
@@ -41,7 +41,7 @@ namespace ProjetTransDev.DAL
 
             public static void updateDepartement(DepartementDAO p)
             {
-                string query = "UPDATE departement set Nom=\"" + p.nomDepartementDAO + "\" where Departement=" + p.idDepartementDAO + ";";
+                string query = "UPDATE departement set Nom=\"" + p.nomDepartementDAO + "\",CodePostale=\"" + p.CodePostaleDAO + "\" where Departement=" + p.idDepartementDAO + ";";
                 MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
                 cmd.ExecuteNonQuery();
@@ -49,7 +49,7 @@ namespace ProjetTransDev.DAL
             public static void insertDepartement(DepartementDAO p)
             {
                 int id = getMaxIdDepartement() + 1;
-                string query = "INSERT INTO departement VALUES (\"" + id + "\",\"" + p.nomDepartementDAO + "\");";
+                string query = "INSERT INTO departement VALUES (\"" + id + "\",\"" + p.nomDepartementDAO + "\",\"" + p.CodePostaleDAO + "\");";
                 MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
                 cmd2.ExecuteNonQuery();
@@ -84,11 +84,11 @@ namespace ProjetTransDev.DAL
             DepartementDAO com;
             if (reader.HasRows)
             {
-                com = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+                com = new DepartementDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
             }
             else
             {
-                com = new DepartementDAO(1, "Mauvais Num Commune");
+                com = new DepartementDAO(1, "Mauvais Nom Departement", "Mauvais Code Postale");
             }
             reader.Close();
             return com;
