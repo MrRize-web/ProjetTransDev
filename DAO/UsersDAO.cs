@@ -36,7 +36,16 @@ namespace ProjetTransDev.ORM
             UsersDAO p = UsersDAL.getUsers(idUsers);
             return p;
         }
-      
+        public static UsersDAO getUsersIdentifiant(string identifiantUsers)
+        {
+          UsersDAO p = UsersDAL.getUsersIdentifiant(identifiantUsers);
+            return p;
+        }
+        public static UsersDAO getUsersMotdePasse(string motDePasseUsers)
+        {
+            UsersDAO p = UsersDAL.getUsersMotdePasse(motDePasseUsers);
+            return p;
+        }
 
         public static void updateUsers(UsersDAO p)
         {

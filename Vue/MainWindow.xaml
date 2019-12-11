@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Ifrocean" Height="600" Width="800">
 
+<!-- 
     <DockPanel>
         <StackPanel>
             <TabControl Margin="0,0,0,0" Height="575" Width="779">
@@ -19,19 +20,19 @@
                         <StackPanel Grid.ColumnSpan="2" Margin="0,0,-0.4,-59">
 
                             <Label Content="Nom :"></Label>
-                            <!--            <TextBox Name="nomTextBox" TextChanged="nomChanged"/> -->
+                                 
                             <TextBox Name="nomUsers" Height="20"/>
                             <Label Content="Prenom :"></Label>
-                            <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
+                          
                             <TextBox Name="prenomUsers" Height="20" Margin="0,0,0.300,0" />
                             <Label Content="Adresse Mail :"></Label>
-                            <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
+                           
                             <TextBox Name="AdresseMailUsers" Height="20" Margin="0,0,0.300,0" />
                             <Label Content="Identifiant :"></Label>
-                            <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
+                           
                             <TextBox Name="Identifiant" Height="20" Margin="0,0,0.300,0"/>
                             <Label Content="Mot De Passe :"></Label>
-                            <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
+                           
                             <PasswordBox Name="MotDePasse" Height="20" Margin="0,0,0.300,0"/>
                             <Label Content="Administrateur :"></Label>
                             <CheckBox Name="administrateurUsers" Margin="0,0,0.300,0" />
@@ -127,7 +128,7 @@
                                       ItemsSource="{Binding}" 
                                       SelectedItem="{Binding idDepartementProperty}"
                                       SelectionChanged="listeDepartements_SelectionChanged">
-                                <!--<ComboBoxItem Selected="{Binding nomDepartementProperty}"/>-->
+                           
                             </ComboBox>
 
                             <Button x:Name="VlideCommune" Content="Ajouter une Commune" MouseDoubleClick="nomPrenomButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="VlideCommune_Click">
@@ -189,7 +190,7 @@
                                     <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding nomCommuneProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="Code Postale" Binding="{Binding CodePostaleProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="Nom Departement" Binding="{Binding DepartementCommuneNameProperty, Mode=OneWay}" />
-                                    <!--<DataGridTextColumn Header="Nom de la Departement" Binding="{Binding DepartementCommuneProperty, Mode=TwoWay}" />-->
+                                   
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
@@ -287,8 +288,8 @@
                             </Button.Background>
                         </Button>
                     </StackPanel>
-
                 </TabItem>
+                
                 <TabItem Header="Ajouter d'une Espece">
                     <Grid Name ="grigrid3" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                         <StackPanel>
@@ -329,6 +330,5 @@
                 </TabItem>
             </TabControl>
         </StackPanel>
-    </DockPanel>
-
+    </DockPanel>  -->
 </Window>

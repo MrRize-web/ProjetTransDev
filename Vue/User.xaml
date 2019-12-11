@@ -1,0 +1,98 @@
+﻿<Page x:Class="ProjetTransDev.Vue.User"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjetTransDev.Vue"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="User">
+
+    <StackPanel>
+        <TabControl Margin="10,0" Height="450" Width="779">
+            <TabItem Header="Ajouter un User">
+                <Grid Name ="grigrid" Height="375" Margin="0,0,0.6,0" VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="367*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.ColumnSpan="2" Margin="0,0,-0.4,-59">
+
+                        <Label Content="Nom :"></Label>
+                        <!--            <TextBox Name="nomTextBox" TextChanged="nomChanged"/> -->
+                        <TextBox Name="nomUsers" Height="20"/>
+                        <Label Content="Prenom :"></Label>
+                        <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
+                        <TextBox Name="prenomUsers" Height="20" Margin="0,0,0.300,0" />
+                        <Label Content="Adresse Mail :"></Label>
+                        <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
+                        <TextBox Name="AdresseMailUsers" Height="20" Margin="0,0,0.300,0" />
+                        <Label Content="Identifiant :"></Label>
+                        <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
+                        <TextBox Name="Identifiant" Height="20" Margin="0,0,0.300,0"/>
+                        <Label Content="Mot De Passe :"></Label>
+                        <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
+                        <PasswordBox Name="MotDePasse" Height="20" Margin="0,0,0.300,0"/>
+                        <Label Content="Administrateur :"></Label>
+                        <CheckBox Name="administrateurUsers" Margin="0,0,0.300,0" />
+                        <Button x:Name="nomPrenomButton" Content="Ajouter un User"  MouseDoubleClick="nomPrenomButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="52" Margin="0,5,206.8,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31">
+                            <Button.Background>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#FFF26A66" Offset="0.279"/>
+                                    <GradientStop Color="#FFFFE10A" Offset="0.779"/>
+                                    <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                                </RadialGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31">
+                            <Button.Background>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#FFF26A66" Offset="0.279"/>
+                                    <GradientStop Color="#FFFFE10A" Offset="0.779"/>
+                                    <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                                </RadialGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Liste des users">
+                <StackPanel>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="203*"/>
+                            <ColumnDefinition Width="35*"/>
+                            <ColumnDefinition Width="516*"/>
+                        </Grid.ColumnDefinitions>
+                        <DataGrid Name="listeUsers" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="14.4,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUsers_SelectionChanged" Width="307" Grid.Column="2">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="nom" Binding="{Binding nomUsersProperty, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="prénom" Binding="{Binding prenomUsersProperty, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Role" Binding="{Binding administrateurUsersProperty, Mode=TwoWay}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                    <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200">
+                        <Button.Background>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#FFF26A66" Offset="0.279"/>
+                                <GradientStop Color="#FFFFE10A" Offset="0.779"/>
+                                <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                            </RadialGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31">
+                        <Button.Background>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#FFF26A66" Offset="0.279"/>
+                                <GradientStop Color="#FFFFE10A" Offset="0.779"/>
+                                <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                            </RadialGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Page>

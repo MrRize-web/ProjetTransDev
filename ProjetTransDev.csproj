@@ -75,7 +75,57 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Vue\LoginScreen.xaml">
+    <Compile Include="Vue\Commune.xaml.cs">
+      <DependentUpon>Commune.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Deconnexion.xaml.cs">
+      <DependentUpon>Deconnexion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Departement.xaml.cs">
+      <DependentUpon>Departement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Espece.xaml.cs">
+      <DependentUpon>Espece.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Etude.xaml.cs">
+      <DependentUpon>Etude.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\MauvaisLogin.xaml.cs">
+      <DependentUpon>MauvaisLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\MenuSelection.xaml.cs">
+      <DependentUpon>MenuSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Plage.xaml.cs">
+      <DependentUpon>Plage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\User.xaml.cs">
+      <DependentUpon>User.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Vue\Commune.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Deconnexion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Departement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Espece.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Etude.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,13 +162,26 @@
     <Compile Include="ORM\EtudeORM.cs" />
     <Compile Include="ORM\PlageORM.cs" />
     <Compile Include="ORM\UsersORM.cs" />
-    <Compile Include="Vue\LoginScreen.xaml.cs">
-      <DependentUpon>LoginScreen.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vue\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vue\MauvaisLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\MenuSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Plage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -13,6 +13,18 @@ namespace ProjetTransDev.ORM
             UsersViewModel p = new UsersViewModel(pDAO.idUsersDAO, pDAO.nomUsersDAO, pDAO.prenomUsersDAO, pDAO.identifiantUsersDAO, pDAO.adresseMailUsersDAO, pDAO.motDePasseUsersDAO, pDAO.administrateurUsersDAO);
             return p;
         }
+        public static UsersViewModel getUsersIdentifiant(string identifiantUsers)
+        {
+            UsersDAO pDAO = UsersDAO.getUsersIdentifiant(identifiantUsers);
+            UsersViewModel p = new UsersViewModel(pDAO.idUsersDAO, pDAO.nomUsersDAO, pDAO.prenomUsersDAO, pDAO.identifiantUsersDAO, pDAO.adresseMailUsersDAO, pDAO.motDePasseUsersDAO, pDAO.administrateurUsersDAO);
+            return p;
+        }
+        public static UsersViewModel getUsersMotdePasse(string motDePasseUsers)
+        {
+            UsersDAO pDAO = UsersDAO.getUsersMotdePasse(motDePasseUsers);
+            UsersViewModel p = new UsersViewModel(pDAO.idUsersDAO, pDAO.nomUsersDAO, pDAO.prenomUsersDAO, pDAO.identifiantUsersDAO, pDAO.adresseMailUsersDAO, pDAO.motDePasseUsersDAO, pDAO.administrateurUsersDAO);
+            return p;
+        }
 
         public static ObservableCollection<UsersViewModel> listeUserss()
         {

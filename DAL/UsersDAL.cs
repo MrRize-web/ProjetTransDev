@@ -64,7 +64,7 @@ namespace ProjetTransDev.DAL
  
         public static UsersDAO getUsers(int idUsers)
         {
-            string query = "SELECT * FROM Users WHERE id=" + idUsers + ";";
+            string query = "SELECT * FROM users WHERE id=" + idUsers + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -72,6 +72,44 @@ namespace ProjetTransDev.DAL
             UsersDAO pers = new UsersDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetByte(6));
             reader.Close();
             return pers;
+        }
+        public static UsersDAO getUsersIdentifiant(string identifiantUsers)
+        {
+            string query = "SELECT * FROM users WHERE Identifiant=\"" + identifiantUsers + "\";";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+            cmd.ExecuteNonQuery();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            UsersDAO user;
+            if (reader.HasRows)
+            {
+                user = new UsersDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetByte(6));
+            }
+            else
+            {
+                user = new UsersDAO(1, "Name", "First Name", "Identifiant", "@Mail", "MDP",0);
+            }
+            reader.Close();
+            return user;
+        }
+        public static UsersDAO getUsersMotdePasse(string motDePasseUsers)
+        {
+            string query = "SELECT * FROM users WHERE MotDePasse=\"" + motDePasseUsers + "\";";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+            cmd.ExecuteNonQuery();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            UsersDAO user;
+            if (reader.HasRows)
+            {
+                user = new UsersDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetByte(6));
+            }
+            else
+            {
+                user = new UsersDAO(1, "Name", "First Name", "Identifiant", "@Mail", "MDP", 0);
+            }
+            reader.Close();
+            return user;
         }
     }
 }
