@@ -9,7 +9,8 @@
       Title="User">
 
     <StackPanel>
-        <TabControl Margin="10,0" Height="450" Width="779">
+        <TabControl Margin="10,0" Height="450" Width="779" SelectionChanged="TabControl_SelectionChanged" Background="DarkCyan">
+
             <TabItem Header="Ajouter un User">
                 <Grid Name ="grigrid" Height="375" Margin="0,0,0.6,0" VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
@@ -35,21 +36,19 @@
                         <PasswordBox Name="MotDePasse" Height="20" Margin="0,0,0.300,0"/>
                         <Label Content="Administrateur :"></Label>
                         <CheckBox Name="administrateurUsers" Margin="0,0,0.300,0" />
-                        <Button x:Name="nomPrenomButton" Content="Ajouter un User"  MouseDoubleClick="nomPrenomButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="52" Margin="0,5,206.8,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31">
+                        <Button x:Name="nomPrenomButton" Content="Ajouter un User"  MouseDoubleClick="nomPrenomButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="52" Margin="0,5,206.8,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="nomPrenomButton_Click">
                             <Button.Background>
                                 <RadialGradientBrush>
-                                    <GradientStop Color="#FFF26A66" Offset="0.279"/>
-                                    <GradientStop Color="#FFFFE10A" Offset="0.779"/>
-                                    <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                                    <GradientStop Color="ForestGreen" Offset="0.279"/>
+                                    <GradientStop Color="Green" Offset="0.779"/>
                                 </RadialGradientBrush>
                             </Button.Background>
                         </Button>
-                        <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31">
+                        <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,40,30,80" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                             <Button.Background>
                                 <RadialGradientBrush>
-                                    <GradientStop Color="#FFF26A66" Offset="0.279"/>
-                                    <GradientStop Color="#FFFFE10A" Offset="0.779"/>
-                                    <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                                    <GradientStop Offset="0.0" Color="LightBlue" />
+                                    <GradientStop Offset="1.0" Color="Gray" />
                                 </RadialGradientBrush>
                             </Button.Background>
                         </Button>
@@ -59,13 +58,13 @@
 
             <TabItem Header="Liste des users">
                 <StackPanel>
-                    <Grid Margin="10">
+                    <Grid Margin="10,10,9.6,10" Height="204">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="203*"/>
                             <ColumnDefinition Width="35*"/>
                             <ColumnDefinition Width="516*"/>
                         </Grid.ColumnDefinitions>
-                        <DataGrid Name="listeUsers" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="14.4,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUsers_SelectionChanged" Width="307" Grid.Column="2">
+                        <DataGrid Name="listeUsers" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="14.6,0,0,0" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUsers_SelectionChanged" Width="307" Grid.Column="2">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="nom" Binding="{Binding nomUsersProperty, Mode=TwoWay}" />
                                 <DataGridTextColumn Header="prénom" Binding="{Binding prenomUsersProperty, Mode=TwoWay}" />
@@ -76,18 +75,15 @@
                     <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200">
                         <Button.Background>
                             <RadialGradientBrush>
-                                <GradientStop Color="#FFF26A66" Offset="0.279"/>
-                                <GradientStop Color="#FFFFE10A" Offset="0.779"/>
-                                <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                                <GradientStop Color="Red" Offset="0.279"/>
                             </RadialGradientBrush>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31">
+                    <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="624,100,0,50" HorizontalAlignment="Left" Width="100" RenderTransformOrigin="0.5,2.31" >
                         <Button.Background>
                             <RadialGradientBrush>
-                                <GradientStop Color="#FFF26A66" Offset="0.279"/>
-                                <GradientStop Color="#FFFFE10A" Offset="0.779"/>
-                                <GradientStop Color="#FFD3B220" Offset="0.986"/>
+                                <GradientStop Offset="0.0" Color="LightBlue" />
+                                <GradientStop Offset="1.0" Color="Gray" />
                             </RadialGradientBrush>
                         </Button.Background>
                     </Button>

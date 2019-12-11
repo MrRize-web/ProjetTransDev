@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
          Background="Aqua"
       Title="Espece">
-    <TabControl>
+    <TabControl Margin="10,0" Height="450" Width="779" SelectionChanged="TabControl_SelectionChanged" Background="DarkCyan">
         <TabItem Header="Ajouter d'une Espece">
         <Grid Name ="grigrid3" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
             <StackPanel>
@@ -35,8 +35,8 @@
     </TabItem>
     <TabItem Header="Espece">
         <StackPanel>
-            <Grid Margin="10">
-                <DataGrid Name="listeEspeces" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="252,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEspece_SelectionChanged" Width="103">
+                <Grid  Margin="10,10,9.6,10" Height="204">
+                <DataGrid Name="listeEspeces" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="252,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEspece_SelectionChanged" Width="110">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Nom de l'espece " Binding="{Binding nomEspeceProperty, Mode=TwoWay}" />
                     </DataGrid.Columns>
@@ -49,7 +49,7 @@
                         </RadialGradientBrush>
                 </Button.Background>
             </Button>
-                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,200,50,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,110,25.6,0" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Offset="0.0" Color="LightBlue" />

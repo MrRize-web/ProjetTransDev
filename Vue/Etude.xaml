@@ -8,47 +8,47 @@
       d:DesignHeight="450" d:DesignWidth="800"
          Background="Aqua"
       Title="Etude">
-    <TabControl>
-    <TabItem Header="Ajouter d'une Etude">
-        <Grid Name ="grigrid2" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
-            <StackPanel Margin="0,0,0.1,-124">
-                <Label Content="Nombre de Personne :"></Label>
-                <ComboBox Name="NbPersonne" Height="20" >
-                    <ComboBoxItem>1</ComboBoxItem>
-                    <ComboBoxItem>2</ComboBoxItem>
-                    <ComboBoxItem>3</ComboBoxItem>
-                    <ComboBoxItem>4</ComboBoxItem>
-                    <ComboBoxItem>5</ComboBoxItem>
-                    <ComboBoxItem>6</ComboBoxItem>
-                    <ComboBoxItem>7</ComboBoxItem>
-                    <ComboBoxItem>8</ComboBoxItem>
-                    <ComboBoxItem>9</ComboBoxItem>
-                    <ComboBoxItem>10</ComboBoxItem>
-                </ComboBox>
+    <TabControl Margin="10,0" Height="450" Width="779" SelectionChanged="TabControl_SelectionChanged" Background="DarkCyan">
+        <TabItem Header="Ajouter d'une Etude">
+            <Grid Name ="grigrid2" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
+                <StackPanel Margin="0,0,0.1,-124">
+                    <Label Content="Nombre de Personne :"></Label>
+                    <ComboBox Name="NbPersonne" Height="20" >
+                        <ComboBoxItem>1</ComboBoxItem>
+                        <ComboBoxItem>2</ComboBoxItem>
+                        <ComboBoxItem>3</ComboBoxItem>
+                        <ComboBoxItem>4</ComboBoxItem>
+                        <ComboBoxItem>5</ComboBoxItem>
+                        <ComboBoxItem>6</ComboBoxItem>
+                        <ComboBoxItem>7</ComboBoxItem>
+                        <ComboBoxItem>8</ComboBoxItem>
+                        <ComboBoxItem>9</ComboBoxItem>
+                        <ComboBoxItem>10</ComboBoxItem>
+                    </ComboBox>
 
-                <Label Content="Plage :"/>
-                <ComboBox Name="listePlagesCombo"
+                    <Label Content="Plage :"/>
+                    <ComboBox Name="listePlagesCombo"
                                       DisplayMemberPath="nomPlageProperty" 
                                       ItemsSource="{Binding}" 
                                       SelectedItem="{Binding idPlageProperty}" 
                                      >
                         <!--  SelectionChanged="listePlages_SelectionChanged"-->
-                </ComboBox>
-                <Label Content="Nom de l'etude :"></Label>
-                <TextBox Name="Titre" Height="20" Margin="0,0,0.300,0" />
-                <Label Content="Date création"></Label>
-                <DatePicker  x:Name="dateCreationDatePicker" Height="29" Margin="0,0,0.6,0" />
-                <Label Content="Date Fin"/>
-                <DatePicker x:Name="dateFinDatePicker" Height="30" Margin="0,0,0.6,0" />
+                    </ComboBox>
+                    <Label Content="Nom de l'etude :"></Label>
+                    <TextBox Name="Titre" Height="20" Margin="0,0,0.300,0" />
+                    <Label Content="Date création"></Label>
+                    <DatePicker  x:Name="dateCreationDatePicker" Height="29" Margin="0,0,0.6,0" />
+                    <Label Content="Date Fin"/>
+                    <DatePicker x:Name="dateFinDatePicker" Height="30" Margin="0,0,0.6,0" />
 
-                <Button x:Name="VlideEtude" Content="Ajouter D'une Etude"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="VlideEtude_Click" >
-                    <Button.Background>
-                        <RadialGradientBrush>
+                    <Button x:Name="VlideEtude" Content="Ajouter D'une Etude"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="VlideEtude_Click" >
+                        <Button.Background>
+                            <RadialGradientBrush>
                                 <GradientStop Color="ForestGreen" Offset="0.279"/>
                                 <GradientStop Color="Green" Offset="0.779"/>
                             </RadialGradientBrush>
-                    </Button.Background>
-                </Button>
+                        </Button.Background>
+                    </Button>
                     <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,200,50,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                         <Button.Background>
                             <RadialGradientBrush>
@@ -58,27 +58,27 @@
                         </Button.Background>
                     </Button>
                 </StackPanel>
-        </Grid>
-    </TabItem>
-    <TabItem Header="Etude">
-        <StackPanel>
-            <Grid Margin="10">
-                <DataGrid Name="listeEtudes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="252,0,0,10.2" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunesCombo_SelectionChanged" Width="368">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Nom de la plage :" Binding="{Binding PlageEtudeNameProperty, Mode=OneWay}" />
-                        <DataGridTextColumn Header="Nombre de participant :" Binding="{Binding NbPersonneEtudeProperty, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="Tire de l'Etude :" Binding="{Binding TitreEtudeProperty, Mode=TwoWay}" />
-                    </DataGrid.Columns>
-                </DataGrid>
             </Grid>
-            <Button x:Name="supprimerButton4" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick4" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200">
-                <Button.Background>
-                    <RadialGradientBrush>
+        </TabItem>
+        <TabItem Header="Etude">
+            <StackPanel RenderTransformOrigin="0.494,0.485" Margin="0,0,-0.4,-3.4">
+                <Grid  Margin="10,10,9.6,10" Height="204">
+                    <DataGrid Name="listeEtudes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="184,5,0,0" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunesCombo_SelectionChanged" Width="368">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nom de la plage :" Binding="{Binding PlageEtudeNameProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nombre de participant :" Binding="{Binding NbPersonneEtudeProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Tire de l'Etude :" Binding="{Binding TitreEtudeProperty, Mode=TwoWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Button x:Name="supprimerButton4" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick4" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" Margin="287,0,286.6,0">
+                    <Button.Background>
+                        <RadialGradientBrush>
                             <GradientStop Color="Red" Offset="0.279"/>
                         </RadialGradientBrush>
-                </Button.Background>
-            </Button>
-                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,200,50,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,110,30.6,0" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Offset="0.0" Color="LightBlue" />

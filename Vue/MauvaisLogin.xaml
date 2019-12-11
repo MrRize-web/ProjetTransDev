@@ -10,8 +10,16 @@
       Title="MauvaisLogin">
     <Grid>
         <Image Source="D:\ProjetTrasnC#\ProjetTransDev\Images/BadLogin.jpg" Margin="40,85,500,81.6"/>
-        <Label Content="La Tentative de Connexion a échoué !!" HorizontalAlignment="Left" Margin="411,183,0,0" VerticalAlignment="Top" Height="32"/>
-        <Button Content="Retour" Click="redirectButton_LoginPage" HorizontalAlignment="Left" Margin="529,292,0,0" VerticalAlignment="Top" Width="161" Height="92"/>
+        <Label Content="La Tentative de Connexion a échoué !!" HorizontalAlignment="Left" Margin="411,183,0,0" VerticalAlignment="Top" Height="30" Width="210"/>
+
+        <Button Content="Retour" Click="redirectButton_LoginPage" HorizontalAlignment="Left" Margin="529,292,0,0" VerticalAlignment="Top" Width="161" Height="92">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Offset="0.0" Color="LightBlue" />
+                    <GradientStop Offset="1.0" Color="Gray" />
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 
 </Page>

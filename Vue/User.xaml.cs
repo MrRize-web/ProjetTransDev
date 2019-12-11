@@ -84,5 +84,15 @@ namespace ProjetTransDev.Vue
             Window pageAcceuil = Window.GetWindow(this);
             pageAcceuil.Content = new MenuSelection();
         }
+
+        private void nomPrenomButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

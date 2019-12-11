@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ProjetTransDev.Vue"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-         Background="DodgerBlue"
+       Margin="10,0" Height="450" Width="779" Background="DarkCyan"
       Title="MenuSelection">
     <Grid>
         <Button x:Name="btnCommune" Content="Communes" Click="ouvrirCommune" Margin="0,180,430,189.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >

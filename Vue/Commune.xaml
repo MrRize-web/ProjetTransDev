@@ -9,7 +9,7 @@
       Background="Aqua"
       Title="Commune">
 
-    <TabControl>
+    <TabControl Margin="10,0" Height="450" Width="779" SelectionChanged="TabControl_SelectionChanged" Background="DarkCyan">
         <TabItem Header="Ajouter une Plage">
             <Grid Name ="grigrid1" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
@@ -41,7 +41,7 @@
                             </RadialGradientBrush>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,200,50,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                    <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,190,25,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                         <Button.Background>
                             <RadialGradientBrush>
                                 <GradientStop Offset="0.0" Color="LightBlue" />
@@ -55,7 +55,7 @@
 
         <TabItem Header="Liste Communes">
             <StackPanel>
-                <Grid Margin="10">
+                <Grid Margin="10,10,9.6,10" Height="204">
                     <Label Content="liste Communes"></Label>
                     <DataGrid Name="listeCommunes" ItemsSource="{Binding lp2}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunes_SelectionChanged" Width="310">
                         <DataGrid.Columns>
@@ -72,7 +72,7 @@
                         </RadialGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,200,50,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,110,25,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Offset="0.0" Color="LightBlue" />

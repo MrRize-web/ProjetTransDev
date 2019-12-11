@@ -7,8 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Plage">
-    
-    <TabControl>
+
+    <TabControl Margin="10,0" Height="450" Width="779" SelectionChanged="TabControl_SelectionChanged" Background="DarkCyan">
         <TabItem Header="Ajouter une Plage">
             <Grid Name ="grigrid1" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                 <StackPanel Margin="10,0,-0.4,-249" Grid.ColumnSpan="9">
@@ -44,32 +44,32 @@
                     </Button>
                 </StackPanel>
             </Grid>
-            </TabItem>
-            <TabItem Header="Liste Plage">
-                        <StackPanel>
-                            <Grid Margin="10">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="215*"/>
-                                    <ColumnDefinition Width="10*"/>
-                                    <ColumnDefinition Width="529*"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Content="liste Plages" Grid.ColumnSpan="3" Margin="0,0,-0.4,-0.4"></Label>
-                                <DataGrid Name="listePlages" ItemsSource="{Binding lp1}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listePlages_SelectionChanged" Width="290" Grid.ColumnSpan="3">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Nom de la Plage" Binding="{Binding nomPlageProperty, Mode=TwoWay}" />
-                                        <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding CommunePlageNameProperty, Mode=OneWay}" />
-                                        <DataGridTextColumn Header="Superficie" Binding="{Binding superficEtudePlageProperty, Mode=TwoWay}" />
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                            </Grid>
-                            <Button x:Name="supprimerButton1" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick1" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200">
-                                <Button.Background>
-                                    <RadialGradientBrush>
+        </TabItem>
+        <TabItem Header="Liste Plage">
+            <StackPanel>
+                <Grid Margin="10,10,9.6,10" Height="204">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="215*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="529*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="liste Plages" Grid.ColumnSpan="3" Margin="117,0,237.805,0" Height="25" VerticalAlignment="Top"></Label>
+                    <DataGrid Name="listePlages" ItemsSource="{Binding lp1}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="215,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listePlages_SelectionChanged" Width="302" Grid.ColumnSpan="3">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nom de la Plage" Binding="{Binding nomPlageProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding CommunePlageNameProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Superficie" Binding="{Binding superficEtudePlageProperty, Mode=TwoWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Button x:Name="supprimerButton1" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick1"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" Margin="287,0,286.6,0">
+                    <Button.Background>
+                        <RadialGradientBrush>
                             <GradientStop Color="Red" Offset="0.279"/>
                         </RadialGradientBrush>
-                                </Button.Background>
-                            </Button>
-                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,200,50,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="624,100,30,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Offset="0.0" Color="LightBlue" />
@@ -78,6 +78,6 @@
                     </Button.Background>
                 </Button>
             </StackPanel>
-                    </TabItem>
+        </TabItem>
     </TabControl>
 </Page>
