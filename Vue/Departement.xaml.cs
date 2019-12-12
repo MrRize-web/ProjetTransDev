@@ -25,20 +25,8 @@ namespace ProjetTransDev.Vue
     /// </summary>
     public partial class Departement : Page
     {
-        int selectedPlagesId;
-        int selectedCommunesId;
         int selectedDepartementsId;
         int compteur = 0;
-
-
-
-        PlageViewModel myDataObject1; // Objet de liaison
-        ObservableCollection<PlageViewModel> lp1;
-
-
-        CommuneViewModel myDataObject2; // Objet de liaison
-        ObservableCollection<CommuneViewModel> lp2;
-
 
         DepartementViewModel myDataObject3; // Objet de liaison
         ObservableCollection<DepartementViewModel> lp3;
@@ -47,9 +35,6 @@ namespace ProjetTransDev.Vue
         public Departement()
         {
             InitializeComponent();
-
-            DALConnection.OpenConnection();
-
             lp3 = DepartementORM.ListeDepartements();
             listeDepartements.ItemsSource = lp3;
 

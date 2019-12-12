@@ -25,9 +25,6 @@ namespace ProjetTransDev.Vue
         public User()
         {
             InitializeComponent();
-
-            DALConnection.OpenConnection();
-
             lp = UsersORM.listeUserss();
             listeUsers.ItemsSource = lp;
         }

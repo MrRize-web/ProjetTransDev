@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Plage">
 
-    <TabControl Margin="10,0" Height="450" Width="779" SelectionChanged="TabControl_SelectionChanged" Background="DarkCyan">
+    <TabControl Margin="10,0" Height="450" Width="779" Background="DarkCyan">
         <TabItem Header="Ajouter une Plage">
             <Grid Name ="grigrid1" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                 <StackPanel Margin="10,0,-0.4,-249" Grid.ColumnSpan="9">

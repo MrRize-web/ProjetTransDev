@@ -25,22 +25,8 @@ namespace ProjetTransDev.Vue
     /// </summary>
     public partial class Commune : Page
     {
-        int selectedUsersId;
-        int selectedPlagesId;
         int selectedCommunesId;
-        int selectedEspeceId;
-        int selectedEtudeId;
-        int selectedDepartementsId;
         int compteur = 0;
-
-
-        UsersViewModel myDataObject; // Objet de liaison
-        ObservableCollection<UsersViewModel> lp;
-
-
-        PlageViewModel myDataObject1; // Objet de liaison
-        ObservableCollection<PlageViewModel> lp1;
-
 
         CommuneViewModel myDataObject2; // Objet de liaison
         ObservableCollection<CommuneViewModel> lp2;
@@ -49,18 +35,10 @@ namespace ProjetTransDev.Vue
         DepartementViewModel myDataObject3; // Objet de liaison
         ObservableCollection<DepartementViewModel> lp3;
 
-        EtudeViewModel myDataObject4; // Objet de liaison
-        ObservableCollection<EtudeViewModel> lp4;
-
-        EspeceViewModel myDataObject5; // Objet de liaison
-        ObservableCollection<EspeceViewModel> lp5;
-
 
         public Commune()
         {
             InitializeComponent();
-
-            DALConnection.OpenConnection();
 
             lp2 = CommuneORM.ListeCommunes();
             listeCommunes.ItemsSource = lp2;

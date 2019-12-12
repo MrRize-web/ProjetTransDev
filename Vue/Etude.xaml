@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
          Background="Aqua"
       Title="Etude">
-    <TabControl Margin="10,0" Height="450" Width="779" SelectionChanged="TabControl_SelectionChanged" Background="DarkCyan">
+    <TabControl Margin="10,0" Height="450" Width="779"  Background="DarkCyan">
         <TabItem Header="Ajouter d'une Etude">
             <Grid Name ="grigrid2" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                 <StackPanel Margin="0,0,0.1,-124">
@@ -49,7 +49,7 @@
                             </RadialGradientBrush>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,200,50,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                    <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,70,35,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                         <Button.Background>
                             <RadialGradientBrush>
                                 <GradientStop Offset="0.0" Color="LightBlue" />

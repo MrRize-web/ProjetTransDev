@@ -31,8 +31,6 @@ namespace ProjetTransDev.Vue
 
             InitializeComponent();
 
-            DALConnection.OpenConnection();
-
             lp1 = PlageORM.listePlages();
             listePlagesCombo.ItemsSource = lp1;
 

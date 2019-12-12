@@ -25,7 +25,7 @@ namespace ProjetTransDev.Vue
             try
             {
                 if (DALConnection.OpenConnection().State == ConnectionState.Closed)
-                    DALConnection.OpenConnection().Open();
+                    DALConnection.OpenConnection();
                 String query = "SELECT COUNT(1) FROM users WHERE Identifiant=@Username AND MotDePasse=@Password";
                 MySqlCommand sqlCmd = new MySqlCommand(query, DALConnection.OpenConnection());
                 sqlCmd.CommandType = CommandType.Text;
@@ -48,7 +48,7 @@ namespace ProjetTransDev.Vue
             }
             finally
             {
-                DALConnection.OpenConnection().Close();
+                DALConnection.OpenConnection();
             }
         }
 
