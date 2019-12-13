@@ -8,7 +8,7 @@ namespace ProjetTransDev
         private int idUsers;
         private string nomUsers;
         private string prenomUsers;
-        private byte administrateurUsers;
+        private Byte administrateurUsers;
         private string identifiantUsers;
         private string motDePasseUsers;
         private string adresseMailUsers;
@@ -17,7 +17,7 @@ namespace ProjetTransDev
 
         public UsersViewModel() { }
 
-        public UsersViewModel(int id, string nom, string prenom, string identifiant, string adresseMail, string motDePasse, byte administrateur)
+        public UsersViewModel(int id, string nom, string prenom, string identifiant, string adresseMail, string motDePasse, Byte administrateur)
         {
             this.idUsers = id;
             this.nomUsersProperty = nom;
@@ -92,7 +92,7 @@ namespace ProjetTransDev
             }
 
         }
-        public byte administrateurUsersProperty
+        public Byte administrateurUsersProperty
         {
             get { return administrateurUsers; }
             set

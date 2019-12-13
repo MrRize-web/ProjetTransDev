@@ -1,5 +1,4 @@
-﻿using ProjetTransDev.DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,13 +16,12 @@ using System.Windows.Shapes;
 namespace ProjetTransDev.Vue
 {
     /// <summary>
-    /// Logique d'interaction pour MauvaisLogin.xaml
+    /// Logique d'interaction pour PageDeconnecte.xaml
     /// </summary>
-    public partial class MauvaisLogin : Page
+    public partial class PageDeconnecte : Page
     {
-        public MauvaisLogin()
+        public PageDeconnecte()
         {
-        
             InitializeComponent();
         }
         private void redirectButton_LoginPage(object sender, EventArgs e)

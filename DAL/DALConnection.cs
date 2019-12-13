@@ -11,7 +11,6 @@ namespace ProjetTransDev.DAL
         private static string uid;
         private static string password;
         public static MySqlConnection connection;
-
         public static MySqlConnection OpenConnection()
         {
             if (connection == null) //  si la connexion est déjà ouverte, il ne la refera pas 
@@ -28,5 +27,18 @@ namespace ProjetTransDev.DAL
             }
             return connection;
         }
-    }
+        public static MySqlConnection Close()
+        {
+            server = "localhost";
+            database = "ifrocean";
+            uid = "adminCsharp";
+            password = "Epsi2019";
+            string connectionString;
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
+            database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            connection = new MySqlConnection(connectionString);
+            connection.Close();
+            return connection;
+        }
+    }  
 }

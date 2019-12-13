@@ -33,7 +33,6 @@ namespace ProjetTransDev.Vue
         ObservableCollection<EspeceViewModel> lp5;
         public Espece()
         {
-        
             InitializeComponent();
             lp5 = EspeceORM.listeEspeces();
             listeEspeces.ItemsSource = lp5;

@@ -9,7 +9,7 @@
       Title="User">
 
     <StackPanel>
-        <TabControl Margin="10,0" Height="450" Width="779" SelectionChanged="TabControl_SelectionChanged" Background="DarkCyan">
+        <TabControl Margin="10,0" Height="450" Width="779" Background="DarkCyan">
 
             <TabItem Header="Ajouter un User">
                 <Grid Name ="grigrid" Height="375" Margin="0,0,0.6,0" VerticalAlignment="Top">
@@ -36,7 +36,7 @@
                         <PasswordBox Name="MotDePasse" Height="20" Margin="0,0,0.300,0"/>
                         <Label Content="Administrateur :"></Label>
                         <CheckBox Name="administrateurUsers" Margin="0,0,0.300,0" />
-                        <Button x:Name="nomPrenomButton" Content="Ajouter un User"  MouseDoubleClick="nomPrenomButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="52" Margin="0,5,206.8,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="nomPrenomButton_Click">
+                        <Button x:Name="nomPrenomButton" Content="Ajouter un User"   BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="52" Margin="0,5,206.8,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="nomPrenomButton_Click">
                             <Button.Background>
                                 <RadialGradientBrush>
                                     <GradientStop Color="ForestGreen" Offset="0.279"/>

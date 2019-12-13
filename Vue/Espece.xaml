@@ -10,19 +10,23 @@
       Title="Espece">
     <TabControl Margin="10,0" Height="450" Width="779"  Background="DarkCyan">
         <TabItem Header="Ajouter d'une Espece">
-        <Grid Name ="grigrid3" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
-            <StackPanel>
-                <Label Content="Espece :"></Label>
-                <TextBox Name="nomEspece" Height="20"/>
-                <Button x:Name="VlideEspece" Content="Ajouter D'une Etude"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="VlideEspece_Click" >
-                    <Button.Background>
-                        <RadialGradientBrush>
+            <Grid Name ="grigrid3" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="76*"/>
+                    <ColumnDefinition Width="311*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="0,0,-0.7,-124" Grid.ColumnSpan="2">
+                    <Label Content="Espece :"></Label>
+                    <TextBox Name="nomEspece" Height="20"/>
+                    <Button x:Name="VlideEspece" Content="Ajouter D'une Etude"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="50" Margin="0,5,206.4,0" HorizontalAlignment="Right" Width="400" RenderTransformOrigin="0.5,2.31" Click="VlideEspece_Click" >
+                        <Button.Background>
+                            <RadialGradientBrush>
                                 <GradientStop Color="ForestGreen" Offset="0.279"/>
                                 <GradientStop Color="Green" Offset="0.779"/>
                             </RadialGradientBrush>
-                    </Button.Background>
-                </Button>
-                    <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,200,50,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,250,35,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                         <Button.Background>
                             <RadialGradientBrush>
                                 <GradientStop Offset="0.0" Color="LightBlue" />
@@ -31,25 +35,25 @@
                         </Button.Background>
                     </Button>
                 </StackPanel>
-        </Grid>
-    </TabItem>
-    <TabItem Header="Espece">
-        <StackPanel>
-                <Grid  Margin="10,10,9.6,10" Height="204">
-                <DataGrid Name="listeEspeces" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="252,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEspece_SelectionChanged" Width="110">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Nom de l'espece " Binding="{Binding nomEspeceProperty, Mode=TwoWay}" />
-                    </DataGrid.Columns>
-                </DataGrid>
             </Grid>
-            <Button x:Name="supprimerButton5" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick5" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200">
-                <Button.Background>
-                    <RadialGradientBrush>
+        </TabItem>
+        <TabItem Header="Espece">
+            <StackPanel>
+                <Grid  Margin="10,10,9.6,10" Height="204">
+                    <DataGrid Name="listeEspeces" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="252,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEspece_SelectionChanged" Width="110">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nom de l'espece " Binding="{Binding nomEspeceProperty, Mode=TwoWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Button x:Name="supprimerButton5" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick5" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="50" Width="200">
+                    <Button.Background>
+                        <RadialGradientBrush>
                             <GradientStop Color="Red" Offset="0.279"/>
                         </RadialGradientBrush>
-                </Button.Background>
-            </Button>
-                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,110,25.6,0" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,80,35,50"  HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Offset="0.0" Color="LightBlue" />
@@ -59,6 +63,6 @@
                 </Button>
             </StackPanel>
 
-    </TabItem>
+        </TabItem>
     </TabControl>
 </Page>

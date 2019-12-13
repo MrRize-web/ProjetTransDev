@@ -26,7 +26,7 @@ namespace ProjetTransDev.ORM
             return p;
         }
 
-        public static ObservableCollection<UsersViewModel> listeUserss()
+        public static ObservableCollection<UsersViewModel> listeUsers()
         {
             ObservableCollection<UsersDAO> lDAO = UsersDAO.listeUsers();
             ObservableCollection<UsersViewModel> l = new ObservableCollection<UsersViewModel>();

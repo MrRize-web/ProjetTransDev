@@ -70,9 +70,9 @@ namespace ProjetTransDev.DAL
 
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            int maxIdDepartement = reader.GetInt32(0);
+            int maxIdPlage = reader.GetInt32(0);
             reader.Close();
-            return maxIdDepartement;
+            return maxIdPlage;
         }
         public static PlageDAO getPlage(int idPlage)
         {

@@ -16,7 +16,6 @@ namespace ProjetTransDev.Vue
     {
         int selectedUsersId;
         int compteur = 0;
-
         UsersViewModel myDataObject; // Objet de liaison
         ObservableCollection<UsersViewModel> lp;
 
@@ -24,15 +23,19 @@ namespace ProjetTransDev.Vue
 
         public User()
         {
+
             InitializeComponent();
-            lp = UsersORM.listeUserss();
+            lp = UsersORM.listeUsers();
             listeUsers.ItemsSource = lp;
+
+
         }
-         /////////////////////////////////////     Users   /////////////////////////////////////
+        /////////////////////////////////////     Users   /////////////////////////////////////
         ////////////////////////////////////////   Users     /////////////////////////////////////
-        private void nomPrenomButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+
+        private void nomPrenomButton_Click(object sender, RoutedEventArgs e)
         {
-            myDataObject = new UsersViewModel(); 
+            myDataObject = new UsersViewModel();
             myDataObject.nomUsersProperty = nomUsers.Text;
             myDataObject.prenomUsersProperty = prenomUsers.Text;
             myDataObject.adresseMailUsersProperty = AdresseMailUsers.Text;
@@ -47,10 +50,11 @@ namespace ProjetTransDev.Vue
             {
                 myDataObject.administrateurUsersProperty = 0;
             }
-            UsersViewModel nouveau = new UsersViewModel(myDataObject.idUsersProperty, myDataObject.nomUsersProperty, myDataObject.prenomUsersProperty, myDataObject.identifiantUsersProperty, myDataObject.motDePasseUsersProperty, myDataObject.adresseMailUsersProperty, myDataObject.administrateurUsersProperty);
+
+            UsersViewModel nouveau = new UsersViewModel(UsersDAL.getMaxIdUsers() + 1, myDataObject.nomUsersProperty, myDataObject.prenomUsersProperty, myDataObject.identifiantUsersProperty, myDataObject.motDePasseUsersProperty, myDataObject.adresseMailUsersProperty, myDataObject.administrateurUsersProperty);
             lp.Add(nouveau);
             UsersORM.insertUsers(nouveau);
-    
+
             listeUsers.Items.Refresh();
 
             ((TextBox)nomUsers).Text = string.Empty;
@@ -58,7 +62,8 @@ namespace ProjetTransDev.Vue
             ((TextBox)AdresseMailUsers).Text = string.Empty;
             ((TextBox)Identifiant).Text = string.Empty;
             ((PasswordBox)MotDePasse).Password = string.Empty;
-            compteur = lp.Count();  
+            compteur = lp.Count();
+
             MessageBox.Show("Utilisateur ajouté avec succes ! ");
         }
         private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -82,14 +87,7 @@ namespace ProjetTransDev.Vue
             pageAcceuil.Content = new MenuSelection();
         }
 
-        private void nomPrenomButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+  
+ 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using ProjetTransDev.DAL;
 
 namespace ProjetTransDev.ORM
@@ -9,12 +10,12 @@ namespace ProjetTransDev.ORM
         public string nomUsersDAO;
         public string prenomUsersDAO;
         public string identifiantDAOUsersDAO;
-        public byte administrateurUsersDAO;
+        public Byte administrateurUsersDAO;
         public string identifiantUsersDAO;
         public string adresseMailUsersDAO;
         public string motDePasseUsersDAO;
 
-        public UsersDAO(int idUsersDAO, string nomUsersDAO, string prenomUsersDAO, string identifiantDAO, string adresseMailDAO, string motDePasseDAO, byte administrateurDAO)
+        public UsersDAO(int idUsersDAO, string nomUsersDAO, string prenomUsersDAO, string identifiantDAO, string adresseMailDAO, string motDePasseDAO, Byte administrateurDAO)
         {
             this.idUsersDAO = idUsersDAO;
             this.nomUsersDAO = nomUsersDAO;

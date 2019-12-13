@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
 namespace ProjetTransDev.Vue
@@ -22,8 +21,8 @@ namespace ProjetTransDev.Vue
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             Window window = Window.GetWindow(this);
-            try
-            {
+          //  try
+           // {
                 if (DALConnection.OpenConnection().State == ConnectionState.Closed)
                     DALConnection.OpenConnection();
                 String query = "SELECT COUNT(1) FROM users WHERE Identifiant=@Username AND MotDePasse=@Password";
@@ -41,15 +40,15 @@ namespace ProjetTransDev.Vue
                     MessageBox.Show("Identifiant ou mot de passe est incorrecte.");
                     window.Content = new MauvaisLogin();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DALConnection.OpenConnection();
-            }
+         //}
+         //   catch (Exception ex)
+          //  {
+          //      MessageBox.Show(ex.Message);
+          //  }
+          //  finally
+          //  {
+           //     DALConnection.OpenConnection();
+          //  }
         }
 
     }

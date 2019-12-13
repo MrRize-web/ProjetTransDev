@@ -1,22 +1,10 @@
 ﻿using ProjetTransDev.Ctrl;
-using ProjetTransDev.Ctrl.ProjetTransDev.Ctrl;
 using ProjetTransDev.DAL;
 using ProjetTransDev.ORM;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ProjetTransDev.Vue
 {
@@ -27,7 +15,6 @@ namespace ProjetTransDev.Vue
     {
         int selectedDepartementsId;
         int compteur = 0;
-
         DepartementViewModel myDataObject3; // Objet de liaison
         ObservableCollection<DepartementViewModel> lp3;
 
@@ -37,7 +24,6 @@ namespace ProjetTransDev.Vue
             InitializeComponent();
             lp3 = DepartementORM.ListeDepartements();
             listeDepartements.ItemsSource = lp3;
-
         }
         /////////////////////////////////////   Departement     /////////////////////////////////////
         /////////////////////////////////////   Departement     /////////////////////////////////////

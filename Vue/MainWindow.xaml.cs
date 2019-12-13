@@ -9,7 +9,6 @@ namespace ProjetTransDev
     
         public MainWindow()
         {
-            DALConnection.OpenConnection();
             InitializeComponent();
             this.Content = new Login();   
         }

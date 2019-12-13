@@ -28,7 +28,6 @@ namespace ProjetTransDev.Vue
 
         public Etude()
         {
-
             InitializeComponent();
 
             lp1 = PlageORM.listePlages();
