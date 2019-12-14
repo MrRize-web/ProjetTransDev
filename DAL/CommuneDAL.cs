@@ -39,34 +39,42 @@ namespace ProjetTransDev.DAL
                 }
                 return l;
             }
-
             public static void updateCommune(CommuneDAO p)
             {
-                string query = "UPDATE Commune set Nom=\"" + p.nomCommuneDAO + "\",CodePostale=\"" + p.CodePostaleDAO + "\" where idCommune=" + p.idCommuneDAO + ";";
-                MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
-                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+            string query = "UPDATE Commune set Nom=@NomCommune,CodePostale=@CodePostale where idCommune=@IdCommune;";
+               MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+                cmd.Parameters.AddWithValue("@NomCommune", p.nomCommuneDAO);
+                cmd.Parameters.AddWithValue("@CodePostale", p.CodePostaleDAO);
+                cmd.Parameters.AddWithValue("@IdCommune", p.idCommuneDAO);
+            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
                 cmd.ExecuteNonQuery();
             }
             public static void insertCommune(CommuneDAO p)
             {
             int id = getMaxIdCommune() + 1;
-            string query = "INSERT INTO Commune VALUES (\"" + id + "\",\"" + p.nomCommuneDAO + "\",\"" + p.CodePostaleDAO + "\",\"" + p.DepartementCommuneDAO + "\");";
+            string query = "INSERT INTO Commune VALUES (@ID,@NomCommune,@CodePostale,@IdCommune);";
                 MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
-                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
+            cmd2.Parameters.AddWithValue("@ID", id);
+            cmd2.Parameters.AddWithValue("@NomCommune", p.nomCommuneDAO);
+            cmd2.Parameters.AddWithValue("@CodePostale", p.CodePostaleDAO);
+            cmd2.Parameters.AddWithValue("@IdCommune", p.idCommuneDAO);
+            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
                 cmd2.ExecuteNonQuery();
             }
         
         public static void supprimerCommune(int id)
         {
-            string query = "DELETE FROM Commune WHERE idCommune = \"" + id + "\";";
+            string query = "DELETE FROM Commune WHERE idCommune = @ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@ID", id);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
         public static void SelectCommune(int id)
         {
-            string query = "SELECT * FROM Commune WHERE idCommune= \"" + id + "\";";
+            string query = "SELECT * FROM Commune WHERE idCommune= @ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@ID", id);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -84,8 +92,9 @@ namespace ProjetTransDev.DAL
         }
         public static CommuneDAO getCommune(int idCommune)
         {
-            string query = "SELECT * FROM commune WHERE idCommune=" + idCommune + ";";
+            string query = "SELECT * FROM commune WHERE idCommune=@IDCommune;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@IDCommune", idCommune);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();

@@ -42,8 +42,16 @@ namespace ProjetTransDev.DAL
 
         public static void updateUsers(UsersDAO p)
         {
-            string query = "UPDATE Users set ( Nom=\"" + p.nomUsersDAO + "\", Prenom=\"" + p.prenomUsersDAO + "\", AdresseMail=\"" + p.adresseMailUsersDAO + "\",Identifiant=\"" + p.identifiantUsersDAO + "\", MotDePasse=\"" + p.motDePasseUsersDAO + "\",  Administrateur=\"" + p.administrateurUsersDAO +"\" where idUsers=" + p.idUsersDAO + ");";
+            string query = "UPDATE Users set ( Nom=@NomUsers, Prenom=@PrenomUsers, AdresseMail=@Mail,Identifiant=@Identifiant, MotDePasse=@MDP,  Administrateur=@ADMIN where idUsers=@IdUsers);";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@NomUsers", p.nomUsersDAO);
+            cmd.Parameters.AddWithValue("@PrenomUsers", p.prenomUsersDAO);
+            cmd.Parameters.AddWithValue("@Mail", p.adresseMailUsersDAO);
+            cmd.Parameters.AddWithValue("@Identifiant", p.identifiantUsersDAO);
+            cmd.Parameters.AddWithValue("@MDP", p.motDePasseUsersDAO);
+            cmd.Parameters.AddWithValue("@ADMIN", p.administrateurUsersDAO);
+            cmd.Parameters.AddWithValue("@IdUsers", p.idUsersDAO);
+
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -51,15 +59,24 @@ namespace ProjetTransDev.DAL
         public static void insertUsers(UsersDAO p)
         {
             int id = getMaxIdUsers() + 1;
-            string query = "INSERT INTO Users VALUES (\"" + id + "\",\"" + p.nomUsersDAO + "\",\"" + p.prenomUsersDAO + "\",\"" + p.adresseMailUsersDAO + "\",\"" + p.identifiantUsersDAO + "\",\"" + p.motDePasseUsersDAO + "\",\"" + p.administrateurUsersDAO + "\");";
+            string query = "INSERT INTO Users VALUES (@ID,@NomUsers,@PrenomUsers,@Mail,@Identifiant,@MDP,@ADMIN);";   
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@ID", id);
+            cmd.Parameters.AddWithValue("@NomUsers", p.nomUsersDAO);
+            cmd.Parameters.AddWithValue("@PrenomUsers", p.prenomUsersDAO);
+            cmd.Parameters.AddWithValue("@Mail", p.adresseMailUsersDAO);
+            cmd.Parameters.AddWithValue("@Identifiant", p.identifiantUsersDAO);
+            cmd.Parameters.AddWithValue("@MDP", p.motDePasseUsersDAO);
+            cmd.Parameters.AddWithValue("@ADMIN", p.administrateurUsersDAO);
+         
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
         public static void supprimerUsers(int id)
         {
-            string query = "DELETE FROM Users WHERE idUsers = \"" + id + "\";";
+            string query = "DELETE FROM Users WHERE idUsers = @ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@ID", id);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -78,8 +95,9 @@ namespace ProjetTransDev.DAL
         }
         public static UsersDAO getUsers(int idUsers)
         {
-            string query = "SELECT * FROM users WHERE id=" + idUsers + ";";
+            string query = "SELECT * FROM users WHERE id=@ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@ID", idUsers);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
@@ -89,8 +107,9 @@ namespace ProjetTransDev.DAL
         }
         public static UsersDAO getUsersIdentifiant(string identifiantUsers)
         {
-            string query = "SELECT * FROM users WHERE Identifiant=\"" + identifiantUsers + "\";";
+            string query = "SELECT * FROM users WHERE Identifiant=@Identifiant;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@Identifiant", identifiantUsers);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
@@ -108,8 +127,9 @@ namespace ProjetTransDev.DAL
         }
         public static UsersDAO getUsersMotdePasse(string motDePasseUsers)
         {
-            string query = "SELECT * FROM users WHERE MotDePasse=\"" + motDePasseUsers + "\";";
+            string query = "SELECT * FROM users WHERE MotDePasse=@MDP;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@MDP", motDePasseUsers);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();

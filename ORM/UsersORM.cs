@@ -10,19 +10,19 @@ namespace ProjetTransDev.ORM
         public static UsersViewModel getUsers(int idUsers)
         {
             UsersDAO pDAO = UsersDAO.getUsers(idUsers);
-            UsersViewModel p = new UsersViewModel(pDAO.idUsersDAO, pDAO.nomUsersDAO, pDAO.prenomUsersDAO, pDAO.identifiantUsersDAO, pDAO.adresseMailUsersDAO, pDAO.motDePasseUsersDAO, pDAO.administrateurUsersDAO);
+            UsersViewModel p = new UsersViewModel(pDAO.idUsersDAO, pDAO.nomUsersDAO, pDAO.prenomUsersDAO, pDAO.adresseMailUsersDAO, pDAO.identifiantUsersDAO,  pDAO.motDePasseUsersDAO, pDAO.administrateurUsersDAO);
             return p;
         }
         public static UsersViewModel getUsersIdentifiant(string identifiantUsers)
         {
             UsersDAO pDAO = UsersDAO.getUsersIdentifiant(identifiantUsers);
-            UsersViewModel p = new UsersViewModel(pDAO.idUsersDAO, pDAO.nomUsersDAO, pDAO.prenomUsersDAO, pDAO.identifiantUsersDAO, pDAO.adresseMailUsersDAO, pDAO.motDePasseUsersDAO, pDAO.administrateurUsersDAO);
+            UsersViewModel p = new UsersViewModel(pDAO.idUsersDAO, pDAO.nomUsersDAO, pDAO.prenomUsersDAO, pDAO.adresseMailUsersDAO, pDAO.identifiantUsersDAO,  pDAO.motDePasseUsersDAO, pDAO.administrateurUsersDAO);
             return p;
         }
         public static UsersViewModel getUsersMotdePasse(string motDePasseUsers)
         {
             UsersDAO pDAO = UsersDAO.getUsersMotdePasse(motDePasseUsers);
-            UsersViewModel p = new UsersViewModel(pDAO.idUsersDAO, pDAO.nomUsersDAO, pDAO.prenomUsersDAO, pDAO.identifiantUsersDAO, pDAO.adresseMailUsersDAO, pDAO.motDePasseUsersDAO, pDAO.administrateurUsersDAO);
+            UsersViewModel p = new UsersViewModel(pDAO.idUsersDAO, pDAO.nomUsersDAO, pDAO.prenomUsersDAO, pDAO.adresseMailUsersDAO, pDAO.identifiantUsersDAO, pDAO.motDePasseUsersDAO, pDAO.administrateurUsersDAO);
             return p;
         }
 
@@ -32,7 +32,7 @@ namespace ProjetTransDev.ORM
             ObservableCollection<UsersViewModel> l = new ObservableCollection<UsersViewModel>();
             foreach (UsersDAO element in lDAO)
             {
-                UsersViewModel p = new UsersViewModel(element.idUsersDAO, element.nomUsersDAO, element.prenomUsersDAO, element.identifiantUsersDAO, element.adresseMailUsersDAO, element.motDePasseUsersDAO, element.administrateurUsersDAO);
+                UsersViewModel p = new UsersViewModel(element.idUsersDAO, element.nomUsersDAO, element.prenomUsersDAO, element.adresseMailUsersDAO, element.identifiantUsersDAO,  element.motDePasseUsersDAO, element.administrateurUsersDAO);
                 l.Add(p);
             }
             return l;
@@ -41,7 +41,7 @@ namespace ProjetTransDev.ORM
 
         public static void updateUsers(UsersViewModel p)
         {
-            UsersDAO.updateUsers(new UsersDAO(p.idUsersProperty, p.nomUsersProperty, p.prenomUsersProperty, p.identifiantUsersProperty, p.adresseMailUsersProperty, p.motDePasseUsersProperty, p.administrateurUsersProperty));
+            UsersDAO.updateUsers(new UsersDAO(p.idUsersProperty, p.nomUsersProperty, p.prenomUsersProperty, p.adresseMailUsersProperty, p.identifiantUsersProperty,  p.motDePasseUsersProperty, p.administrateurUsersProperty));
         }
 
         public static void supprimerUsers(int id)
@@ -51,7 +51,7 @@ namespace ProjetTransDev.ORM
 
         public static void insertUsers(UsersViewModel p)
         {
-            UsersDAO.insertUsers(new UsersDAO(p.idUsersProperty, p.nomUsersProperty, p.prenomUsersProperty, p.identifiantUsersProperty, p.adresseMailUsersProperty, p.motDePasseUsersProperty, p.administrateurUsersProperty));
+            UsersDAO.insertUsers(new UsersDAO(p.idUsersProperty, p.nomUsersProperty, p.prenomUsersProperty, p.adresseMailUsersProperty, p.identifiantUsersProperty,  p.motDePasseUsersProperty, p.administrateurUsersProperty));
         }
     }
 }

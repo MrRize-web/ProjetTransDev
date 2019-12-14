@@ -12,7 +12,7 @@ namespace ProjetTransDev.ORM
             EtudeDAO pDAO = EtudeDAO.getEtude(idEtude);
             int idPlage = pDAO.PlageEtudeDAO;
             PlageViewModel m = PlageORM.getPlage(idPlage);
-            EtudeViewModel p = new EtudeViewModel(pDAO.idEtudeDAO, pDAO.NbPersonneEtudeDAO, m, pDAO.TitreEtudeEtudeDAO, pDAO.dateCreationDAO, pDAO.dateFinDAO);
+            EtudeViewModel p = new EtudeViewModel(pDAO.idEtudeDAO, pDAO.NbPersonneEtudeDAO, pDAO.TitreEtudeEtudeDAO, m, pDAO.dateCreationDAO, pDAO.dateFinDAO);
             return p;
         }
 
@@ -24,7 +24,7 @@ namespace ProjetTransDev.ORM
             {
                 int idPlage = element.PlageEtudeDAO;
                 PlageViewModel m = PlageORM.getPlage(idPlage);
-                EtudeViewModel p = new EtudeViewModel(element.idEtudeDAO, element.NbPersonneEtudeDAO, m , element.TitreEtudeEtudeDAO, element.dateCreationDAO, element.dateFinDAO);
+                EtudeViewModel p = new EtudeViewModel(element.idEtudeDAO, element.NbPersonneEtudeDAO, element.TitreEtudeEtudeDAO, m, element.dateCreationDAO, element.dateFinDAO);
                 l.Add(p);
             }
             return l;
@@ -33,7 +33,7 @@ namespace ProjetTransDev.ORM
 
         public static void updateEtude(EtudeViewModel p)
         {
-            EtudeDAO.updateEtude(new EtudeDAO(p.idEtudeProperty, p.NbPersonneEtudeProperty, p.PlageEtudeProperty.idPlageProperty, p.TitreEtudeProperty, p.dateCreationProperty, p.dateFinProperty));
+            EtudeDAO.updateEtude(new EtudeDAO(p.idEtudeProperty, p.NbPersonneEtudeProperty,  p.TitreEtudeProperty, p.PlageEtudeProperty.idPlageProperty, p.dateCreationProperty, p.dateFinProperty));
         }
 
         public static void supprimerEtude(int id)
@@ -43,7 +43,7 @@ namespace ProjetTransDev.ORM
 
         public static void insertEtude(EtudeViewModel p)
         {
-            EtudeDAO.insertEtude(new EtudeDAO(p.idEtudeProperty, p.NbPersonneEtudeProperty, p.PlageEtudeProperty.idPlageProperty, p.TitreEtudeProperty, p.dateCreationProperty, p.dateFinProperty));
+            EtudeDAO.insertEtude(new EtudeDAO(p.idEtudeProperty, p.NbPersonneEtudeProperty, p.TitreEtudeProperty, p.PlageEtudeProperty.idPlageProperty, p.dateCreationProperty, p.dateFinProperty));
         }
     }
 }

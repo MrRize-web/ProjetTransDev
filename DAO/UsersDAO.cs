@@ -15,7 +15,7 @@ namespace ProjetTransDev.ORM
         public string adresseMailUsersDAO;
         public string motDePasseUsersDAO;
 
-        public UsersDAO(int idUsersDAO, string nomUsersDAO, string prenomUsersDAO, string identifiantDAO, string adresseMailDAO, string motDePasseDAO, Byte administrateurDAO)
+        public UsersDAO(int idUsersDAO, string nomUsersDAO, string prenomUsersDAO, string adresseMailDAO, string identifiantDAO,  string motDePasseDAO, Byte administrateurDAO)
         {
             this.idUsersDAO = idUsersDAO;
             this.nomUsersDAO = nomUsersDAO;

@@ -27,6 +27,7 @@ namespace ProjetTransDev.DAL
             }
             return connection;
         }
+
         public static MySqlConnection Close()
         {
             server = "localhost";

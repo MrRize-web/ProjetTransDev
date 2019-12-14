@@ -15,7 +15,7 @@ namespace ProjetTransDev.Ctrl
 
         public EtudeViewModel() { }
 
-        public EtudeViewModel(int id, decimal NbPersonne, PlageViewModel PlageEtude, string Titre, DateTime date_creation, DateTime date_fin)
+        public EtudeViewModel(int id, decimal NbPersonne,  string Titre, PlageViewModel PlageEtude, DateTime date_creation, DateTime date_fin)
         {
             this.idEtude = id;
             this.NbPersonneEtudeProperty = NbPersonne;

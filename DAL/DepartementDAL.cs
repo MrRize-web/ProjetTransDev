@@ -41,23 +41,30 @@ namespace ProjetTransDev.DAL
 
             public static void updateDepartement(DepartementDAO p)
             {
-                string query = "UPDATE departement set Nom=\"" + p.nomDepartementDAO + "\",CodePostale=\"" + p.CodePostaleDAO + "\" where Departement=" + p.idDepartementDAO + ";";
+            string query = "UPDATE departement set Nom=@NomDepartement,CodePostale=@CodePOSTALE where Departement=@IdDepartement;";
                 MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
-                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.Parameters.AddWithValue("@NomDepartement", p.nomDepartementDAO);
+                cmd.Parameters.AddWithValue("@CodePOSTALE", p.CodePostaleDAO);
+                cmd.Parameters.AddWithValue("@IdDepartement", p.idDepartementDAO);
+            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
                 cmd.ExecuteNonQuery();
             }
             public static void insertDepartement(DepartementDAO p)
             {
                 int id = getMaxIdDepartement() + 1;
-                string query = "INSERT INTO departement VALUES (\"" + id + "\",\"" + p.nomDepartementDAO + "\",\"" + p.CodePostaleDAO + "\");";
+                string query = "INSERT INTO departement VALUES (@ID,@NomDepartement,@CodePostale);";
                 MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
-                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
+                cmd2.Parameters.AddWithValue("@ID", id);
+                cmd2.Parameters.AddWithValue("@NomDepartement", p.nomDepartementDAO);
+                cmd2.Parameters.AddWithValue("@CodePostale", p.CodePostaleDAO);
+            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
                 cmd2.ExecuteNonQuery();
             }
             public static void supprimerDepartement(int id)
             {
-                string query = "DELETE FROM departement WHERE Departement = \"" + id + "\";";
+                string query = "DELETE FROM departement WHERE Departement = @ID; ";
                 MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+                cmd.Parameters.AddWithValue("@ID", id);
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
                 cmd.ExecuteNonQuery();
             }
@@ -76,8 +83,9 @@ namespace ProjetTransDev.DAL
 
         public static DepartementDAO getDepartement(int idDepartement)
         {
-            string query = " SELECT * FROM departement WHERE Departement =" + idDepartement + ";";
+            string query = " SELECT * FROM departement WHERE Departement =@IdDepartement;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@IdDepartement", idDepartement);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();

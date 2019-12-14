@@ -28,7 +28,7 @@ namespace ProjetTransDev.DAL
 
                 while (reader.Read())
                 {
-                    DAO.EtudeDAO p = new DAO.EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetString(3), reader.GetDateTime(4), reader.GetDateTime(5));
+                    DAO.EtudeDAO p = new DAO.EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetString(2), reader.GetInt32(3), reader.GetDateTime(4), reader.GetDateTime(5));
                     l.Add(p);
                 }
                 reader.Close();
@@ -42,23 +42,38 @@ namespace ProjetTransDev.DAL
 
         public static void updateEtude(DAO.EtudeDAO p)
         {
-            string query = "UPDATE Etude set Titre=\"" + p.TitreEtudeEtudeDAO + "\",NbPersonne=\"" + p.NbPersonneEtudeDAO + "\",NbPlage=\"" + p.PlageEtudeDAO + "\",dateCreation=\"" + p.dateCreationDAO + "\", dateFin=\"" + p.dateFinDAO + "\"  where idEtude=" + p.idEtudeDAO + ";";
+            string query = "UPDATE Etude set NbPersonne=@Nombre,Titre=@Titre,NbPlage=@Plage,dateCreation=@DateCrea, dateFin=@DateFin  where idEtude=@IdEude;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@Nombre", p.NbPersonneEtudeDAO);
+            cmd.Parameters.AddWithValue("@Titre", p.TitreEtudeEtudeDAO);
+            cmd.Parameters.AddWithValue("@Plage", p.PlageEtudeDAO);
+            cmd.Parameters.AddWithValue("@DateCrea", p.dateCreationDAO);
+            cmd.Parameters.AddWithValue("@DateFin", p.dateFinDAO);
+            cmd.Parameters.AddWithValue("@IdEude", p.idEtudeDAO);
+
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
         public static void insertEtude(DAO.EtudeDAO p)
         {
             int id = getMaxIdEtude() + 1;
-            string query = "INSERT INTO Etude VALUES (\"" + id + "\",\"" + p.NbPersonneEtudeDAO + "\",\"" + p.PlageEtudeDAO + "\",\"" + p.TitreEtudeEtudeDAO + "\",\"" + p.dateCreationDAO + "\",\"" + p.dateFinDAO + "\");";
-            MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
-            cmd2.ExecuteNonQuery();
+            string query = "INSERT INTO Etude VALUES (@ID,@Nombre,@Titre,@Plage,@DateCrea,@DateFin);";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@ID", id);
+            cmd.Parameters.AddWithValue("@Nombre", p.NbPersonneEtudeDAO);
+            cmd.Parameters.AddWithValue("@Titre", p.TitreEtudeEtudeDAO);
+            cmd.Parameters.AddWithValue("@Plage", p.PlageEtudeDAO);
+            cmd.Parameters.AddWithValue("@DateCrea", p.dateCreationDAO);
+            cmd.Parameters.AddWithValue("@DateFin", p.dateFinDAO);
+      
+            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
         }
         public static void supprimerEtude(int id)
         {
-            string query = "DELETE FROM Etude WHERE idEtude = \"" + id + "\";";
+            string query = "DELETE FROM Etude WHERE idEtude = @ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@ID", id);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -77,19 +92,20 @@ namespace ProjetTransDev.DAL
 
         public static EtudeDAO getEtude(int idEtude)
         {
-            string query = " SELECT * FROM Plage WHERE idPlage =" + idEtude + ";";
+            string query = " SELECT * FROM Plage WHERE idPlage =@ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@ID", idEtude);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
             EtudeDAO com;
             if (reader.HasRows)
             {
-                com = new EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetString(3), reader.GetDateTime(4), reader.GetDateTime(5));
+                com = new EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetString(2), reader.GetInt32(3), reader.GetDateTime(4), reader.GetDateTime(5));
             }
             else
             {
-                com = new EtudeDAO(1, 0, 1 , "Mauvaise superficie d'etude", DateTime.Now, DateTime.Now);
+                com = new EtudeDAO(1, 0, "Mauvaise superficie d'etude", 1 , DateTime.Today, DateTime.Today);
             }
             reader.Close();
             return com;

@@ -41,30 +41,35 @@ namespace ProjetTransDev.DAL
 
         public static void updateEspece(EspeceDAO p)
         {
-            string query = "UPDATE espece set nomEspece=\"" + p.nomEspeceDAO + "\"  where idEspece=" + p.idEspeceDAO + ";";
+            string query = "UPDATE espece set nomEspece=@NomEspece  where idEspece=@IdEspece;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@NomEspece", p.nomEspeceDAO);
+            cmd.Parameters.AddWithValue("@IdEspece", p.idEspeceDAO);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
         public static void insertEspece(EspeceDAO p)
         {
-            string query = "INSERT INTO espece (Nom) VALUES (\"" + p.nomEspeceDAO + "\");";
+            string query = "INSERT INTO espece (Nom) VALUES (@NomEspece);";
             MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd2.Parameters.AddWithValue("@NomEspece", p.nomEspeceDAO);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
         public static void supprimerEspece(int id)
         {
-            string query = "DELETE FROM espece WHERE idEspece = \"" + id + "\";";
+            string query = "DELETE FROM espece WHERE idEspece = @ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@ID",id);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
 
         public static EspeceDAO getEspece(int idEspece)
         {
-            string query = "SELECT * FROM espece WHERE id=" + idEspece + ";";
+            string query = "SELECT * FROM espece WHERE id=@IdEspece;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@IdEspece", idEspece);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();

@@ -17,12 +17,12 @@ namespace ProjetTransDev.DAO
         public DateTime dateCreationDAO;
         public DateTime dateFinDAO;
 
-        public EtudeDAO(int idEtudeDAO, Decimal NbPersonneEtudeDAO, int PlageEtudeDAO, string TitreEtudeEtudeDAO, DateTime dateCreationDAO, DateTime dateFinDAO)
+        public EtudeDAO(int idEtudeDAO, Decimal NbPersonneEtudeDAO, string TitreEtudeEtudeDAO, int PlageEtudeDAO, DateTime dateCreationDAO, DateTime dateFinDAO)
         {
             this.idEtudeDAO = idEtudeDAO;
             this.NbPersonneEtudeDAO = NbPersonneEtudeDAO;
-            this.PlageEtudeDAO = PlageEtudeDAO;
             this.TitreEtudeEtudeDAO = TitreEtudeEtudeDAO;
+            this.PlageEtudeDAO = PlageEtudeDAO;
             this.dateCreationDAO = dateCreationDAO;
             this.dateFinDAO = dateFinDAO;
         }

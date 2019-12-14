@@ -37,10 +37,10 @@
                     <Label Content="Nom de l'etude :"></Label>
                     <TextBox Name="Titre" Height="20" Margin="0,0,0.300,0" />
                     <Label Content="Date création"></Label>
-                    <DatePicker  x:Name="dateCreationDatePicker" Height="29" Margin="0,0,0.6,0" />
+                    <DatePicker  x:Name="dateCreationDatePicker" SelectedDate="{Binding dateCreationProperty, StringFormat=dd/MM/yyyy}" SelectedDateFormat="Long" FirstDayOfWeek="Monday" Height="29" Margin="0,0,0.6,0" />
                     <Label Content="Date Fin"/>
-                    <DatePicker x:Name="dateFinDatePicker" Height="30" Margin="0,0,0.6,0" />
 
+                    <DatePicker x:Name="dateFinDatePicker1" SelectedDate="{Binding dateFinProperty, StringFormat=dd/MM/yyyy}"  SelectedDateFormat="Long" FirstDayOfWeek="Monday" Height="30" Margin="0,0,0.6,0" />
                     <Button x:Name="VlideEtude" Content="Ajouter D'une Etude"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="VlideEtude_Click" >
                         <Button.Background>
                             <RadialGradientBrush>
@@ -63,11 +63,13 @@
         <TabItem Header="Etude">
             <StackPanel RenderTransformOrigin="0.494,0.485" Margin="0,0,-0.4,-3.4">
                 <Grid  Margin="10,10,9.6,10" Height="204">
-                    <DataGrid Name="listeEtudes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="184,5,0,0" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunesCombo_SelectionChanged" Width="368">
+                    <DataGrid Name="listeEtudes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="77,5,0,0" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunesCombo_SelectionChanged" Width="625">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nom de la plage :" Binding="{Binding PlageEtudeNameProperty, Mode=OneWay}" />
                             <DataGridTextColumn Header="Nombre de participant :" Binding="{Binding NbPersonneEtudeProperty, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Tire de l'Etude :" Binding="{Binding TitreEtudeProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Date de Création d'une Etude :" Binding="{Binding dateCreationProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Date de Fin d'Etude :" Binding="{Binding dateFinProperty, Mode=TwoWay}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

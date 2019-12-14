@@ -75,11 +75,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Ctrl\EtudePlageViewModel.cs" />
+    <Compile Include="DAL\EtudePlageDAL.cs" />
+    <Compile Include="DAO\EtudePlageDAO.cs" />
+    <Compile Include="ORM\EtudePlageORM.cs" />
     <Compile Include="Vue\Commune.xaml.cs">
       <DependentUpon>Commune.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vue\Deconnexion.xaml.cs">
-      <DependentUpon>Deconnexion.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vue\Departement.xaml.cs">
       <DependentUpon>Departement.xaml</DependentUpon>
@@ -99,9 +100,6 @@
     <Compile Include="Vue\MenuSelection.xaml.cs">
       <DependentUpon>MenuSelection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vue\PageDeconnecte.xaml.cs">
-      <DependentUpon>PageDeconnecte.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vue\Plage.xaml.cs">
       <DependentUpon>Plage.xaml</DependentUpon>
     </Compile>
@@ -109,10 +107,6 @@
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
     <Page Include="Vue\Commune.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Vue\Deconnexion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,10 +168,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vue\MenuSelection.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Vue\PageDeconnecte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

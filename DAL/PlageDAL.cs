@@ -42,23 +42,31 @@ namespace ProjetTransDev.DAL
 
         public static void updatePlage(PlageDAO p)
         {
-            string query = "UPDATE Plage set Nom=\"" + p.nomPlageDAO + "\",SuperficEtude=\"" + p.superficEtudePlageDAO + "\"  where idPlage=" + p.idPlageDAO + ";";
+            string query = "UPDATE Plage set Nom=@NomPlage,SuperficEtude=@Superfi  where idPlage=@IdPlage;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@NomPlage", p.nomPlageDAO);
+            cmd.Parameters.AddWithValue("@Superfi", p.superficEtudePlageDAO);
+            cmd.Parameters.AddWithValue("@IdPlage", p.idPlageDAO);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
         public static void insertPlage(PlageDAO p)
         {
             int id = getMaxIdPlage() + 1;
-            string query = "INSERT INTO Plage VALUES (\"" + id + "\",\"" + p.nomPlageDAO + "\",\"" + p.superficEtudePlageDAO + "\",\"" + p.CommuneDAO+ "\");";
+            string query = "INSERT INTO Plage VALUES (@ID,@NomPlage,@Superfi,@Commune);";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@ID", id);
+            cmd.Parameters.AddWithValue("@NomPlage", p.nomPlageDAO);
+            cmd.Parameters.AddWithValue("@Superfi", p.superficEtudePlageDAO);
+            cmd.Parameters.AddWithValue("@Commune", p.CommuneDAO);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
         public static void supprimerPlage(int id)
         {
-            string query = "DELETE FROM Plage WHERE idPlage = \"" + id + "\";";
+            string query = "DELETE FROM Plage WHERE idPlage = @ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@ID", id);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -76,8 +84,9 @@ namespace ProjetTransDev.DAL
         }
         public static PlageDAO getPlage(int idPlage)
         {
-            string query = " SELECT * FROM Plage WHERE idPlage =" + idPlage + ";";
+            string query = " SELECT * FROM Plage WHERE idPlage =@ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
+            cmd.Parameters.AddWithValue("@ID", idPlage);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();

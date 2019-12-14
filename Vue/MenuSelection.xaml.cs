@@ -1,4 +1,5 @@
-﻿using ProjetTransDev.DAL;
+﻿using MySql.Data.MySqlClient;
+using ProjetTransDev.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,8 +60,10 @@ namespace ProjetTransDev.Vue
         }
         private void ouvrirDeconnexion(object sender, RoutedEventArgs e)
         {
-            Window pageDeconnexion = Window.GetWindow(this);
-            pageDeconnexion.Content = new Deconnexion();
+            //DALConnection.Close();
+            Window pageDeconnection = Window.GetWindow(this);
+            pageDeconnection.Content = new Login();
+
         }
     }
 }

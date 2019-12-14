@@ -3,7 +3,9 @@ using ProjetTransDev.DAL;
 using ProjetTransDev.ORM;
 using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -35,7 +37,11 @@ namespace ProjetTransDev.Vue
 
             lp4 = EtudeORM.ListeEtude();
             listeEtudes.ItemsSource = lp4;
-
+   
+           CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+           culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd-HH-mm-ss"; //Format BDD
+           culture.DateTimeFormat.LongTimePattern = "";
+           Thread.CurrentThread.CurrentCulture = culture;
         }
         /////////////////////////////////////    Etudes    /////////////////////////////////////
         /////////////////////////////////////    Etudes    /////////////////////////////////////
@@ -44,10 +50,12 @@ namespace ProjetTransDev.Vue
         {
             myDataObject4 = new EtudeViewModel();
             myDataObject4.NbPersonneEtudeProperty = Convert.ToDecimal(NbPersonne.SelectionBoxItem);
+            myDataObject4.dateCreationProperty = Convert.ToDateTime(dateCreationDatePicker.SelectedDate); 
+            myDataObject4.dateFinProperty = Convert.ToDateTime(dateFinDatePicker1.SelectedDate);
             //myDataObject4.NbPersonneEtudeProperty = NbPersonne.SelectedValue.ToString();
             myDataObject4.PlageEtude = (PlageViewModel)listePlagesCombo.SelectedItem;
             myDataObject4.TitreEtudeProperty = Titre.Text;
-            EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject4.NbPersonneEtudeProperty, myDataObject4.PlageEtudeProperty, myDataObject4.TitreEtudeProperty, myDataObject4.dateCreationProperty, myDataObject4.dateFinProperty);
+            EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject4.NbPersonneEtudeProperty,  myDataObject4.TitreEtudeProperty, myDataObject4.PlageEtudeProperty, myDataObject4.dateCreationProperty, myDataObject4.dateFinProperty);
             lp4.Add(nouveau);
             EtudeORM.insertEtude(nouveau);
             compteur = lp4.Count();
