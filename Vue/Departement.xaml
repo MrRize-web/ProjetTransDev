@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetTransDev.Vue"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-         Background="Aqua"
+        d:DesignHeight="500" d:DesignWidth="800"
+       Background="#04c582"
       Title="Departement">
     <TabControl Margin="10,0" Height="450" Width="779"  Background="DarkCyan">
         <TabItem Header="Ajouter un Departement">
@@ -60,7 +60,7 @@
                 </Button>
 
                 <Grid Margin="10">
-                    <Label Content="liste des Departements" Margin="98,-239,-98.4,238.6"/>
+                    <Label Content="liste des Départements :" Margin="127,-269,-127.4,268.8"/>
                     <DataGrid Name="listeDepartements" ItemsSource="{Binding lp3}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="262,-239,0,120.8" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeDepartements_SelectionChanged" Width="210">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nom du Departement" Binding="{Binding nomDepartementProperty, Mode=TwoWay}" />

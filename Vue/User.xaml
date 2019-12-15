@@ -5,11 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetTransDev.Vue"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      Background="#04c582"
+    d:DesignHeight="500" d:DesignWidth="800"
       Title="User">
 
     <StackPanel>
-        <TabControl Margin="10,0" Height="450" Width="779" Background="DarkCyan">
+        <TabControl Margin="10,0" Height="470" Width="779" Background="DarkCyan">
 
             <TabItem Header="Ajouter un User">
                 <Grid Name ="grigrid" Height="375" Margin="0,0,0.6,0" VerticalAlignment="Top">
@@ -64,11 +65,15 @@
                             <ColumnDefinition Width="35*"/>
                             <ColumnDefinition Width="516*"/>
                         </Grid.ColumnDefinitions>
-                        <DataGrid Name="listeUsers" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="14.6,0,0,0" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUsers_SelectionChanged" Width="307" Grid.Column="2">
+                        <DataGrid Name="listeUsers" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="9.8,0,0,0" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUsers_SelectionChanged" Width="347" Grid.Column="1" Grid.ColumnSpan="2">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="nom" Binding="{Binding nomUsersProperty, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="prénom" Binding="{Binding prenomUsersProperty, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Nom" Binding="{Binding nomUsersProperty, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Prénom" Binding="{Binding prenomUsersProperty, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="@Mail" Binding="{Binding adresseMailUsersProperty, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Identifiant" Binding="{Binding identifiantUsersProperty, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Mot de passe" Binding="{Binding motDePasseUsersProperty, Mode=TwoWay}" />
                                 <DataGridTextColumn Header="Role" Binding="{Binding administrateurUsersProperty, Mode=TwoWay}" />
+
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
