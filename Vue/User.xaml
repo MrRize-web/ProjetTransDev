@@ -21,22 +21,23 @@
                     <StackPanel Grid.ColumnSpan="2" Margin="0,0,-0.4,-59">
 
                         <Label Content="Nom :"></Label>
-                        <!--            <TextBox Name="nomTextBox" TextChanged="nomChanged"/> -->
                         <TextBox Name="nomUsers" Height="20"/>
+                        
                         <Label Content="Prenom :"></Label>
-                        <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
                         <TextBox Name="prenomUsers" Height="20" Margin="0,0,0.300,0" />
+                        
                         <Label Content="Adresse Mail :"></Label>
-                        <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
                         <TextBox Name="AdresseMailUsers" Height="20" Margin="0,0,0.300,0" />
+                        
                         <Label Content="Identifiant :"></Label>
-                        <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
                         <TextBox Name="Identifiant" Height="20" Margin="0,0,0.300,0"/>
+                        
                         <Label Content="Mot De Passe :"></Label>
-                        <!-- <TextBox Name="prenomTextBox" TextChanged="prenomChanged"/> -->
                         <PasswordBox Name="MotDePasse" Height="20" Margin="0,0,0.300,0"/>
+                        
                         <Label Content="Administrateur :"></Label>
                         <CheckBox Name="administrateurUsers" Margin="0,0,0.300,0" />
+                        
                         <Button x:Name="nomPrenomButton" Content="Ajouter un User"   BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="52" Margin="0,5,206.8,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="nomPrenomButton_Click">
                             <Button.Background>
                                 <RadialGradientBrush>
@@ -65,7 +66,7 @@
                             <ColumnDefinition Width="35*"/>
                             <ColumnDefinition Width="516*"/>
                         </Grid.ColumnDefinitions>
-                        <DataGrid Name="listeUsers" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="9.8,0,0,0" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUsers_SelectionChanged" Width="347" Grid.Column="1" Grid.ColumnSpan="2">
+                        <DataGrid Name="listeUsers" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="117,0,0,0" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUsers_SelectionChanged" Width="485" Grid.ColumnSpan="3">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Nom" Binding="{Binding nomUsersProperty, Mode=TwoWay}" />
                                 <DataGridTextColumn Header="Prénom" Binding="{Binding prenomUsersProperty, Mode=TwoWay}" />

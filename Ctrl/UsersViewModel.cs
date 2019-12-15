@@ -13,8 +13,6 @@ namespace ProjetTransDev
         private string motDePasseUsers;
         private string adresseMailUsers;
 
-        //private string concat;
-
         public UsersViewModel() { }
 
         public UsersViewModel(int id, string nom, string prenom, string identifiant, string adresseMail, string motDePasse, Byte administrateur)
@@ -39,7 +37,6 @@ namespace ProjetTransDev
             set
             {
                 nomUsers = value.ToUpper();
-                //this.concatProperty = value.ToUpper() + " " + prenomUsers;
                 OnPropertyChanged("nomUsersProperty");
             }
 
@@ -50,7 +47,6 @@ namespace ProjetTransDev
             set
             {
                 this.prenomUsers = value;
-                this.concatProperty = this.nomUsers + " " + value;
                 OnPropertyChanged("prenomUsersProperty");
             }
         }
@@ -59,10 +55,7 @@ namespace ProjetTransDev
             get { return adresseMailUsers; }
             set
             {
-                this.adresseMailUsers = value;
-                this.concatProperty = this.adresseMailUsers + " " + value;
-            
-                //this.concatProperty = value.ToUpper() + " " + prenomUsers;
+                this.adresseMailUsers = value;        
                 OnPropertyChanged("adresseMailUsersProperty");
             }
 
@@ -73,9 +66,6 @@ namespace ProjetTransDev
             set
             {
                 this.motDePasseUsers = value;
-                this.concatProperty = this.motDePasseUsers + " " + value;
-             
-                //this.concatProperty = value.ToUpper() + " " + prenomUsers;
                 OnPropertyChanged("motDePasseUsersProperty");
             }
 
@@ -86,8 +76,6 @@ namespace ProjetTransDev
             set
             {
                 this.identifiantUsers = value;
-                this.concatProperty = this.identifiantUsers + " " + value;
-                //this.concatProperty = value.ToUpper() + " " + prenomUsers;
                 OnPropertyChanged("identifiantUsersProperty");
             }
 
@@ -101,17 +89,6 @@ namespace ProjetTransDev
                 OnPropertyChanged("administrateurUsers");
             }
         }
-
-        public String concatProperty
-        {
-            get { return ""; }
-            set
-            {
-                //     this.concat = "Ajouter " + value;
-            }
-        }
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string info)

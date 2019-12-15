@@ -11,7 +11,6 @@ namespace ProjetTransDev.Ctrl
         public DateTime date_creation;
         public DateTime date_fin;
         public PlageViewModel PlageEtude;
-        //private string concat;
 
         public EtudeViewModel() { }
 
@@ -53,7 +52,6 @@ namespace ProjetTransDev.Ctrl
             set
             {
                 NbPersonne = value;
-                this.concatProperty = this.NbPersonne + " " + value;
                 OnPropertyChanged("NbPersonneEtudeProperty");
             }
 
@@ -73,25 +71,10 @@ namespace ProjetTransDev.Ctrl
             set
             {
                 this.Titre = value;
-                this.concatProperty = this.Titre + " " + value;
-
-                //this.concatProperty = value.ToUpper() + " " + prenomUsers;
                 OnPropertyChanged("TitreEtudeProperty");
             }
 
         }
-       
-
-        public String concatProperty
-        {
-            get { return ""; }
-            set
-            {
-                //     this.concat = "Ajouter " + value;
-            }
-        }
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string info)

@@ -21,8 +21,6 @@ namespace ProjetTransDev.Vue
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             Window window = Window.GetWindow(this);
-          //  try
-           // {
                 if (DALConnection.OpenConnection().State == ConnectionState.Closed)
                     DALConnection.OpenConnection();
                 String query = "SELECT COUNT(1) FROM users WHERE Identifiant=@Username AND MotDePasse=@Password";
@@ -41,15 +39,6 @@ namespace ProjetTransDev.Vue
                     window.Content = new MauvaisLogin();
                 
                 }
-         //}
-         //   catch (Exception ex)
-          //  {
-          //      MessageBox.Show(ex.Message);
-          //  }
-          //  finally
-          //  {
-           //     DALConnection.OpenConnection();
-          //  }
         }
     }
 }

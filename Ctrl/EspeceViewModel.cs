@@ -8,7 +8,6 @@ namespace ProjetTransDev.Ctrl
     {
         private int idEspece;
         private string nomEspece;
-        //private string concat;
 
         public EspeceViewModel() { }
 
@@ -32,17 +31,6 @@ namespace ProjetTransDev.Ctrl
             }
 
         }
-      
-        public String concatProperty
-        {
-            get { return ""; }
-            set
-            {
-                //     this.concat = "Ajouter " + value;
-            }
-        }
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string info)

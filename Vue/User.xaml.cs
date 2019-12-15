@@ -35,6 +35,7 @@ namespace ProjetTransDev.Vue
 
         private void nomPrenomButton_Click(object sender, RoutedEventArgs e)
         {
+           
             myDataObject = new UsersViewModel();
             myDataObject.nomUsersProperty = nomUsers.Text;
             myDataObject.prenomUsersProperty = prenomUsers.Text;
@@ -51,7 +52,7 @@ namespace ProjetTransDev.Vue
                 myDataObject.administrateurUsersProperty = 0;
             }
 
-            UsersViewModel nouveau = new UsersViewModel(UsersDAL.getMaxIdUsers() + 1, myDataObject.nomUsersProperty, myDataObject.prenomUsersProperty, myDataObject.identifiantUsersProperty, myDataObject.motDePasseUsersProperty, myDataObject.adresseMailUsersProperty, myDataObject.administrateurUsersProperty);
+            UsersViewModel nouveau = new UsersViewModel(UsersDAL.getMaxIdUsers() + 1, myDataObject.nomUsersProperty, myDataObject.prenomUsersProperty, myDataObject.identifiantUsersProperty, myDataObject.adresseMailUsersProperty, myDataObject.motDePasseUsersProperty, myDataObject.administrateurUsersProperty);
             lp.Add(nouveau);
             UsersORM.insertUsers(nouveau);
 

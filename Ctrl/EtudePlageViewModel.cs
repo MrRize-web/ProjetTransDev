@@ -20,7 +20,6 @@ namespace ProjetTransDev.Ctrl
             public EtudeViewModel EtudeDate;
             public UsersViewModel Users;
             public PlageViewModel Plage;
-        //private string concat;
 
         public EtudePlageViewModel() { }
 
@@ -96,13 +95,6 @@ namespace ProjetTransDev.Ctrl
             }
 
         }
-        public String concatProperty
-            {
-                get { return ""; }
-  
-            }
-
-
             public event PropertyChangedEventHandler PropertyChanged;
 
             private void OnPropertyChanged(string info)
