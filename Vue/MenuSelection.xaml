@@ -17,7 +17,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnDepartement" Content="Departements" Click="ouvrirDepartement" Margin="0,313,430,55.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+        <Button x:Name="btnDepartement" Content="Departements" Click="ouvrirDepartement" Margin="0,300,430.2,68.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="LightBlue" />
@@ -26,6 +26,14 @@
             </Button.Background>
         </Button>
         <Button x:Name="btnEspece" Content="Especes" Click="ouvrirEspece" Margin="0,179,295,189.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Offset="0.0" Color="LightBlue" />
+                    <GradientStop Offset="1.0" Color="Gray" />
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnZone" Content="Zone" Click="ouvrirZone" Margin="0,300,295.2,68.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="LightBlue" />
@@ -62,6 +70,14 @@
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="Red" />
                     <GradientStop Offset="2" Color="Gray" />
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnEspeceNombre" Content="Nombre" Click="ouvrirNombre" Margin="0,180,164.2,188.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Offset="0.0" Color="LightBlue" />
+                    <GradientStop Offset="1.0" Color="Gray" />
                 </RadialGradientBrush>
             </Button.Background>
         </Button>

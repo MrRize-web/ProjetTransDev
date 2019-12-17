@@ -12,10 +12,11 @@ namespace ProjetTransDev.Ctrl
   
         public class EtudePlageViewModel : INotifyPropertyChanged
         {
-            private string Angle1;
-            private string Angle2;
-            private string Angle3;
-            private string Angle4;
+            private int IdZone;
+            private Decimal Angle1;
+            private Decimal Angle2;
+            private Decimal Angle3;
+            private Decimal Angle4;
             public EtudeViewModel Etude;
             public EtudeViewModel EtudeDate;
             public UsersViewModel Users;
@@ -23,8 +24,9 @@ namespace ProjetTransDev.Ctrl
 
         public EtudePlageViewModel() { }
 
-            public EtudePlageViewModel(EtudeViewModel Etude, PlageViewModel Plage, EtudeViewModel EtudeDate, string Angle1, string Angle2, string Angle3, string Angle4, UsersViewModel Users)
+            public EtudePlageViewModel(int IdZone, EtudeViewModel Etude, PlageViewModel Plage, UsersViewModel Users, EtudeViewModel EtudeDate, Decimal Angle1, Decimal Angle2, Decimal Angle3, Decimal Angle4)
             {
+                this.IdZone = IdZone;
                 this.Etude = Etude;
                 this.Plage = Plage;
                 this.EtudeDate = EtudeDate;
@@ -34,63 +36,102 @@ namespace ProjetTransDev.Ctrl
                 this.Angle4 = Angle4;
                 this.Users = Users;
         }
+        public int IdZoneProperty
+        {
+            get { return IdZone; }
+            set
+            {
+                IdZone = value;
+                OnPropertyChanged("IdZoneProperty");
+            }
+
+        }
         public EtudeViewModel EtudeProperty
             {
                 get { return Etude; }
+            set
+            {
+                Etude = value;
+                OnPropertyChanged("EtudeProperty");
             }
+        }
         public String EtudeNameProperty
         {
             get { return Etude.TitreEtudeProperty; }
         }
+        public DateTime EtudeDateProperty
+        {
+            get { return Etude.dateCreationProperty; }
+            set
+            {
+                Etude.dateCreationProperty = value;
+                OnPropertyChanged("EtudeDateProperty");
+            }
+        }
+        public UsersViewModel UsersProperty
+        {
+            get { return Users; }
+            set
+            {
+                Users = value;
+                OnPropertyChanged("UsersProperty");
+            }
+        }
+        public String UsersNameProperty
+        {
+            get { return Users.prenomUsersProperty; }
+        }
+
 
         public PlageViewModel PlageProperty
         {
                 get { return Plage; }
+            set
+            {
+                Plage = value;
+                OnPropertyChanged("PlageProperty");
             }
+        }
             public String PlageNameProperty
         {
                 get { return Plage.nomPlageProperty; }
             }
-            public DateTime EtudeDateProperty
-            {
-                get { return Etude.dateCreationProperty; }
-            }
-            public String Angle1Property
+            public Decimal Angle1Property
         {
                 get { return Angle1; }
                 set
                 {
-                    Angle1 = value.ToUpper();
+                    Angle1 = value;
                     OnPropertyChanged("Angle1Property");
                 }
 
             }
-        public String Angle2Property
+        public Decimal Angle2Property
         {
             get { return Angle2; }
             set
             {
-                Angle2 = value.ToUpper();
+                Angle2 = value;
                 OnPropertyChanged("Angle2Property");
             }
 
         }
-        public String Angle3Property
+        public Decimal Angle3Property
         {
             get { return Angle3; }
             set
             {
-                Angle3 = value.ToUpper();
+                Angle3 = value;
                 OnPropertyChanged("Angle3Property");
             }
 
         }
-        public String Angle4Property
+        public Decimal Angle4Property
         {
             get { return Angle4; }
             set
             {
-                Angle4 = value.ToUpper();
+                Angle4 = value;
                 OnPropertyChanged("Angle4Property");
             }
 
@@ -103,7 +144,7 @@ namespace ProjetTransDev.Ctrl
                 if (handler != null)
                 {
                     handler(this, new PropertyChangedEventArgs(info));
-                 //   EtudePlageORM.updateEtudePlage(this);
+                   EtudePlageORM.updateEtudePlage(this);
                 }
             }
         }

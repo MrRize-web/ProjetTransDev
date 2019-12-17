@@ -76,6 +76,7 @@
                                 <DataGridTextColumn Header="Role" Binding="{Binding administrateurUsersProperty, Mode=TwoWay}" />
 
                             </DataGrid.Columns>
+                           
                         </DataGrid>
                     </Grid>
                     <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200">

@@ -11,14 +11,11 @@ using System.Windows.Controls;
 
 namespace ProjetTransDev.Vue
 {
-    /// <summary>
-    /// Logique d'interaction pour Etude.xaml
-    /// </summary>
     public partial class Etude : Page
     {
 
         int selectedEtudeId;
-        int selectedDepartementsId;
+
         int compteur = 0;
 
 
@@ -34,10 +31,10 @@ namespace ProjetTransDev.Vue
 
             lp1 = PlageORM.listePlages();
             listePlagesCombo.ItemsSource = lp1;
-
             lp4 = EtudeORM.ListeEtude();
             listeEtudes.ItemsSource = lp4;
-   
+
+
            CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
            culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd-HH-mm-ss"; //Format BDD
            culture.DateTimeFormat.LongTimePattern = "";
@@ -52,13 +49,15 @@ namespace ProjetTransDev.Vue
             myDataObject4.NbPersonneEtudeProperty = Convert.ToDecimal(NbPersonne.SelectionBoxItem);
             myDataObject4.dateCreationProperty = Convert.ToDateTime(dateCreationDatePicker.SelectedDate); 
             myDataObject4.dateFinProperty = Convert.ToDateTime(dateFinDatePicker1.SelectedDate);
-            //myDataObject4.NbPersonneEtudeProperty = NbPersonne.SelectedValue.ToString();
             myDataObject4.PlageEtude = (PlageViewModel)listePlagesCombo.SelectedItem;
             myDataObject4.TitreEtudeProperty = Titre.Text;
+
             EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject4.NbPersonneEtudeProperty,  myDataObject4.TitreEtudeProperty, myDataObject4.PlageEtudeProperty, myDataObject4.dateCreationProperty, myDataObject4.dateFinProperty);
             lp4.Add(nouveau);
             EtudeORM.insertEtude(nouveau);
             compteur = lp4.Count();
+
+            listeEtudes.ItemsSource = lp4;
 
             ((TextBox)Titre).Text = string.Empty;
 
@@ -80,6 +79,13 @@ namespace ProjetTransDev.Vue
 
             MessageBox.Show("Etude supprimée avec succes ! ");
         }
+
+        /// <summary>
+        /// ////TEST classe association
+        /// </summary>
+        ///
+        
+
         private void ouvrirAcceuil(object sender, RoutedEventArgs e)
         {
             Window pageAcceuil = Window.GetWindow(this);

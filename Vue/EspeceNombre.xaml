@@ -1,0 +1,92 @@
+﻿<Page x:Class="ProjetTransDev.Vue.EspeceNombre"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjetTransDev.Vue"
+      mc:Ignorable="d" 
+        d:DesignHeight="500" d:DesignWidth="800"
+    Background="#04c582"
+      Title="EspeceNombre">
+    <TabControl Margin="10,0" Height="450" Width="779"  Background="DarkCyan">
+        <TabItem Header="Nombre">
+            <StackPanel>
+                <Label Content="Nombre d'animaux :"></Label>
+                <ComboBox Name="NbAnimaux" Height="20" >
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>6</ComboBoxItem>
+                    <ComboBoxItem>7</ComboBoxItem>
+                    <ComboBoxItem>8</ComboBoxItem>
+                    <ComboBoxItem>9</ComboBoxItem>
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem>11</ComboBoxItem>
+                    <ComboBoxItem>12</ComboBoxItem>
+                    <ComboBoxItem>13</ComboBoxItem>
+                    <ComboBoxItem>14</ComboBoxItem>
+                    <ComboBoxItem>15</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                    <ComboBoxItem>17</ComboBoxItem>
+                    <ComboBoxItem>18</ComboBoxItem>
+                    <ComboBoxItem>19</ComboBoxItem>
+                    <ComboBoxItem>20</ComboBoxItem>
+                </ComboBox>
+
+                <Label Content="Zone de l'IdZone :"></Label>
+                <ComboBox Name="listeZonesCombo"
+                                      DisplayMemberPath="IdZoneProperty" 
+                                      ItemsSource="{Binding}" 
+                                      SelectedItem="{Binding IdZoneProperty}" 
+                                     >
+                </ComboBox>
+
+                <Label Content="Zone idEspece :"></Label>
+                <ComboBox Name="listeEspeceCombo"
+                                      DisplayMemberPath="nomEspeceProperty" 
+                                      ItemsSource="{Binding}" 
+                                      SelectedItem="{Binding idEspeceProperty}" 
+                                     >
+                </ComboBox>
+
+                <Label Content="Zone de l'idPlage :"></Label>
+                <ComboBox Name="listePlagesCombo"
+                                      DisplayMemberPath="nomPlageProperty" 
+                                      ItemsSource="{Binding}" 
+                                      SelectedItem="{Binding idPlageProperty}" 
+                                     >
+                </ComboBox>
+
+                <Label Content="Zone de l'idEtude :"></Label>
+                <ComboBox Name="listeEtudesCombo"
+                                      DisplayMemberPath="TitreEtudeProperty" 
+                                      ItemsSource="{Binding}" 
+                                      SelectedItem="{Binding idEtudeProperty}" 
+                                     >
+                </ComboBox>
+                <Button x:Name="VlideNombreEspece" Content="Ajoute nombre d'animaux"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="50" Margin="167,5,206.6,0" RenderTransformOrigin="0.5,2.31" Click="VlideNombreEspece_Click" >
+                    <Button.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Color="ForestGreen" Offset="0.279"/>
+                            <GradientStop Color="Green" Offset="0.779"/>
+                        </RadialGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Tableau récapitulatif">
+            <StackPanel>
+                <Grid  Margin="10,10,9.6,10" Height="204">
+                    <DataGrid Name="listeEspecesNombres" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="247,0,0,79" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEspecesNombres_SelectionChanged" Width="225">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nom de l'espece :" Binding="{Binding nomEspeceProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nombre :" Binding="{Binding NombreProperty, Mode=TwoWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</Page>

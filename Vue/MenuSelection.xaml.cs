@@ -43,6 +43,16 @@ namespace ProjetTransDev.Vue
             Window pageEspece = Window.GetWindow(this);
             pageEspece.Content = new Espece();
         }
+        private void ouvrirNombre(object sender, RoutedEventArgs e)
+        {
+            Window pageNombre = Window.GetWindow(this);
+            pageNombre.Content = new EspeceNombre();
+        }
+        private void ouvrirZone(object sender, RoutedEventArgs e)
+        {
+            Window pageZone = Window.GetWindow(this);
+            pageZone.Content = new ZoneInvestigation();
+        }
         private void ouvrirEtude(object sender, RoutedEventArgs e)
         {
             Window pageEtude = Window.GetWindow(this);

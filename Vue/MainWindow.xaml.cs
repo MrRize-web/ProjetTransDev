@@ -10,7 +10,7 @@ namespace ProjetTransDev
         public MainWindow()
         {
             InitializeComponent();
-            this.Content = new Login();   
+            this.Content = new MenuSelection();   
         }
     }
 }

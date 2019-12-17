@@ -75,9 +75,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Ctrl\EtudePlageEspeceViewModel.cs" />
     <Compile Include="Ctrl\EtudePlageViewModel.cs" />
     <Compile Include="DAL\EtudePlageDAL.cs" />
+    <Compile Include="DAL\EtudePlageEspeceDAL.cs" />
     <Compile Include="DAO\EtudePlageDAO.cs" />
+    <Compile Include="DAO\EtudePlageEspeceDAO.cs" />
+    <Compile Include="ORM\EtudePlageEspeceORM.cs" />
     <Compile Include="ORM\EtudePlageORM.cs" />
     <Compile Include="Vue\Commune.xaml.cs">
       <DependentUpon>Commune.xaml</DependentUpon>
@@ -87,6 +91,9 @@
     </Compile>
     <Compile Include="Vue\Espece.xaml.cs">
       <DependentUpon>Espece.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\EspeceNombre.xaml.cs">
+      <DependentUpon>EspeceNombre.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vue\Etude.xaml.cs">
       <DependentUpon>Etude.xaml</DependentUpon>
@@ -106,6 +113,9 @@
     <Compile Include="Vue\User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vue\ZoneInvestigation.xaml.cs">
+      <DependentUpon>ZoneInvestigation.xaml</DependentUpon>
+    </Compile>
     <Page Include="Vue\Commune.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vue\Espece.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\EspeceNombre.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -176,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vue\User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\ZoneInvestigation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -8,10 +8,18 @@
       d:DesignHeight="500" d:DesignWidth="800"
       Background="#04c582"
       Title="Etude">
+    
     <TabControl Margin="10,0" Height="450" Width="779"  Background="DarkCyan">
         <TabItem Header="Ajouter d'une Etude">
             <Grid Name ="grigrid2" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
-                <StackPanel Margin="0,0,0.1,-124">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="0,0,-0.4,-124" Grid.ColumnSpan="5">
                     <Label Content="Nombre de Personne :"></Label>
                     <ComboBox Name="NbPersonne" Height="20" >
                         <ComboBoxItem>1</ComboBoxItem>
@@ -57,9 +65,18 @@
                             </RadialGradientBrush>
                         </Button.Background>
                     </Button>
+                    <TabControl Height="100">
+                        <TabItem Header="TabItem">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                        <TabItem Header="TabItem">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                    </TabControl>
                 </StackPanel>
             </Grid>
         </TabItem>
+       
         <TabItem Header="Etude">
             <StackPanel RenderTransformOrigin="0.494,0.485" Margin="0,0,-0.4,-3.4">
                 <Grid  Margin="10,10,9.6,10" Height="204">

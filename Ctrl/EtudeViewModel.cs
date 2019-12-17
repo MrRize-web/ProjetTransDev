@@ -86,5 +86,6 @@ namespace ProjetTransDev.Ctrl
                 EtudeORM.updateEtude(this);
             }
         }
+
     }
 }

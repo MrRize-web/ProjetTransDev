@@ -36,7 +36,7 @@ namespace ProjetTransDev.Vue
             lp3.Add(nouveau);
             DepartementORM.insertDepartement(nouveau);
             compteur = lp3.Count();
-
+            listeDepartements.ItemsSource = lp3;
             ((TextBox)NomDepartement).Text = string.Empty;
 
             MessageBox.Show("Département ajouté avec succes ! ");
