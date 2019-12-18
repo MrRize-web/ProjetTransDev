@@ -16,24 +16,24 @@ namespace ProjetTransDev.Vue
         int selectedEspeceNombreId;
         int compteur = 0;
 
-        EtudePlageEspeceViewModel myDataObject8;
-        ObservableCollection<EtudePlageEspeceViewModel> lp8;
+        EspeceNombreViewModel myDataObject8;
+        ObservableCollection<EspeceNombreViewModel> lp8;
         public EspeceNombre()
         {
 
             InitializeComponent();
-            lp8 = EtudePlageEspeceORM.ListeEtudePlageEspeces();
+            lp8 = EspeceNombreORM.ListeEspeceNombres();
             listeZonesCombo.ItemsSource = lp8;
         }
 
         private void VlideNombreEspece_Click(object sender, RoutedEventArgs e)
         {
-            myDataObject8 = new EtudePlageEspeceViewModel();
+            myDataObject8 = new EspeceNombreViewModel();
             myDataObject8.NombreProperty = Convert.ToDecimal(NbAnimaux.SelectionBoxItem);
 
-            /* EtudePlageEspeceViewModel nouveau = new EtudePlageEspeceViewModel(myDataObject8.EspeceProperty,myDataObject8.PlageProperty, myDataObject8.EtudeProperty,myDataObject8.NombreProperty);
+            /* EspeceNombreViewModel nouveau = new EspeceNombreViewModel(myDataObject8.EspeceProperty,myDataObject8.PlageProperty, myDataObject8.EtudeProperty,myDataObject8.NombreProperty);
              lp8.Add(nouveau);
-             EtudePlageEspeceORM.insertEtudePlageEspece(nouveau);*/
+             EspeceNombreORM.insertEspeceNombre(nouveau);*/
             compteur = lp8.Count();
             MessageBox.Show("Nombre ajoutée avec succes ! ");
 
@@ -42,18 +42,18 @@ namespace ProjetTransDev.Vue
         {
             if ((listeZonesCombo.SelectedIndex < lp8.Count) && (listeZonesCombo.SelectedIndex >= 0))
             {
-                selectedEspeceNombreId = (lp8.ElementAt<EtudePlageEspeceViewModel>(listeZonesCombo.SelectedIndex)).IdNombreEProperty;
+                selectedEspeceNombreId = (lp8.ElementAt<EspeceNombreViewModel>(listeZonesCombo.SelectedIndex)).IdNombreEProperty;
             }
         }
 
         private void supprimerButton_MouseDoubleClick5(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            EtudePlageEspeceViewModel toRemove = (EtudePlageEspeceViewModel)listeZonesCombo.SelectedItem;
+            EspeceNombreViewModel toRemove = (EspeceNombreViewModel)listeZonesCombo.SelectedItem;
             lp8.Remove(toRemove);
 
             listeZonesCombo.Items.Refresh();
 
-            EtudePlageEspeceORM.supprimerEtudePlageEspece(selectedEspeceNombreId);
+            EspeceNombreORM.supprimerEspeceNombre(selectedEspeceNombreId);
             MessageBox.Show("Espece supprimée avec succes ! ");
         }
 

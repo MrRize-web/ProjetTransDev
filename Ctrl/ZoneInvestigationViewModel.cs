@@ -144,7 +144,7 @@ namespace ProjetTransDev.Ctrl
                 if (handler != null)
                 {
                     handler(this, new PropertyChangedEventArgs(info));
-                   ZoneInvestigationORM.updateEtudePlage(this);
+                   ZoneInvestigationORM.updateZoneInvestigation(this);
                 }
             }
         }

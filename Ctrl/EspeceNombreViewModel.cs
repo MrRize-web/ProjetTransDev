@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace ProjetTransDev
 {
-    public class EtudePlageEspeceViewModel : INotifyPropertyChanged
+    public class EspeceNombreViewModel : INotifyPropertyChanged
     {
         public EtudeViewModel IdEtude;
         public PlageViewModel IdPlage;
@@ -13,9 +13,9 @@ namespace ProjetTransDev
         public ZoneInvestigationViewModel IdZone;
         private Decimal Nombre;
         private int IdNombreE;
-        public EtudePlageEspeceViewModel() { }
+        public EspeceNombreViewModel() { }
 
-        public EtudePlageEspeceViewModel(int IdNombreE, ZoneInvestigationViewModel IdZone, EspeceViewModel idEspece, PlageViewModel idPlage, EtudeViewModel idEtude, Decimal Nombre )
+        public EspeceNombreViewModel(int IdNombreE, ZoneInvestigationViewModel IdZone, EspeceViewModel idEspece, PlageViewModel idPlage, EtudeViewModel idEtude, Decimal Nombre )
         {
             this.IdNombreE = IdNombreE;
             this.IdZone = IdZone;
@@ -79,7 +79,7 @@ namespace ProjetTransDev
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(info));
-                EtudePlageEspeceORM.updateEtudePlageEspece(this);
+                EspeceNombreORM.updateEspeceNombre(this);
             }
         }
     }

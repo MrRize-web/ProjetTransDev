@@ -6,10 +6,10 @@ namespace ProjetTransDev.ORM
     public class ZoneInvestigationORM
     {
 
-        public static ZoneInvestigationViewModel getEtudePlage(int idEtudePlage)
+        public static ZoneInvestigationViewModel getZoneInvestigation(int idZoneInvestigation)
         {
 
-            EtudePlageDAO pDAO = EtudePlageDAO.getEtudePlage(idEtudePlage);
+            ZoneInvestigationDAO pDAO = ZoneInvestigationDAO.getZoneInvestigation(idZoneInvestigation);
 
             int idEtude = pDAO.IdEtudeDAO;
             EtudeViewModel a = EtudeORM.getEtude(idEtude);
@@ -27,11 +27,11 @@ namespace ProjetTransDev.ORM
             return p;
         }
 
-        public static ObservableCollection<ZoneInvestigationViewModel> ListeEtudePlages()
+        public static ObservableCollection<ZoneInvestigationViewModel> ListeZoneInvestigation()
         {
-            ObservableCollection<EtudePlageDAO> lDAO = EtudePlageDAO.listeEtudePlages();
+            ObservableCollection<ZoneInvestigationDAO> lDAO = ZoneInvestigationDAO.listeZoneInvestigations();
             ObservableCollection<ZoneInvestigationViewModel> l = new ObservableCollection<ZoneInvestigationViewModel>();
-            foreach (EtudePlageDAO element in lDAO)
+            foreach (ZoneInvestigationDAO element in lDAO)
             {
                 int idEtude = element.IdEtudeDAO;
                 EtudeViewModel a = EtudeORM.getEtude(idEtude);
@@ -49,18 +49,18 @@ namespace ProjetTransDev.ORM
             }
             return l;
         }
-        public static void updateEtudePlage(ZoneInvestigationViewModel p)
+        public static void updateZoneInvestigation(ZoneInvestigationViewModel p)
         {
-            EtudePlageDAO.updateEtudePlage(new EtudePlageDAO(p.IdZoneProperty,p.EtudeProperty.idEtudeProperty,p.PlageProperty.idPlageProperty,p.UsersProperty.idUsersProperty,p.EtudeProperty.dateCreationProperty,p.Angle1Property,p.Angle2Property,p.Angle3Property,p.Angle4Property));
+            ZoneInvestigationDAO.updateZoneInvestigation(new ZoneInvestigationDAO(p.IdZoneProperty,p.EtudeProperty.idEtudeProperty,p.PlageProperty.idPlageProperty,p.UsersProperty.idUsersProperty,p.EtudeProperty.dateCreationProperty,p.Angle1Property,p.Angle2Property,p.Angle3Property,p.Angle4Property));
         }
 
-        public static void supprimerEtudePlage(int id)
+        public static void supprimerZoneInvestigation(int id)
         {
-            EtudePlageDAO.supprimerEtudePlage(id);
+            ZoneInvestigationDAO.supprimerZoneInvestigation(id);
         }
-        public static void insertEtudePlage(ZoneInvestigationViewModel p)
+        public static void insertZoneInvestigation(ZoneInvestigationViewModel p)
         {
-            EtudePlageDAO.insertEtudePlage(new EtudePlageDAO(p.IdZoneProperty, p.EtudeProperty.idEtudeProperty, p.PlageProperty.idPlageProperty, p.UsersProperty.idUsersProperty, p.EtudeProperty.dateCreationProperty, p.Angle1Property, p.Angle2Property, p.Angle3Property, p.Angle4Property));
+            ZoneInvestigationDAO.insertZoneInvestigation(new ZoneInvestigationDAO(p.IdZoneProperty, p.EtudeProperty.idEtudeProperty, p.PlageProperty.idPlageProperty, p.UsersProperty.idUsersProperty, p.EtudeProperty.dateCreationProperty, p.Angle1Property, p.Angle2Property, p.Angle3Property, p.Angle4Property));
         }
     }
 }

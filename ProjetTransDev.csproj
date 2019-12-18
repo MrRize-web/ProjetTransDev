@@ -75,13 +75,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Ctrl\EtudePlageEspeceViewModel.cs" />
+    <Compile Include="Ctrl\EspeceNombreViewModel.cs" />
     <Compile Include="Ctrl\ZoneInvestigationViewModel.cs" />
     <Compile Include="DAL\ZoneInvestigationDAL.cs" />
-    <Compile Include="DAL\EtudePlageEspeceDAL.cs" />
+    <Compile Include="DAL\EspeceNombreDAL.cs" />
     <Compile Include="DAO\ZoneInvestigationDAO.cs" />
-    <Compile Include="DAO\EtudePlageEspeceDAO.cs" />
-    <Compile Include="ORM\EtudePlageEspeceORM.cs" />
+    <Compile Include="DAO\EspeceNombreDAO.cs" />
+    <Compile Include="ORM\EspeceNombreORM.cs" />
     <Compile Include="ORM\ZoneInvestigationORM.cs" />
     <Compile Include="Vue\Commune.xaml.cs">
       <DependentUpon>Commune.xaml</DependentUpon>

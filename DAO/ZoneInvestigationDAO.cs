@@ -8,7 +8,7 @@ using ProjetTransDev.DAL;
 
 namespace ProjetTransDev.ORM
 {
-    public class EtudePlageDAO
+    public class ZoneInvestigationDAO
     {
 
         public Decimal Angle1DAO;
@@ -20,7 +20,7 @@ namespace ProjetTransDev.ORM
         public int  IdEtudeDAO;   
         public int  IdUsersDAO;
         public int  IdPlageDAO;
-        public EtudePlageDAO(int IdZoneDAO, int IdEtudeDAO, int IdPlageDAO, int IdUsersDAO,  DateTime EtudeDateDAO, Decimal Angle1DAO, Decimal Angle2DAO, Decimal Angle3DAO, Decimal Angle4DAO)
+        public ZoneInvestigationDAO(int IdZoneDAO, int IdEtudeDAO, int IdPlageDAO, int IdUsersDAO,  DateTime EtudeDateDAO, Decimal Angle1DAO, Decimal Angle2DAO, Decimal Angle3DAO, Decimal Angle4DAO)
         {
             this.IdZoneDAO = IdZoneDAO;
             this.IdPlageDAO = IdPlageDAO;
@@ -33,31 +33,31 @@ namespace ProjetTransDev.ORM
             this.Angle4DAO = Angle4DAO;
         }
 
-        public static ObservableCollection<EtudePlageDAO> listeEtudePlages()
+        public static ObservableCollection<ZoneInvestigationDAO> listeZoneInvestigations()
         {
-            ObservableCollection<EtudePlageDAO> l = ZoneInvestigationDAL.selectEtudePlages();
+            ObservableCollection<ZoneInvestigationDAO> l = ZoneInvestigationDAL.selectZoneInvestigations();
             return l;
         }
 
-        public static EtudePlageDAO getEtudePlage(int IdZoneDAO)
+        public static ZoneInvestigationDAO getZoneInvestigation(int IdZoneDAO)
         {
-            EtudePlageDAO p = ZoneInvestigationDAL.getEtudePlage(IdZoneDAO);
+            ZoneInvestigationDAO p = ZoneInvestigationDAL.getZoneInvestigation(IdZoneDAO);
             return p;
         }
 
-        public static void updateEtudePlage(EtudePlageDAO p)
+        public static void updateZoneInvestigation(ZoneInvestigationDAO p)
         {
-            ZoneInvestigationDAL.updateEtudePlage(p);
+            ZoneInvestigationDAL.updateZoneInvestigation(p);
         }
 
-        public static void supprimerEtudePlage(int id)
+        public static void supprimerZoneInvestigation(int id)
         {
-            ZoneInvestigationDAL.supprimerEtudePlage(id);
+            ZoneInvestigationDAL.supprimerZoneInvestigation(id);
         }
 
-        public static void insertEtudePlage(EtudePlageDAO p)
+        public static void insertZoneInvestigation(ZoneInvestigationDAO p)
         {
-            ZoneInvestigationDAL.insertEtudePlage(p);
+            ZoneInvestigationDAL.insertZoneInvestigation(p);
         }
     }
 }

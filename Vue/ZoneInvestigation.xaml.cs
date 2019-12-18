@@ -13,7 +13,7 @@ namespace ProjetTransDev.Vue
 {
     public partial class ZoneInvestigation : Page
     {
-        int selectedEtudePlageId;
+        int selectedZoneInvestigationId;
 
         int compteur = 0;
 
@@ -38,7 +38,7 @@ namespace ProjetTransDev.Vue
             listeDateCombo.ItemsSource = lp4;
             ListeEtudeZone.ItemsSource = lp4;
 
-            lp7 = ZoneInvestigationORM.ListeEtudePlages();
+            lp7 = ZoneInvestigationORM.ListeZoneInvestigation();
 
             CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
             culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd-HH-mm-ss"; //Format BDD
@@ -58,9 +58,9 @@ namespace ProjetTransDev.Vue
             myDataObject7.Angle3Property = Convert.ToDecimal(Angle3.Text);
             myDataObject7.Angle4Property = Convert.ToDecimal(Angle4.Text);
 
-            ZoneInvestigationViewModel nouveau = new ZoneInvestigationViewModel(ZoneInvestigationDAL.getMaxIdEtudePlage() + 1, myDataObject7.EtudeProperty, myDataObject7.PlageProperty, myDataObject7.UsersProperty, myDataObject7.EtudeDate, myDataObject7.Angle1Property, myDataObject7.Angle2Property, myDataObject7.Angle3Property, myDataObject7.Angle4Property);
+            ZoneInvestigationViewModel nouveau = new ZoneInvestigationViewModel(ZoneInvestigationDAL.getMaxIdZoneInvestigation() + 1, myDataObject7.EtudeProperty, myDataObject7.PlageProperty, myDataObject7.UsersProperty, myDataObject7.EtudeDate, myDataObject7.Angle1Property, myDataObject7.Angle2Property, myDataObject7.Angle3Property, myDataObject7.Angle4Property);
             lp7.Add(nouveau);
-            ZoneInvestigationORM.insertEtudePlage(nouveau);
+            ZoneInvestigationORM.insertZoneInvestigation(nouveau);
             compteur = lp7.Count();
 
             ListeEtudeZone.ItemsSource = lp7;
@@ -76,7 +76,7 @@ namespace ProjetTransDev.Vue
         {
             if ((ListeEtudeZone.SelectedIndex < lp7.Count) && (ListeEtudeZone.SelectedIndex >= 0))
             {
-                selectedEtudePlageId = (lp7.ElementAt<ZoneInvestigationViewModel>(ListeEtudeZone.SelectedIndex)).EtudeProperty.idEtudeProperty;
+                selectedZoneInvestigationId = (lp7.ElementAt<ZoneInvestigationViewModel>(ListeEtudeZone.SelectedIndex)).EtudeProperty.idEtudeProperty;
             }
         }
         private void supprimerButton_MouseDoubleClick4(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -84,7 +84,7 @@ namespace ProjetTransDev.Vue
             ZoneInvestigationViewModel toRemove = (ZoneInvestigationViewModel)ListeEtudeZone.SelectedItem;
             lp7.Remove(toRemove);
 
-            EtudeORM.supprimerEtude(selectedEtudePlageId);
+            EtudeORM.supprimerEtude(selectedZoneInvestigationId);
 
             MessageBox.Show("Etude supprimée avec succes ! ");
         }

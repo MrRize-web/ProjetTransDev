@@ -6,18 +6,18 @@ using ProjetTransDev.ORM;
 
 namespace ProjetTransDev.DAL
 {
-    public class EtudePlageEspeceDAL
+    public class EspeceNombreDAL
     {
         private static MySqlConnection connection;
-        public EtudePlageEspeceDAL()
+        public EspeceNombreDAL()
         {
             DALConnection.OpenConnection();
             connection = DALConnection.OpenConnection();
         }
 
-        public static ObservableCollection<EtudePlageEspeceDAO> selectEtudePlageEspeces()
+        public static ObservableCollection<EspeceNombreDAO> selectEspeceNombres()
         {
-            ObservableCollection<EtudePlageEspeceDAO> l = new ObservableCollection<EtudePlageEspeceDAO>();
+            ObservableCollection<EspeceNombreDAO> l = new ObservableCollection<EspeceNombreDAO>();
             string query = "SELECT * FROM etude_has_plage_has_Espece;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             try
@@ -27,7 +27,7 @@ namespace ProjetTransDev.DAL
 
                 while (reader.Read())
                 {
-                    EtudePlageEspeceDAO p = new EtudePlageEspeceDAO(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetDecimal(5));
+                    EspeceNombreDAO p = new EspeceNombreDAO(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetDecimal(5));
                     l.Add(p);
                 }
                 reader.Close();
@@ -39,29 +39,29 @@ namespace ProjetTransDev.DAL
             return l;
         }
 
-        public static void updateEtudePlageEspece(EtudePlageEspeceDAO p)
+        public static void updateEspeceNombre(EspeceNombreDAO p)
         {
             string query = "UPDATE etude_has_plage_has_Espece  set Nombre=\"" + p.NombreDAO + "\" where Etude_has_Plage_Etude_idEtude=" + p.IdNombreEDAO + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
-        public static void insertEtudePlageEspece(EtudePlageEspeceDAO p)
+        public static void insertEspeceNombre(EspeceNombreDAO p)
         {
-            int id = getMaxIdEtudePlageEspece() + 1;
+            int id = getMaxIdEspeceNombre() + 1;
             string query = "INSERT INTO etude_has_plage_has_Espece  VALUES (\"" + id + "\",\"" + p.IdEspeceDAO + "\",\"" + p.IdZoneDAO + "\",\"" + p.IdEtudeDAO + "\",\"" + p.IdPlageDAO + "\",\"" + p.NombreDAO + "\");";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
-        public static void supprimerEtudePlageEspece(int id)
+        public static void supprimerEspeceNombre(int id)
         {
             string query = "DELETE FROM etude_has_plage_has_Espece WHERE IdNombreE = \"" + id + "\";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
-        public static int getMaxIdEtudePlageEspece()
+        public static int getMaxIdEspeceNombre()
         {
             string query = "SELECT IFNULL(MAX(IdNombreE),0) FROM etude_has_plage_has_Espece ;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
@@ -73,21 +73,21 @@ namespace ProjetTransDev.DAL
             reader.Close();
             return maxIdPlage;
         }
-        public static EtudePlageEspeceDAO getEtudePlageEspece(int IdNombreE)
+        public static EspeceNombreDAO getEspeceNombre(int IdNombreE)
         {
             string query = " SELECT * FROM etude_has_plage_has_Espece WHERE IdNombreE =" + IdNombreE + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            EtudePlageEspeceDAO com;
+            EspeceNombreDAO com;
             if (reader.HasRows)
             {
-                com = new EtudePlageEspeceDAO(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetDecimal(5));
+                com = new EspeceNombreDAO(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetDecimal(5));
             }
             else
             {
-                com = new EtudePlageEspeceDAO(1, 1, 1, 1,1, 0);
+                com = new EspeceNombreDAO(1, 1, 1, 1,1, 0);
             }
             reader.Close();
             return com;
