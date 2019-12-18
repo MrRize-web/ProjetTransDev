@@ -67,7 +67,7 @@
                 </Button>
             </StackPanel>
         </TabItem>
-        <TabItem Header="Etude">
+        <TabItem Header="Liste des Zones">
             <StackPanel RenderTransformOrigin="0.494,0.485" Margin="0,0,-0.4,-3.4">
                 <Grid  Margin="10,10,9.6,10" Height="204">
                     <DataGrid x:Name="ListeEtudeZone" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="175,10,0,61" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="ListeEtudeZone_SelectionChanged" Width="417" RenderTransformOrigin="0.504,0.48">

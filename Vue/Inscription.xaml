@@ -11,7 +11,7 @@
     <StackPanel>
         <TabControl Margin="10,0" Height="420" Width="779" Background="DarkCyan">
 
-            <TabItem Header="Ajouter un User">
+            <TabItem Header="Inscription">
                 <Grid Name ="grigrid" Height="375" Margin="0,0,0.6,0" VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20*"/>

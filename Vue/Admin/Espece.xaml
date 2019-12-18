@@ -38,7 +38,7 @@
                 </StackPanel>
             </Grid>
         </TabItem>
-        <TabItem Header="Espece">
+        <TabItem Header="Liste des Especes">
             <StackPanel>
                 <Grid  Margin="10,10,9.6,10" Height="204">
                     <DataGrid Name="listeEspeces" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="252,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEspeceSelectionChanged" Width="110">

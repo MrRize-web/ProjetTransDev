@@ -10,7 +10,7 @@
       Title="EspeceNombre" Width="800">
 
     <TabControl Margin="10,0,10,24.6" Width="779"  Background="DarkCyan">
-        <TabItem Header="Nombre">
+        <TabItem Header="Comptage">
             <StackPanel>
                 <Label Content="Nombre d'animaux :"></Label>
                 <ComboBox Name="NbAnimaux" Height="20" Margin="0,0,706.6,0" >

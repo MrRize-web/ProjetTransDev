@@ -42,7 +42,7 @@
             </Grid>
         </TabItem>
 
-        <TabItem Header="Liste Plage">
+        <TabItem Header="Liste des Départements">
             <StackPanel>
                 <Grid Margin="10,10,9.6,10" Height="224">
                     <Grid.ColumnDefinitions>
@@ -61,7 +61,6 @@
                 </Button>
 
                 <Grid Margin="10">
-                    <Label Content="liste des Départements :" Margin="127,-269,-127.4,268.8"/>
                     <DataGrid Name="listeDepartements" ItemsSource="{Binding lp3}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="262,-239,0,120.8" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeDepartements_SelectionChanged" Width="210">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nom du Departement" Binding="{Binding nomDepartementProperty, Mode=TwoWay}" />

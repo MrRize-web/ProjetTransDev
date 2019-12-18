@@ -45,7 +45,7 @@
                 </StackPanel>
             </Grid>
         </TabItem>
-        <TabItem Header="Liste Plage">
+        <TabItem Header="Liste des Plages">
             <StackPanel>
                 <Grid Margin="10,10,9.6,10" Height="204">
                     <Grid.ColumnDefinitions>

@@ -10,7 +10,7 @@
       Title="Espece" Width="800">
 
     <TabControl Margin="26,0,24,24.6"  Background="DarkCyan">
-        <TabItem Header="Espece">
+        <TabItem Header="Liste des Especes">
                 <StackPanel Margin="0,0,-0.4,16.6">
                     <Grid  Margin="10,10,9.6,10" Height="204">
                         <DataGrid Name="listeEspeces" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="252,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEspeceSelectionChanged" Width="110">

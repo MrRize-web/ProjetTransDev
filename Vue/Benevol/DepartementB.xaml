@@ -10,7 +10,7 @@
       Title="Departement" Width="800">
 
     <TabControl Margin="26,0,24,29.6"  Background="DarkCyan">
-        <TabItem Header="Liste Departements">
+        <TabItem Header="Liste des Departements">
             <StackPanel Margin="0,0,13.8,11.6">
                 <Grid Margin="10,10,9.6,10" Height="224">
                     <Grid.ColumnDefinitions>

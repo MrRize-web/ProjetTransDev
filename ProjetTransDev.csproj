@@ -125,9 +125,6 @@
     <Compile Include="Vue\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vue\MauvaisLogin.xaml.cs">
-      <DependentUpon>MauvaisLogin.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vue\Admin\MenuSelection.xaml.cs">
       <DependentUpon>MenuSelection.xaml</DependentUpon>
     </Compile>
@@ -236,10 +233,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Vue\MauvaisLogin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Vue\Admin\MenuSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
