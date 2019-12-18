@@ -24,7 +24,7 @@ namespace ProjetTransDev.Ctrl
 
         public ZoneInvestigationViewModel() { }
 
-            public ZoneInvestigationViewModel(int IdZone, EtudeViewModel Etude, PlageViewModel Plage, UsersViewModel Users, EtudeViewModel EtudeDate, Decimal Angle1, Decimal Angle2, Decimal Angle3, Decimal Angle4)
+            public ZoneInvestigationViewModel(int IdZone, EtudeViewModel Etude, PlageViewModel Plage, EtudeViewModel EtudeDate, Decimal Angle1, Decimal Angle2, Decimal Angle3, Decimal Angle4, UsersViewModel Users)
             {
                 this.IdZone = IdZone;
                 this.Etude = Etude;

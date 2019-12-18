@@ -23,7 +23,7 @@ namespace ProjetTransDev.ORM
             int idPlage = pDAO.IdPlageDAO;
             PlageViewModel d = PlageORM.getPlage(idPlage);
 
-        ZoneInvestigationViewModel p = new ZoneInvestigationViewModel(pDAO.IdZoneDAO,a,d,c,b,pDAO.Angle1DAO,pDAO.Angle2DAO,pDAO.Angle3DAO,pDAO.Angle4DAO);
+        ZoneInvestigationViewModel p = new ZoneInvestigationViewModel(pDAO.IdZoneDAO,a,d,b,pDAO.Angle1DAO,pDAO.Angle2DAO,pDAO.Angle3DAO,pDAO.Angle4DAO, c);
             return p;
         }
 
@@ -44,14 +44,14 @@ namespace ProjetTransDev.ORM
 
                 int idPlage = element.IdPlageDAO;
                 PlageViewModel d = PlageORM.getPlage(idPlage);
-                ZoneInvestigationViewModel p = new ZoneInvestigationViewModel(element.IdZoneDAO,a, d, c, b, element.Angle1DAO, element.Angle2DAO, element.Angle3DAO, element.Angle4DAO);
+                ZoneInvestigationViewModel p = new ZoneInvestigationViewModel(element.IdZoneDAO,a, d, b, element.Angle1DAO, element.Angle2DAO, element.Angle3DAO, element.Angle4DAO, c);
                 l.Add(p);
             }
             return l;
         }
         public static void updateZoneInvestigation(ZoneInvestigationViewModel p)
         {
-            ZoneInvestigationDAO.updateZoneInvestigation(new ZoneInvestigationDAO(p.IdZoneProperty,p.EtudeProperty.idEtudeProperty,p.PlageProperty.idPlageProperty,p.UsersProperty.idUsersProperty,p.EtudeProperty.dateCreationProperty,p.Angle1Property,p.Angle2Property,p.Angle3Property,p.Angle4Property));
+            ZoneInvestigationDAO.updateZoneInvestigation(new ZoneInvestigationDAO(p.IdZoneProperty,p.EtudeProperty.idEtudeProperty,p.PlageProperty.idPlageProperty,p.EtudeProperty.dateCreationProperty,p.Angle1Property,p.Angle2Property,p.Angle3Property,p.Angle4Property, p.UsersProperty.idUsersProperty));
         }
 
         public static void supprimerZoneInvestigation(int id)
@@ -60,7 +60,7 @@ namespace ProjetTransDev.ORM
         }
         public static void insertZoneInvestigation(ZoneInvestigationViewModel p)
         {
-            ZoneInvestigationDAO.insertZoneInvestigation(new ZoneInvestigationDAO(p.IdZoneProperty, p.EtudeProperty.idEtudeProperty, p.PlageProperty.idPlageProperty, p.UsersProperty.idUsersProperty, p.EtudeProperty.dateCreationProperty, p.Angle1Property, p.Angle2Property, p.Angle3Property, p.Angle4Property));
+            ZoneInvestigationDAO.insertZoneInvestigation(new ZoneInvestigationDAO(p.IdZoneProperty, p.EtudeProperty.idEtudeProperty, p.PlageProperty.idPlageProperty, p.EtudeProperty.dateCreationProperty, p.Angle1Property, p.Angle2Property, p.Angle3Property, p.Angle4Property, p.UsersProperty.idUsersProperty));
         }
     }
 }

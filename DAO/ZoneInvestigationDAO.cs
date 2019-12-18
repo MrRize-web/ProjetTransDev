@@ -20,7 +20,7 @@ namespace ProjetTransDev.ORM
         public int  IdEtudeDAO;   
         public int  IdUsersDAO;
         public int  IdPlageDAO;
-        public ZoneInvestigationDAO(int IdZoneDAO, int IdEtudeDAO, int IdPlageDAO, int IdUsersDAO,  DateTime EtudeDateDAO, Decimal Angle1DAO, Decimal Angle2DAO, Decimal Angle3DAO, Decimal Angle4DAO)
+        public ZoneInvestigationDAO(int IdZoneDAO, int IdEtudeDAO, int IdPlageDAO,   DateTime EtudeDateDAO, Decimal Angle1DAO, Decimal Angle2DAO, Decimal Angle3DAO, Decimal Angle4DAO,int IdUsersDAO)
         {
             this.IdZoneDAO = IdZoneDAO;
             this.IdPlageDAO = IdPlageDAO;

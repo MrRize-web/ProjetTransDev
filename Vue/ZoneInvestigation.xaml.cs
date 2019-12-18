@@ -60,7 +60,7 @@ namespace ProjetTransDev.Vue
             myDataObject7.Angle3Property = Convert.ToDecimal(Angle3.Text);
             myDataObject7.Angle4Property = Convert.ToDecimal(Angle4.Text);
 
-            ZoneInvestigationViewModel nouveau = new ZoneInvestigationViewModel(ZoneInvestigationDAL.getMaxIdZoneInvestigation() + 1, myDataObject7.EtudeProperty, myDataObject7.PlageProperty, myDataObject7.UsersProperty, myDataObject7.EtudeDate, myDataObject7.Angle1Property, myDataObject7.Angle2Property, myDataObject7.Angle3Property, myDataObject7.Angle4Property);
+            ZoneInvestigationViewModel nouveau = new ZoneInvestigationViewModel(ZoneInvestigationDAL.getMaxIdZoneInvestigation() + 1, myDataObject7.EtudeProperty, myDataObject7.PlageProperty, myDataObject7.EtudeDate, myDataObject7.Angle1Property, myDataObject7.Angle2Property, myDataObject7.Angle3Property, myDataObject7.Angle4Property, myDataObject7.UsersProperty);
             lp7.Add(nouveau);
             ZoneInvestigationORM.insertZoneInvestigation(nouveau);
             compteur = lp7.Count();

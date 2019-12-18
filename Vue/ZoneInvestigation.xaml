@@ -70,9 +70,9 @@
         <TabItem Header="Etude">
             <StackPanel RenderTransformOrigin="0.494,0.485" Margin="0,0,-0.4,-3.4">
                 <Grid  Margin="10,10,9.6,10" Height="204">
-                    <DataGrid x:Name="ListeEtudeZone" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="250,32,0,39" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="ListeEtudeZone_SelectionChanged" Width="222" RenderTransformOrigin="0.504,0.48">
+                    <DataGrid x:Name="ListeEtudeZone" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="250,0,0,71" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="ListeEtudeZone_SelectionChanged" Width="222" RenderTransformOrigin="0.504,0.48">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Angle 1 :" Binding="{Binding EtudePlageView.Angle1Property, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Angle 1 :" Binding="{Binding Angle1Property, Mode=OneWay}" />
                             <DataGridTextColumn Header="Angle 2 :" Binding="{Binding Angle2Property, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Angle 3 :" Binding="{Binding Angle3Property, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Angle 4 :" Binding="{Binding Angle4Property, Mode=TwoWay}" />

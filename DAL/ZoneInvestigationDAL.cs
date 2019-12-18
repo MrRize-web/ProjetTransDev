@@ -29,7 +29,7 @@ namespace ProjetTransDev.DAL
 
                 while (reader.Read())
                 {
-                    ZoneInvestigationDAO p = new ZoneInvestigationDAO(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetDateTime(4), reader.GetDecimal(5), reader.GetDecimal(6), reader.GetDecimal(7), reader.GetDecimal(8));
+                    ZoneInvestigationDAO p = new ZoneInvestigationDAO(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2),  reader.GetDateTime(3), reader.GetDecimal(4), reader.GetDecimal(5), reader.GetDecimal(6), reader.GetDecimal(7),reader.GetInt32(8));
                     l.Add(p);
                 }
                 reader.Close();
@@ -104,11 +104,11 @@ namespace ProjetTransDev.DAL
             ZoneInvestigationDAO com;
             if (reader.HasRows)
             {
-                com = new ZoneInvestigationDAO(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetDateTime(4), reader.GetDecimal(5), reader.GetDecimal(6), reader.GetDecimal(7), reader.GetDecimal(8));
+                com = new ZoneInvestigationDAO(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetDecimal(4), reader.GetDecimal(5), reader.GetDecimal(6), reader.GetDecimal(7), reader.GetInt32(8));
             }
             else
             {
-                com = new ZoneInvestigationDAO(1, 1, 1, 1, DateTime.Today, 0, 0, 0, 0);
+                com = new ZoneInvestigationDAO(1, 1, 1, DateTime.Today, 0, 0, 0, 0 , 1);
             }
             reader.Close();
             return com;
