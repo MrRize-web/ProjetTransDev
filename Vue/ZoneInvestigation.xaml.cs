@@ -29,6 +29,7 @@ namespace ProjetTransDev.Vue
         public ZoneInvestigation()
         {
             InitializeComponent();
+
             lp = UsersORM.listeUsers();
             listeUsersCombo.ItemsSource = lp;
             lp1 = PlageORM.listePlages();
@@ -53,6 +54,7 @@ namespace ProjetTransDev.Vue
             myDataObject7.PlageProperty = (PlageViewModel)listePlageCombo.SelectedItem;
             myDataObject7.EtudeProperty = (EtudeViewModel)listeEtudesCombo.SelectedItem;
             myDataObject7.UsersProperty = (UsersViewModel)listeUsersCombo.SelectedItem;
+
             myDataObject7.Angle1Property = Convert.ToDecimal(Angle1.Text);
             myDataObject7.Angle2Property = Convert.ToDecimal(Angle2.Text);
             myDataObject7.Angle3Property = Convert.ToDecimal(Angle3.Text);
@@ -64,7 +66,6 @@ namespace ProjetTransDev.Vue
             compteur = lp7.Count();
 
             ListeEtudeZone.ItemsSource = lp7;
-
             ((TextBox)Angle1).Text = string.Empty;
             ((TextBox)Angle2).Text = string.Empty;
             ((TextBox)Angle3).Text = string.Empty;

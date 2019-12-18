@@ -57,16 +57,16 @@ namespace ProjetTransDev.DAL
         public static void insertZoneInvestigation(ZoneInvestigationDAO p)
         {
             int id = getMaxIdZoneInvestigation() + 1;
-            string query = "INSERT INTO etude_has_plage VALUES (@ID,@Nombre,@Titre,@Plage,@DateCrea,@DateFin);";
+            string query = "INSERT INTO etude_has_plage (IdZone,Etude_idEtude,Plage_idPlage,Date,Angle1,Angle2,Angle3,Angle4,Users_idUsers) VALUES (@IdZone,@IdEtude,@IdPlage,@DateCrea,@Angle1,@Angle2,@Angle3,@Angle4,@IdUsers);";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
-            cmd.Parameters.AddWithValue("@Nombre", id);
-            cmd.Parameters.AddWithValue("@Titre", p.IdEtudeDAO);
-            cmd.Parameters.AddWithValue("@Plage", p.IdPlageDAO);
+            cmd.Parameters.AddWithValue("@IdZone", id);
+            cmd.Parameters.AddWithValue("@IdEtude", p.IdEtudeDAO);
+            cmd.Parameters.AddWithValue("@IdPlage", p.IdPlageDAO);
             cmd.Parameters.AddWithValue("@DateCrea", p.EtudeDateDAO);
             cmd.Parameters.AddWithValue("@Angle1", p.Angle1DAO);
-            cmd.Parameters.AddWithValue("@Angle1", p.Angle2DAO);
-            cmd.Parameters.AddWithValue("@Angle1", p.Angle3DAO);
-            cmd.Parameters.AddWithValue("@Angle1", p.Angle4DAO);
+            cmd.Parameters.AddWithValue("@Angle2", p.Angle2DAO);
+            cmd.Parameters.AddWithValue("@Angle3", p.Angle3DAO);
+            cmd.Parameters.AddWithValue("@Angle4", p.Angle4DAO);
             cmd.Parameters.AddWithValue("@IdUsers", p.IdUsersDAO);
 
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
