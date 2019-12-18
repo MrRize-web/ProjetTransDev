@@ -29,9 +29,9 @@ namespace ProjetTransDev.ORM
             return l;
         }
 
-        public static EspeceNombreDAO getEspeceNombre(int IdNombreEDAO)
+        public static EspeceNombreDAO getEspeceNombre(int idEspeceNombre)
         {
-            EspeceNombreDAO p = EspeceNombreDAL.getEspeceNombre(IdNombreEDAO);
+            EspeceNombreDAO p = EspeceNombreDAL.getEspeceNombre(idEspeceNombre);
             return p;
         }
 
@@ -40,9 +40,9 @@ namespace ProjetTransDev.ORM
             EspeceNombreDAL.updateEspeceNombre(p);
         }
 
-        public static void supprimerEspeceNombre(int id)
+        public static void supprimerEspeceNombre(int idEspeceNombre)
         {
-            EspeceNombreDAL.supprimerEspeceNombre(id);
+            EspeceNombreDAL.supprimerEspeceNombre(idEspeceNombre);
         }
 
         public static void insertEspeceNombre(EspeceNombreDAO p)

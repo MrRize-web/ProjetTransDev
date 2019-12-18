@@ -54,9 +54,9 @@ namespace ProjetTransDev.DAL
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
-        public static void supprimerEspeceNombre(int id)
+        public static void supprimerEspeceNombre(int idEspeceNombre)
         {
-            string query = "DELETE FROM etude_has_plage_has_Espece WHERE IdNombreE = \"" + id + "\";";
+            string query = "DELETE FROM etude_has_plage_has_Espece WHERE IdNombreE = \"" + idEspeceNombre + "\";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
@@ -73,9 +73,9 @@ namespace ProjetTransDev.DAL
             reader.Close();
             return maxIdPlage;
         }
-        public static EspeceNombreDAO getEspeceNombre(int IdNombreE)
+        public static EspeceNombreDAO getEspeceNombre(int idEspeceNombre)
         {
-            string query = " SELECT * FROM etude_has_plage_has_Espece WHERE IdNombreE =" + IdNombreE + ";";
+            string query = " SELECT * FROM etude_has_plage_has_Espece WHERE IdNombreE =" + idEspeceNombre + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();

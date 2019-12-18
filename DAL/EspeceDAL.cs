@@ -56,18 +56,18 @@ namespace ProjetTransDev.DAL
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
-        public static void supprimerEspece(int id)
+        public static void supprimerEspece(int idEspece)
         {
             string query = "DELETE FROM espece WHERE idEspece = @ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
-            cmd.Parameters.AddWithValue("@ID",id);
+            cmd.Parameters.AddWithValue("@ID", idEspece);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
 
         public static EspeceDAO getEspece(int idEspece)
         {
-            string query = "SELECT * FROM espece WHERE id=@IdEspece;";
+            string query = "SELECT * FROM espece WHERE idEspece=@IdEspece;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.Parameters.AddWithValue("@IdEspece", idEspece);
             cmd.ExecuteNonQuery();

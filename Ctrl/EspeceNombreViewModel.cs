@@ -36,10 +36,20 @@ namespace ProjetTransDev
         public ZoneInvestigationViewModel IdZoneProperty
         {
             get { return IdZone; }
+            set
+            {
+                IdZone = value;
+                OnPropertyChanged("IdZoneProperty");
+            }
         }
         public EtudeViewModel EtudeProperty
         {
             get { return IdEtude; }
+            set
+            {
+                IdEtude = value;
+                OnPropertyChanged("EtudeProperty");
+            }
         }
         public String EtudeNameProperty
         {
@@ -48,6 +58,11 @@ namespace ProjetTransDev
         public PlageViewModel PlageProperty
         {
             get { return IdPlage; }
+            set
+            {
+                IdPlage = value;
+                OnPropertyChanged("PlageProperty");
+            }
         }
         public String PlageNameProperty
         {
@@ -56,6 +71,11 @@ namespace ProjetTransDev
         public EspeceViewModel EspeceProperty
         {
             get { return IdEspece; }
+            set
+            {
+                IdEspece = value;
+                OnPropertyChanged("EspeceProperty");
+            }
         }
         public String EspeceNameProperty
         {
