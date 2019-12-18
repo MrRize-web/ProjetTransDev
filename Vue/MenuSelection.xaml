@@ -6,10 +6,17 @@
       xmlns:local="clr-namespace:ProjetTransDev.Vue"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
-       Margin="10,0" Height="450" Width="779" Background="#04c582"
-      Title="MenuSelection">
+       Margin="10,0" Height="450" Background="#04c582"
+      Title="MenuSelection" Width="800">
+
     <Grid>
-        <Button x:Name="btnCommune" Content="Communes" Click="ouvrirCommune" Margin="0,180,430,189.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="29*"/>
+        </Grid.RowDefinitions>
+        <Image Source="D:\ProjetTrasnC#\ProjetTransDev\Images/monde.png" Margin="595,9,10,26" RenderTransformOrigin="0.005,0.56"/>
+        <Image Source="D:\ProjetTrasnC#\ProjetTransDev\Images/jamoa2.jpg" Margin="128,9,440,60"/>
+        <Button x:Name="btnCommune" Content="Communes" Click="ouvrirCommune" Margin="0,45,440,164.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" Grid.Row="1" >
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="LightBlue" />
@@ -17,7 +24,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnDepartement" Content="Departements" Click="ouvrirDepartement" Margin="0,300,430.2,68.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+        <Button x:Name="btnDepartement" Content="Departements" Click="ouvrirDepartement" Margin="0,153,440,55.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" Grid.Row="1" >
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="LightBlue" />
@@ -25,7 +32,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnEspece" Content="Especes" Click="ouvrirEspece" Margin="0,179,295,189.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+        <Button x:Name="btnEspece" Content="Especes" Click="ouvrirEspece" Margin="0,45,275,163.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" Grid.Row="1" >
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="LightBlue" />
@@ -33,7 +40,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnZone" Content="Zone" Click="ouvrirZone" Margin="0,300,295.2,68.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+        <Button x:Name="btnZone" Content="Zone" Click="ouvrirZone" Margin="0,153,275,55.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" Grid.Row="1" >
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="LightBlue" />
@@ -41,7 +48,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnEtude" Content="Etudes" Click="ouvrirEtude" Margin="0,55,295,313.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+        <Button x:Name="btnEtude" Content="Etudes" Click="ouvrirEtude" Margin="0,100,275,268.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" Grid.RowSpan="2" >
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="LightBlue" />
@@ -49,7 +56,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnPlage" Content="Plages" Click="ouvrirPlage" Margin="0,55,430,313.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+        <Button x:Name="btnPlage" Content="Plages" Click="ouvrirPlage" Margin="0,100,440,268.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" Grid.RowSpan="2" >
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="LightBlue" />
@@ -57,7 +64,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnUtilisateur" Content="Utilisateurs" Click="ouvrirUtilisateur" Margin="0,55,630,313.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+        <Button x:Name="btnUtilisateur" Content="Utilisateurs" Click="ouvrirUtilisateur" Margin="0,100,655,268.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" Grid.RowSpan="2" >
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="LightBlue" />
@@ -65,15 +72,15 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnDeconnexion" Content="Deconnexion" Click="ouvrirDeconnexion" Margin="0,330,55,38.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" > 
-               <Button.Background>
+        <Button x:Name="btnDeconnexion" Content="Deconnexion" Click="ouvrirDeconnexion" Margin="0,199,45,9.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" Grid.Row="1" >
+            <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="Red" />
                     <GradientStop Offset="2" Color="Gray" />
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnEspeceNombre" Content="Nombre" Click="ouvrirNombre" Margin="0,180,164.2,188.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+        <Button x:Name="btnEspeceNombre" Content="Nombre" Click="ouvrirNombre" Margin="0,28,120,180.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" Grid.Row="1" >
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="LightBlue" />

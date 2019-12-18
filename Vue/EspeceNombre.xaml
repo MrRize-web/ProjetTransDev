@@ -5,9 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetTransDev.Vue"
       mc:Ignorable="d" 
-        d:DesignHeight="500" d:DesignWidth="800"
+        d:DesignHeight="500"
     Background="#04c582"
-      Title="EspeceNombre">
+      Title="EspeceNombre" Width="1096">
     
     <TabControl Margin="10,0" Height="450" Width="779"  Background="DarkCyan">
         <TabItem Header="Nombre">
@@ -88,13 +88,23 @@
         <TabItem Header="Tableau récapitulatif">
             <StackPanel>
                 <Grid  Margin="10,10,9.6,10" Height="204">
-                    <DataGrid Name="listeEspecesNombres" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="247,0,0,79" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEspecesNombres_SelectionChanged" Width="225">
+                    <DataGrid Name="listeEspecesNombres" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="242,0,0,79" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEspecesNombres_SelectionChanged" Width="325">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Nom de l'espece :" Binding="{Binding nomEspeceProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nom de l'espece :" Binding="{Binding EspeceNameProperty, Mode=OneWay}" />
                             <DataGridTextColumn Header="Nombre :" Binding="{Binding NombreProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Plage :" Binding="{Binding PlageNameProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Etude :" Binding="{Binding EtudeNameProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Zone :" Binding="{Binding IdZoneProperty.IdZoneProperty, Mode=OneWay}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
+                <Button x:Name="supprimerButton4" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick4" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" Margin="250,0,200.6,0">
+                    <Button.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Color="Red" Offset="0.279"/>
+                        </RadialGradientBrush>
+                    </Button.Background>
+                </Button>
                 <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,80,35,50"  HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                     <Button.Background>
                         <RadialGradientBrush>

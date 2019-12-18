@@ -32,7 +32,6 @@ namespace ProjetTransDev.ORM
             return l;
         }
 
-
         public static void updatePlage(PlageViewModel p)
         {
             PlageDAO.updatePlage(new PlageDAO(p.idPlageProperty, p.nomPlageProperty, p.superficEtudePlageProperty, p.CommunePlageProperty.idCommuneProperty));

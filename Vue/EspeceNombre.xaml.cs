@@ -4,8 +4,10 @@ using ProjetTransDev.ORM;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace ProjetTransDev.Vue
 {
@@ -90,6 +92,11 @@ namespace ProjetTransDev.Vue
         {
             Window pageAcceuil = Window.GetWindow(this);
             pageAcceuil.Content = new MenuSelection();
+        }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

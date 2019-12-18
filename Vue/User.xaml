@@ -6,8 +6,8 @@
       xmlns:local="clr-namespace:ProjetTransDev.Vue"
       mc:Ignorable="d" 
       Background="#04c582"
-    d:DesignHeight="500" d:DesignWidth="800"
-      Title="User">
+    d:DesignHeight="500"
+      Title="User" Width="1096">
 
     <StackPanel>
         <TabControl Margin="10,0" Height="470" Width="779" Background="DarkCyan">
