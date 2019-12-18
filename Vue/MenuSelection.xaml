@@ -80,7 +80,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnEspeceNombre" Content="Nombre" Click="ouvrirNombre" Margin="0,28,120,180.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" Grid.Row="1" >
+        <Button x:Name="btnEspeceNombre" Content="Nombre" Click="ouvrirNombre" Margin="0,45,105,163.6" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" Grid.Row="1" >
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Offset="0.0" Color="LightBlue" />
