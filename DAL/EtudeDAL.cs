@@ -16,9 +16,9 @@ namespace ProjetTransDev.DAL
             connection = DALConnection.OpenConnection();
         }
 
-        public static ObservableCollection<DAO.EtudeDAO> selectEtude()
+        public static ObservableCollection<EtudeDAO> selectEtude()
         {
-            ObservableCollection<DAO.EtudeDAO> l = new ObservableCollection<DAO.EtudeDAO>();
+            ObservableCollection<EtudeDAO> l = new ObservableCollection<EtudeDAO>();
             string query = "SELECT * FROM Etude;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             try
@@ -28,7 +28,7 @@ namespace ProjetTransDev.DAL
 
                 while (reader.Read())
                 {
-                    DAO.EtudeDAO p = new DAO.EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetString(2), reader.GetInt32(3), reader.GetDateTime(4), reader.GetDateTime(5));
+                    EtudeDAO p = new EtudeDAO(reader.GetInt32(0), reader.GetDecimal(1), reader.GetString(2), reader.GetInt32(3), reader.GetDateTime(4), reader.GetDateTime(5));
                     l.Add(p);
                 }
                 reader.Close();
@@ -40,7 +40,7 @@ namespace ProjetTransDev.DAL
             return l;
         }
 
-        public static void updateEtude(DAO.EtudeDAO p)
+        public static void updateEtude(EtudeDAO p)
         {
             string query = "UPDATE Etude set NbPersonne=@Nombre,Titre=@Titre,NbPlage=@Plage,dateCreation=@DateCrea, dateFin=@DateFin  where idEtude=@IdEude;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
@@ -54,7 +54,7 @@ namespace ProjetTransDev.DAL
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
-        public static void insertEtude(DAO.EtudeDAO p)
+        public static void insertEtude(EtudeDAO p)
         {
             int id = getMaxIdEtude() + 1;
             string query = "INSERT INTO Etude VALUES (@ID,@Nombre,@Titre,@Plage,@DateCrea,@DateFin);";

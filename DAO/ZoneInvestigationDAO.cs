@@ -35,7 +35,7 @@ namespace ProjetTransDev.ORM
 
         public static ObservableCollection<ZoneInvestigationDAO> listeZoneInvestigations()
         {
-            ObservableCollection<ZoneInvestigationDAO> l = ZoneInvestigationDAL.selectZoneInvestigations();
+            ObservableCollection<ZoneInvestigationDAO> l = ZoneInvestigationDAL.selectZoneInvestigation();
             return l;
         }
 
