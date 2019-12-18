@@ -29,7 +29,7 @@ namespace ProjetTransDev.DAL
 
                 while (reader.Read())
                 {
-                    ZoneInvestigationDAO p = new ZoneInvestigationDAO(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2),  reader.GetDateTime(3), reader.GetDecimal(4), reader.GetDecimal(5), reader.GetDecimal(6), reader.GetDecimal(7),reader.GetInt32(8));
+                    ZoneInvestigationDAO p = new ZoneInvestigationDAO(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2),  reader.GetDateTime(3), reader.GetString(4), reader.GetDecimal(5), reader.GetDecimal(6), reader.GetDecimal(7), reader.GetDecimal(8), reader.GetInt32(9));
                     l.Add(p);
                 }
                 reader.Close();
@@ -43,9 +43,10 @@ namespace ProjetTransDev.DAL
 
         public static void updateZoneInvestigation(ZoneInvestigationDAO p)
         {
-            string query = "UPDATE etude_has_plage set Angle1=@Angle1,Angle2=@Angle2,Angle3=@Angle3,Angle4=@Angle4 where IdZone=@IdZone;";
+            string query = "UPDATE etude_has_plage set NomZone=@NomZone,Angle1=@Angle1,Angle2=@Angle2,Angle3=@Angle3,Angle4=@Angle4 where IdZone=@IdZone;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.Parameters.AddWithValue("@IdZone", p.IdZoneDAO);
+            cmd.Parameters.AddWithValue("@NomZone", p.NomZoneDAO);
             cmd.Parameters.AddWithValue("@Angle1", p.Angle1DAO);
             cmd.Parameters.AddWithValue("@Angle2", p.Angle2DAO);
             cmd.Parameters.AddWithValue("@Angle3", p.Angle3DAO);
@@ -57,9 +58,10 @@ namespace ProjetTransDev.DAL
         public static void insertZoneInvestigation(ZoneInvestigationDAO p)
         {
             int id = getMaxIdZoneInvestigation() + 1;
-            string query = "INSERT INTO etude_has_plage (IdZone,Etude_idEtude,Plage_idPlage,Date,Angle1,Angle2,Angle3,Angle4,Users_idUsers) VALUES (@IdZone,@IdEtude,@IdPlage,@DateCrea,@Angle1,@Angle2,@Angle3,@Angle4,@IdUsers);";
+            string query = "INSERT INTO etude_has_plage (IdZone,Etude_idEtude,Plage_idPlage,Date,NomZone,Angle1,Angle2,Angle3,Angle4,Users_idUsers) VALUES (@IdZone,@IdEtude,@IdPlage,@DateCrea,@NomZone,@Angle1,@Angle2,@Angle3,@Angle4,@IdUsers);";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.Parameters.AddWithValue("@IdZone", id);
+            cmd.Parameters.AddWithValue("@NomZone", p.NomZoneDAO);
             cmd.Parameters.AddWithValue("@IdEtude", p.IdEtudeDAO);
             cmd.Parameters.AddWithValue("@IdPlage", p.IdPlageDAO);
             cmd.Parameters.AddWithValue("@DateCrea", p.EtudeDateDAO);
@@ -104,11 +106,11 @@ namespace ProjetTransDev.DAL
             ZoneInvestigationDAO com;
             if (reader.HasRows)
             {
-                com = new ZoneInvestigationDAO(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetDecimal(4), reader.GetDecimal(5), reader.GetDecimal(6), reader.GetDecimal(7), reader.GetInt32(8));
+                com = new ZoneInvestigationDAO(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetString(4), reader.GetDecimal(5), reader.GetDecimal(6), reader.GetDecimal(7), reader.GetDecimal(8), reader.GetInt32(9));
             }
             else
             {
-                com = new ZoneInvestigationDAO(1, 1, 1, DateTime.Today, 0, 0, 0, 0 , 1);
+                com = new ZoneInvestigationDAO(1, 1, 1,  DateTime.Today, "Mauvais nom", 0, 0, 0, 0 , 1);
             }
             reader.Close();
             return com;

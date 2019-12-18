@@ -13,6 +13,7 @@ namespace ProjetTransDev.Ctrl
         public class ZoneInvestigationViewModel : INotifyPropertyChanged
         {
             private int IdZone;
+            private String NomZone;
             private Decimal Angle1;
             private Decimal Angle2;
             private Decimal Angle3;
@@ -24,9 +25,10 @@ namespace ProjetTransDev.Ctrl
 
         public ZoneInvestigationViewModel() { }
 
-            public ZoneInvestigationViewModel(int IdZone, EtudeViewModel Etude, PlageViewModel Plage, EtudeViewModel EtudeDate, Decimal Angle1, Decimal Angle2, Decimal Angle3, Decimal Angle4, UsersViewModel Users)
+            public ZoneInvestigationViewModel(int IdZone, EtudeViewModel Etude, PlageViewModel Plage, EtudeViewModel EtudeDate, String NomZone, Decimal Angle1, Decimal Angle2, Decimal Angle3, Decimal Angle4, UsersViewModel Users)
             {
                 this.IdZone = IdZone;
+                this.NomZone = NomZone;
                 this.Etude = Etude;
                 this.Plage = Plage;
                 this.EtudeDate = EtudeDate;
@@ -45,6 +47,15 @@ namespace ProjetTransDev.Ctrl
                 OnPropertyChanged("IdZoneProperty");
             }
 
+        }
+        public String NameZoneProperty
+        {
+            get { return NomZone; }
+            set
+            {
+                NomZone = value;
+                OnPropertyChanged("NameZoneProperty");
+            }
         }
         public EtudeViewModel EtudeProperty
             {

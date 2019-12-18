@@ -1,0 +1,80 @@
+﻿using System;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using ProjetTransDev.Ctrl;
+using ProjetTransDev.DAL;
+using ProjetTransDev.ORM;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Threading;
+
+namespace ProjetTransDev.Vue.Benevol
+{
+    public partial class EtudeB : Page
+    {
+
+        int selectedEtudeId;
+
+        int compteur = 0;
+
+
+        PlageViewModel myDataObject1; // Objet de liaison
+        ObservableCollection<PlageViewModel> lp1;
+
+        EtudeViewModel myDataObject4; // Objet de liaison
+        ObservableCollection<EtudeViewModel> lp4;
+
+        public EtudeB()
+        {
+            InitializeComponent();
+
+            lp1 = PlageORM.listePlages();
+            listePlagesCombo.ItemsSource = lp1;
+            lp4 = EtudeORM.ListeEtude();
+            listeEtudes.ItemsSource = lp4;
+
+
+            CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+            culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd-HH-mm-ss"; //Format BDD
+            culture.DateTimeFormat.LongTimePattern = "";
+            Thread.CurrentThread.CurrentCulture = culture;
+        }
+        /////////////////////////////////////    Etudes    /////////////////////////////////////
+        /////////////////////////////////////    Etudes    /////////////////////////////////////
+        ///
+        private void VlideEtude_Click(object sender, RoutedEventArgs e)
+        {
+            myDataObject4 = new EtudeViewModel();
+            myDataObject4.NbPersonneEtudeProperty = Convert.ToDecimal(NbPersonne.SelectionBoxItem);
+            myDataObject4.dateCreationProperty = Convert.ToDateTime(dateCreationDatePicker.SelectedDate);
+            myDataObject4.dateFinProperty = Convert.ToDateTime(dateFinDatePicker1.SelectedDate);
+            myDataObject4.PlageEtude = (PlageViewModel)listePlagesCombo.SelectedItem;
+            myDataObject4.TitreEtudeProperty = Titre.Text;
+
+            EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject4.NbPersonneEtudeProperty, myDataObject4.TitreEtudeProperty, myDataObject4.PlageEtudeProperty, myDataObject4.dateCreationProperty, myDataObject4.dateFinProperty);
+            lp4.Add(nouveau);
+            EtudeORM.insertEtude(nouveau);
+            compteur = lp4.Count();
+
+            listeEtudes.ItemsSource = lp4;
+
+            ((TextBox)Titre).Text = string.Empty;
+
+            MessageBox.Show("Etude ajoutée avec succes ! ");
+        }
+        private void listeCommunesCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((listeEtudes.SelectedIndex < lp4.Count) && (listeEtudes.SelectedIndex >= 0))
+            {
+                selectedEtudeId = (lp4.ElementAt<EtudeViewModel>(listeEtudes.SelectedIndex)).idEtudeProperty;
+            }
+        }
+
+        private void ouvrirAcceuil(object sender, RoutedEventArgs e)
+        {
+            Window pageAcceuil = Window.GetWindow(this);
+            pageAcceuil.Content = new MenuSelectionB();
+        }
+    }
+}

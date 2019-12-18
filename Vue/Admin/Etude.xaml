@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetTransDev.Vue"
       mc:Ignorable="d" 
-      d:DesignHeight="500"
-      Background="#04c582"
-      Title="Etude" Width="1096">
-    
-    <TabControl Margin="10,0" Height="450" Width="779"  Background="DarkCyan">
+    d:DesignHeight="500" d:DesignWidth="800"
+       Margin="10,0" Height="450" Background="#04c582"
+      Title="Etude" Width="800">
+
+    <TabControl Margin="10,0,10,24.6" Width="779"  Background="DarkCyan">
         <TabItem Header="Ajouter d'une Etude">
             <Grid Name ="grigrid2" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
@@ -19,9 +19,9 @@
                     <ColumnDefinition Width="0*"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Margin="0,0,-0.4,-124" Grid.ColumnSpan="5">
+                <StackPanel Margin="0,0,-0.4,-99" Grid.ColumnSpan="5">
                     <Label Content="Nombre de Personne :"></Label>
-                    <ComboBox Name="NbPersonne" Height="20" >
+                    <ComboBox Name="NbPersonne" Height="20" Margin="0,0,706.6,0" >
                         <ComboBoxItem>1</ComboBoxItem>
                         <ComboBoxItem>2</ComboBoxItem>
                         <ComboBoxItem>3</ComboBoxItem>
@@ -38,18 +38,18 @@
                     <ComboBox Name="listePlagesCombo"
                                       DisplayMemberPath="nomPlageProperty" 
                                       ItemsSource="{Binding}" 
-                                      SelectedItem="{Binding idPlageProperty}" 
+                                      SelectedItem="{Binding idPlageProperty}" Margin="0,0,606.6,0" 
                                      >
                         <!--  SelectionChanged="listePlages_SelectionChanged"-->
                     </ComboBox>
                     <Label Content="Nom de l'etude :"></Label>
-                    <TextBox Name="Titre" Height="20" Margin="0,0,0.300,0" />
+                    <TextBox Name="Titre" Height="20" Margin="0,0,606.6,0" />
                     <Label Content="Date création"></Label>
-                    <DatePicker  x:Name="dateCreationDatePicker" SelectedDate="{Binding dateCreationProperty, StringFormat=dd/MM/yyyy}" SelectedDateFormat="Long" FirstDayOfWeek="Monday" Height="29" Margin="0,0,0.6,0" />
+                    <DatePicker  x:Name="dateCreationDatePicker" SelectedDate="{Binding dateCreationProperty, StringFormat=dd/MM/yyyy}" SelectedDateFormat="Long" FirstDayOfWeek="Monday" Height="29" Margin="0,0,461.6,0" />
                     <Label Content="Date Fin"/>
 
-                    <DatePicker x:Name="dateFinDatePicker1" SelectedDate="{Binding dateFinProperty, StringFormat=dd/MM/yyyy}"  SelectedDateFormat="Long" FirstDayOfWeek="Monday" Height="30" Margin="0,0,0.6,0" />
-                    <Button x:Name="VlideEtude" Content="Ajouter D'une Etude"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="VlideEtude_Click" >
+                    <DatePicker x:Name="dateFinDatePicker1" SelectedDate="{Binding dateFinProperty, StringFormat=dd/MM/yyyy}"  SelectedDateFormat="Long" FirstDayOfWeek="Monday" Height="30" Margin="0,0,461.6,0" />
+                    <Button x:Name="VlideEtude" Content="Ajouter D'une Etude"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.6,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="VlideEtude_Click" >
                         <Button.Background>
                             <RadialGradientBrush>
                                 <GradientStop Color="ForestGreen" Offset="0.279"/>
@@ -57,7 +57,7 @@
                             </RadialGradientBrush>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,70,35,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                    <Button x:Name="btnAcceuil" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,50,34.6,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                         <Button.Background>
                             <RadialGradientBrush>
                                 <GradientStop Offset="0.0" Color="LightBlue" />
@@ -65,18 +65,11 @@
                             </RadialGradientBrush>
                         </Button.Background>
                     </Button>
-                    <TabControl Height="100">
-                        <TabItem Header="TabItem">
-                            <Grid Background="#FFE5E5E5"/>
-                        </TabItem>
-                        <TabItem Header="TabItem">
-                            <Grid Background="#FFE5E5E5"/>
-                        </TabItem>
-                    </TabControl>
+
                 </StackPanel>
             </Grid>
         </TabItem>
-       
+
         <TabItem Header="Etude">
             <StackPanel RenderTransformOrigin="0.494,0.485" Margin="0,0,-0.4,-3.4">
                 <Grid  Margin="10,10,9.6,10" Height="204">

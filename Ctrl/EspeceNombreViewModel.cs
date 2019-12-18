@@ -42,6 +42,10 @@ namespace ProjetTransDev
                 OnPropertyChanged("IdZoneProperty");
             }
         }
+        public string NameZoneProperty
+        {
+            get { return IdZone.NameZoneProperty; }
+        }
         public EtudeViewModel EtudeProperty
         {
             get { return IdEtude; }

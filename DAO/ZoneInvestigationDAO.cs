@@ -16,16 +16,18 @@ namespace ProjetTransDev.ORM
         public Decimal Angle3DAO;
         public Decimal Angle4DAO;
         public DateTime EtudeDateDAO;
+        public String NomZoneDAO;
         public int IdZoneDAO;
         public int  IdEtudeDAO;   
         public int  IdUsersDAO;
         public int  IdPlageDAO;
-        public ZoneInvestigationDAO(int IdZoneDAO, int IdEtudeDAO, int IdPlageDAO,   DateTime EtudeDateDAO, Decimal Angle1DAO, Decimal Angle2DAO, Decimal Angle3DAO, Decimal Angle4DAO,int IdUsersDAO)
+        public ZoneInvestigationDAO(int IdZoneDAO, int IdEtudeDAO, int IdPlageDAO,  DateTime EtudeDateDAO, String NomZoneDAO, Decimal Angle1DAO, Decimal Angle2DAO, Decimal Angle3DAO, Decimal Angle4DAO,int IdUsersDAO)
         {
             this.IdZoneDAO = IdZoneDAO;
             this.IdPlageDAO = IdPlageDAO;
             this.IdUsersDAO = IdUsersDAO;
             this.IdEtudeDAO = IdEtudeDAO;
+            this.NomZoneDAO = NomZoneDAO;
             this.EtudeDateDAO = EtudeDateDAO;
             this.Angle1DAO = Angle1DAO;
             this.Angle2DAO = Angle2DAO;

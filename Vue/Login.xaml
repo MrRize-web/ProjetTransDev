@@ -16,7 +16,8 @@
             <TextBox Name="Identifiant" Background="#545d6a" Foreground="White" FontSize="18"/>
             <Label Content="Mot de passe" Foreground="White"/>
             <PasswordBox Name="MotDePasse" Background="#545d6a" Foreground="White" FontSize="18"/>
-            <Button Name="btnSubmit" Click="btnSubmit_Click" Content="GO" Margin="60 10" Background="#545d6a" Foreground="White" FontSize="18"/>
+            <Button Name="btnSubmit" Click="btnSubmit_Click" Content="Connexion" Margin="60 10" Background="#545d6a" Foreground="White" FontSize="18"/>
+            <Button Name="btnRegistre" Click="btnRegistre_Click" Content="Inscription" Margin="60 5" Background="#545d6a" Foreground="White" FontSize="18"/>
         </StackPanel>
     </Border>
 </Page>

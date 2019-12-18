@@ -57,13 +57,13 @@ namespace ProjetTransDev.Vue
             myDataObject7.PlageProperty = (PlageViewModel)listePlageCombo.SelectedItem;
             myDataObject7.EtudeProperty = (EtudeViewModel)listeEtudesCombo.SelectedItem;
             myDataObject7.UsersProperty = (UsersViewModel)listeUsersCombo.SelectedItem;
-
+            myDataObject7.NameZoneProperty = NomZone.Text;
             myDataObject7.Angle1Property = Convert.ToDecimal(Angle1.Text);
             myDataObject7.Angle2Property = Convert.ToDecimal(Angle2.Text);
             myDataObject7.Angle3Property = Convert.ToDecimal(Angle3.Text);
             myDataObject7.Angle4Property = Convert.ToDecimal(Angle4.Text);
 
-            ZoneInvestigationViewModel nouveau = new ZoneInvestigationViewModel(ZoneInvestigationDAL.getMaxIdZoneInvestigation() + 1, myDataObject7.EtudeProperty, myDataObject7.PlageProperty, myDataObject7.EtudeDate, myDataObject7.Angle1Property, myDataObject7.Angle2Property, myDataObject7.Angle3Property, myDataObject7.Angle4Property, myDataObject7.UsersProperty);
+            ZoneInvestigationViewModel nouveau = new ZoneInvestigationViewModel(ZoneInvestigationDAL.getMaxIdZoneInvestigation() + 1, myDataObject7.EtudeProperty, myDataObject7.PlageProperty, myDataObject7.EtudeDate, myDataObject7.NameZoneProperty, myDataObject7.Angle1Property, myDataObject7.Angle2Property, myDataObject7.Angle3Property, myDataObject7.Angle4Property, myDataObject7.UsersProperty);
             lp7.Add(nouveau);
             ZoneInvestigationORM.insertZoneInvestigation(nouveau);
             compteur = lp7.Count();

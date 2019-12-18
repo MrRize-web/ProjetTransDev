@@ -83,20 +83,44 @@
     <Compile Include="DAO\EspeceNombreDAO.cs" />
     <Compile Include="ORM\EspeceNombreORM.cs" />
     <Compile Include="ORM\ZoneInvestigationORM.cs" />
-    <Compile Include="Vue\Commune.xaml.cs">
+    <Compile Include="Vue\Admin\Commune.xaml.cs">
       <DependentUpon>Commune.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vue\Departement.xaml.cs">
+    <Compile Include="Vue\Admin\Departement.xaml.cs">
       <DependentUpon>Departement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vue\Espece.xaml.cs">
+    <Compile Include="Vue\Admin\Espece.xaml.cs">
       <DependentUpon>Espece.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vue\EspeceNombre.xaml.cs">
+    <Compile Include="Vue\Admin\EspeceNombre.xaml.cs">
       <DependentUpon>EspeceNombre.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vue\Etude.xaml.cs">
+    <Compile Include="Vue\Admin\Etude.xaml.cs">
       <DependentUpon>Etude.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Benevol\ZoneInvestigationB.xaml.cs">
+      <DependentUpon>ZoneInvestigationB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Inscription.xaml.cs">
+      <DependentUpon>Inscription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Benevol\CommuneB.xaml.cs">
+      <DependentUpon>CommuneB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Benevol\DepartementB.xaml.cs">
+      <DependentUpon>DepartementB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Benevol\EspeceB.xaml.cs">
+      <DependentUpon>EspeceB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Benevol\EspeceNombreB.xaml.cs">
+      <DependentUpon>EspeceNombreB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Benevol\EtudeB.xaml.cs">
+      <DependentUpon>EtudeB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Benevol\PlageB.xaml.cs">
+      <DependentUpon>PlageB.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vue\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -104,35 +128,70 @@
     <Compile Include="Vue\MauvaisLogin.xaml.cs">
       <DependentUpon>MauvaisLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vue\MenuSelection.xaml.cs">
+    <Compile Include="Vue\Admin\MenuSelection.xaml.cs">
       <DependentUpon>MenuSelection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vue\Plage.xaml.cs">
+    <Compile Include="Vue\Benevol\MenuSelectionB.xaml.cs">
+      <DependentUpon>MenuSelectionB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Admin\Plage.xaml.cs">
       <DependentUpon>Plage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vue\User.xaml.cs">
+    <Compile Include="Vue\Admin\User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vue\ZoneInvestigation.xaml.cs">
+    <Compile Include="Vue\Admin\ZoneInvestigation.xaml.cs">
       <DependentUpon>ZoneInvestigation.xaml</DependentUpon>
     </Compile>
-    <Page Include="Vue\Commune.xaml">
+    <Page Include="Vue\Admin\Commune.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vue\Departement.xaml">
+    <Page Include="Vue\Admin\Departement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vue\Espece.xaml">
+    <Page Include="Vue\Admin\Espece.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vue\EspeceNombre.xaml">
+    <Page Include="Vue\Admin\EspeceNombre.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vue\Etude.xaml">
+    <Page Include="Vue\Admin\Etude.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Benevol\ZoneInvestigationB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Inscription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Benevol\CommuneB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Benevol\DepartementB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Benevol\EspeceB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Benevol\EspeceNombreB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Benevol\EtudeB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Benevol\PlageB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,19 +240,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vue\MenuSelection.xaml">
+    <Page Include="Vue\Admin\MenuSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vue\Plage.xaml">
+    <Page Include="Vue\Benevol\MenuSelectionB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vue\User.xaml">
+    <Page Include="Vue\Admin\Plage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vue\ZoneInvestigation.xaml">
+    <Page Include="Vue\Admin\User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Admin\ZoneInvestigation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

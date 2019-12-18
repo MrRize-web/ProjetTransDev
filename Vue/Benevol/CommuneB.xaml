@@ -1,0 +1,37 @@
+﻿<Page x:Class="ProjetTransDev.Vue.Benevol.CommuneB"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjetTransDev.Vue.Benevol"
+      mc:Ignorable="d" 
+    d:DesignHeight="500" d:DesignWidth="800"
+       Margin="10,0" Height="450" Background="#04c582"
+      Title="Commune" Width="800">
+
+    <TabControl Margin="30,0,30,24.6"  Background="DarkCyan">
+        <TabItem Header="Liste Communes">
+                <StackPanel Margin="25,0,-0.6,1.8">
+                <Grid Margin="10,10,9.6,10" Height="204">
+                    <Label Content="liste Communes"></Label>
+                    <DataGrid Name="listeCommunes" ItemsSource="{Binding lp2}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunes_SelectionChanged" Width="310">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding nomCommuneProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Code Postale" Binding="{Binding CodePostaleProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Nom Departement" Binding="{Binding DepartementCommuneNameProperty, Mode=OneWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,110,25,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                        <Button.Background>
+                            <RadialGradientBrush>
+                                <GradientStop Offset="0.0" Color="LightBlue" />
+                                <GradientStop Offset="1.0" Color="Gray" />
+                            </RadialGradientBrush>
+                        </Button.Background>
+                    </Button>
+
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Page>

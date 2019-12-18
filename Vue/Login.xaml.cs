@@ -21,9 +21,11 @@ namespace ProjetTransDev.Vue
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             Window window = Window.GetWindow(this);
-                if (DALConnection.OpenConnection().State == ConnectionState.Closed)
-                    DALConnection.OpenConnection();
-                String query = "SELECT COUNT(1) FROM users WHERE Identifiant=@Username AND MotDePasse=@Password";
+            if (DALConnection.OpenConnection().State == ConnectionState.Closed)
+            {
+                DALConnection.OpenConnection();
+            }
+            String query = "SELECT COUNT(1) FROM users WHERE Identifiant=@Username AND MotDePasse=@Password";
                 MySqlCommand sqlCmd = new MySqlCommand(query, DALConnection.OpenConnection());
                 sqlCmd.CommandType = CommandType.Text;
                 sqlCmd.Parameters.AddWithValue("@Username", Identifiant.Text);
@@ -31,14 +33,35 @@ namespace ProjetTransDev.Vue
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
                 if (count == 1)
                 {
-                    window.Content = new MenuSelection();
+            
+                    String query1 = " SELECT COUNT(1) FROM users WHERE Identifiant=@Username AND MotDePasse=@Password AND Administrateur=@Administrateur";
+                    MySqlCommand sqlCmd1 = new MySqlCommand(query1, DALConnection.OpenConnection());
+                    sqlCmd1.CommandType = CommandType.Text;
+                    sqlCmd1.Parameters.AddWithValue("@Username", Identifiant.Text);
+                    sqlCmd1.Parameters.AddWithValue("@Password", MotDePasse.Password);
+                    sqlCmd1.Parameters.AddWithValue("@Administrateur", "1");
+                    int count1 = Convert.ToInt32(sqlCmd1.ExecuteScalar());
+                    if (count1 == 1)
+                    {
+                        window.Content = new MenuSelection();
+                    }
+                    else
+                    {
+                        window.Content = new MenuSelectionB();
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Identifiant ou mot de passe est incorrecte.");
-                    window.Content = new MauvaisLogin();
-                
+                    window.Content = new Login();
                 }
+            }
+        
+        private void btnRegistre_Click(object sender, RoutedEventArgs e)
+        {
+            Window pageRegister = Window.GetWindow(this);
+            pageRegister.Content = new Inscription();
+
         }
     }
 }

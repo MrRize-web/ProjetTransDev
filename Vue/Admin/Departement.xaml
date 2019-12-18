@@ -5,10 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetTransDev.Vue"
       mc:Ignorable="d" 
-        d:DesignHeight="500"
-       Background="#04c582"
-      Title="Departement" Width="1096">
-    <TabControl Margin="10,0" Height="450" Width="779"  Background="DarkCyan">
+    d:DesignHeight="500" d:DesignWidth="800"
+       Margin="10,0" Height="450" Background="#04c582"
+      Title="Departement" Width="800">
+    
+    <TabControl Margin="10,0,10,29.6" Width="779"  Background="DarkCyan">
         <TabItem Header="Ajouter un Departement">
             <Grid Name ="grigrid1" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
@@ -16,7 +17,7 @@
                     <ColumnDefinition Width="787*"/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Margin="7.8,0,-0.6,-249" Grid.Column="1">
+                <StackPanel Margin="7.8,0,-0.4,-79" Grid.Column="1">
                     <Label Content="Nom du département :"/>
                     <TextBox Name="NomDepartement" Height="25" Margin="0,0,0.4,0"/>
                     <Label Content="Code Postale :"/>

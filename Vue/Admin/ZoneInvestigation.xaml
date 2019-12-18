@@ -4,37 +4,36 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetTransDev.Vue"
-      mc:Ignorable="d" 
-       d:DesignHeight="500" d:DesignWidth="800"
-      Background="#04c582"
-      Title="ZoneInvestigation" Width="1096">
-    
-    <TabControl Margin="10,0" Height="450" Width="779"  Background="DarkCyan">
+      mc:Ignorable="d" d:DesignWidth="800"
+       Margin="10,0" Height="564.8" Background="#04c582"
+      Title="ZoneInvestigation" Width="800">
+
+    <TabControl Margin="10,25,10,9.8" Width="779"  Background="DarkCyan">
         <TabItem  Header="Zone de d'investigation">
-            <StackPanel RenderTransformOrigin="0.494,0.485">
-                <Label Content="Angle 1 :"/>
+            <StackPanel RenderTransformOrigin="0.494,0.485" Margin="0,0,-0.4,11.6" HorizontalAlignment="Left" Width="774">
+                <Label Content="Angle 1 :" Margin="0,0,696.6,0"/>
                 <TextBox x:Name="Angle1" Height="20" Margin="0,0,696.6,0"  PreviewTextInput="NumberValidationTextBox"/>
-                <Label Content="Angle 2 :"/>
+                <Label Content="Angle 2 :" Margin="0,0,696.6,0"/>
                 <TextBox x:Name="Angle2" Height="20" Margin="0,0,696.6,0" PreviewTextInput="NumberValidationTextBox" />
-                <Label Content="Angle 3 :"/>
+                <Label Content="Angle 3 :" Margin="0,0,696.6,0"/>
                 <TextBox x:Name="Angle3" Height="20" Margin="0,0,696.6,0" PreviewTextInput="NumberValidationTextBox" />
-                <Label Content="Angle 4 :"/>
+                <Label Content="Angle 4 :" Margin="0,0,696.6,0"/>
                 <TextBox x:Name="Angle4" Height="20" Margin="0,0,696.6,0" PreviewTextInput="NumberValidationTextBox" />
-                <Label Content="Users :"/>
+                <Label Content="Users :" Margin="0,0,696.6,0"/>
                 <ComboBox x:Name="listeUsersCombo"
                                       DisplayMemberPath="nomUsersProperty" 
                                       ItemsSource="{Binding}" 
                                       SelectedItem="{Binding idUsersProperty}" 
                                      Margin="0,0,616.6,0" 
                                      />
-                <Label Content="Etude :"/>
+                <Label Content="Etude :" Margin="0,0,696.6,0"/>
                 <ComboBox Name="listeEtudesCombo"
                                       DisplayMemberPath="TitreEtudeProperty" 
                                       ItemsSource="{Binding}" 
                                       SelectedItem="{Binding idEtudeProperty}" Margin="0,0,616.6,0" 
                                      >
                 </ComboBox>
-                <Label Content="Plage :"/>
+                <Label Content="Plage :" Margin="0,0,696.6,0"/>
 
                 <ComboBox Name="listePlageCombo"
                                       DisplayMemberPath="nomPlageProperty" 
@@ -42,13 +41,15 @@
                                       SelectedItem="{Binding idPlageProperty}" Margin="0,0,616.6,0" 
                                      >
                 </ComboBox>
-                <Label Content="Date :"/>
+                <Label Content="Date :" Margin="0,0,696.6,0"/>
                 <ComboBox Name="listeDateCombo"
                                       DisplayMemberPath="dateCreationProperty" 
                                       ItemsSource="{Binding}" 
                                       SelectedItem="{Binding dateCreationProperty}" Margin="0,0,616.6,0">
                 </ComboBox>
-                <Button x:Name="VlideAngle" Content="Ajouter Zone de recherche"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="36" Margin="0,-20,199.6,0" HorizontalAlignment="Right" Width="392" RenderTransformOrigin="0.5,2.31" Click="VlideAngle_Click" >
+                <Label Content="Nom de la Zone" HorizontalAlignment="Left" Width="157"/>
+                <TextBox x:Name="NomZone" Margin="0,0,616.4,0" Height="29"></TextBox>
+                <Button x:Name="VlideAngle" Content="Ajouter Zone de recherche"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="36" Margin="0,10,199.6,0" HorizontalAlignment="Right" Width="392" RenderTransformOrigin="0.5,2.31" Click="VlideAngle_Click" >
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Color="ForestGreen" Offset="0.279"/>

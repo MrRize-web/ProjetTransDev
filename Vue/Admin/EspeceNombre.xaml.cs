@@ -27,7 +27,6 @@ namespace ProjetTransDev.Vue
         ObservableCollection<EtudeViewModel> lp4;
         PlageViewModel myDataObject1; // Objet de liaison
         ObservableCollection<PlageViewModel> lp1;
-
         EspeceViewModel myDataObject5;
         ObservableCollection<EspeceViewModel> lp5;
         public EspeceNombre()

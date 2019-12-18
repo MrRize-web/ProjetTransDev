@@ -5,15 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetTransDev.Vue"
       mc:Ignorable="d" 
-        d:DesignHeight="500"
-    Background="#04c582"
-      Title="EspeceNombre" Width="1096">
-    
-    <TabControl Margin="10,0" Height="450" Width="779"  Background="DarkCyan">
+    d:DesignHeight="500" d:DesignWidth="800"
+       Margin="10,0" Height="450" Background="#04c582"
+      Title="EspeceNombre" Width="800">
+
+    <TabControl Margin="10,0,10,24.6" Width="779"  Background="DarkCyan">
         <TabItem Header="Nombre">
             <StackPanel>
                 <Label Content="Nombre d'animaux :"></Label>
-                <ComboBox Name="NbAnimaux" Height="20" >
+                <ComboBox Name="NbAnimaux" Height="20" Margin="0,0,706.6,0" >
                     <ComboBoxItem>1</ComboBoxItem>
                     <ComboBoxItem>2</ComboBoxItem>
                     <ComboBoxItem>3</ComboBoxItem>
@@ -36,37 +36,36 @@
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
 
-                <Label Content="Zone de l'IdZone :"></Label>
+                <Label Content="Nom de la zone :"></Label>
                 <ComboBox Name="listeZonesCombo"
-                                      DisplayMemberPath="IdZoneProperty" 
+                                      DisplayMemberPath="NameZoneProperty" 
                                       ItemsSource="{Binding}" 
-                                      SelectedItem="{Binding IdZoneProperty}" 
+                                      SelectedItem="{Binding IdZoneProperty}" Margin="0,0,626.6,0" 
                                      >
                 </ComboBox>
 
-                <Label Content="Zone idEspece :"></Label>
+                <Label Content="Nom de l'espece :"></Label>
                 <ComboBox Name="listeEspeceCombo"
                                       DisplayMemberPath="nomEspeceProperty" 
                                       ItemsSource="{Binding}" 
-                                      SelectedItem="{Binding idEspeceProperty}" 
+                                      SelectedItem="{Binding idEspeceProperty}" Margin="0,0,626.6,0" 
                                      >
                 </ComboBox>
 
-                <Label Content="Zone de l'idPlage :"></Label>
+                <Label Content="Nom de la plage :"></Label>
                 <ComboBox Name="listePlagesCombo"
                                       DisplayMemberPath="nomPlageProperty" 
                                       ItemsSource="{Binding}" 
-                                      SelectedItem="{Binding idPlageProperty}" 
+                                      SelectedItem="{Binding idPlageProperty}" Margin="0,0,626.6,0" 
                                      >
                 </ComboBox>
 
-                <Label Content="Zone de l'idEtude :"></Label>
+                <Label Content="Nom de l'etude :"></Label>
                 <ComboBox Name="listeEtudesCombo"
                                       DisplayMemberPath="TitreEtudeProperty" 
                                       ItemsSource="{Binding}" 
-                                      SelectedItem="{Binding idEtudeProperty}" 
-                                     >
-                </ComboBox>
+                                      SelectedItem="{Binding idEtudeProperty}" HorizontalAlignment="Left" Width="147" 
+                                     />
                 <Button x:Name="VlideNombreEspece" Content="Ajoute nombre d'animaux"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="50" Margin="167,5,206.6,0" RenderTransformOrigin="0.5,2.31" Click="VlideNombreEspece_Click" >
                     <Button.Background>
                         <RadialGradientBrush>
@@ -94,7 +93,7 @@
                             <DataGridTextColumn Header="Nombre :" Binding="{Binding NombreProperty, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Plage :" Binding="{Binding PlageNameProperty, Mode=OneWay}" />
                             <DataGridTextColumn Header="Etude :" Binding="{Binding EtudeNameProperty, Mode=OneWay}" />
-                            <DataGridTextColumn Header="Zone :" Binding="{Binding IdZoneProperty.IdZoneProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Zone :" Binding="{Binding NameZoneProperty , Mode=OneWay}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

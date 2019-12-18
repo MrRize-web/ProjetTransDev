@@ -1,0 +1,42 @@
+﻿<Page x:Class="ProjetTransDev.Vue.Benevol.DepartementB"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjetTransDev.Vue.Benevol"
+      mc:Ignorable="d" 
+    d:DesignHeight="500" d:DesignWidth="800"
+       Margin="10,0" Height="450" Background="#04c582"
+      Title="Departement" Width="800">
+
+    <TabControl Margin="26,0,24,29.6"  Background="DarkCyan">
+        <TabItem Header="Liste Departements">
+            <StackPanel Margin="0,0,13.8,11.6">
+                <Grid Margin="10,10,9.6,10" Height="224">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="215*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="529*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Margin="10">
+                    <DataGrid Name="listeDepartements" ItemsSource="{Binding lp3}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="262,-239,0,120.8" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeDepartements_SelectionChanged" Width="210">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nom du Departement" Binding="{Binding nomDepartementProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Code Postale" Binding="{Binding CodePostalePropertie, Mode=TwoWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,70,10.2,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                    <Button.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Offset="0.0" Color="LightBlue" />
+                            <GradientStop Offset="1.0" Color="Gray" />
+                        </RadialGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</Page>
