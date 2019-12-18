@@ -92,7 +92,7 @@ namespace ProjetTransDev.DAL
 
         public static EtudeDAO getEtude(int idEtude)
         {
-            string query = " SELECT * FROM Plage WHERE idPlage =@ID;";
+            string query = " SELECT * FROM etude WHERE idEtude =@ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.Parameters.AddWithValue("@ID", idEtude);
             cmd.ExecuteNonQuery();

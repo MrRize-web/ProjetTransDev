@@ -37,7 +37,8 @@ namespace ProjetTransDev.Vue
             lp4 = EtudeORM.ListeEtude();
             listeEtudesCombo.ItemsSource = lp4;
             listeDateCombo.ItemsSource = lp4;
-            ListeEtudeZone.ItemsSource = lp4;
+            lp7 = ZoneInvestigationORM.ListeZoneInvestigation();
+            ListeEtudeZone.ItemsSource = lp7;
 
             lp7 = ZoneInvestigationORM.ListeZoneInvestigation();
 
@@ -65,7 +66,10 @@ namespace ProjetTransDev.Vue
             ZoneInvestigationORM.insertZoneInvestigation(nouveau);
             compteur = lp7.Count();
 
+            ListeEtudeZone.Items.Refresh();
             ListeEtudeZone.ItemsSource = lp7;
+   
+   
             ((TextBox)Angle1).Text = string.Empty;
             ((TextBox)Angle2).Text = string.Empty;
             ((TextBox)Angle3).Text = string.Empty;
@@ -77,17 +81,18 @@ namespace ProjetTransDev.Vue
         {
             if ((ListeEtudeZone.SelectedIndex < lp7.Count) && (ListeEtudeZone.SelectedIndex >= 0))
             {
-                selectedZoneInvestigationId = (lp7.ElementAt<ZoneInvestigationViewModel>(ListeEtudeZone.SelectedIndex)).EtudeProperty.idEtudeProperty;
+                selectedZoneInvestigationId = (lp7.ElementAt<ZoneInvestigationViewModel>(ListeEtudeZone.SelectedIndex)).IdZoneProperty;
             }
         }
         private void supprimerButton_MouseDoubleClick4(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             ZoneInvestigationViewModel toRemove = (ZoneInvestigationViewModel)ListeEtudeZone.SelectedItem;
             lp7.Remove(toRemove);
-
-            EtudeORM.supprimerEtude(selectedZoneInvestigationId);
-
-            MessageBox.Show("Etude supprimée avec succes ! ");
+            ListeEtudeZone.Items.Refresh();
+            ListeEtudeZone.ItemsSource = lp7;
+       
+            ZoneInvestigationORM.supprimerZoneInvestigation(selectedZoneInvestigationId);
+            MessageBox.Show("Zone supprimée avec succes ! ");
         }
         private void ouvrirAcceuil(object sender, RoutedEventArgs e)
         {

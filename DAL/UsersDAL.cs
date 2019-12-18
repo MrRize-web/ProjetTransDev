@@ -95,7 +95,7 @@ namespace ProjetTransDev.DAL
         }
         public static UsersDAO getUsers(int idUsers)
         {
-            string query = "SELECT * FROM users WHERE id=@ID;";
+            string query = "SELECT * FROM users WHERE idUsers=@ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
             cmd.Parameters.AddWithValue("@ID", idUsers);
             cmd.ExecuteNonQuery();

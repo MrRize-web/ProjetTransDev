@@ -70,8 +70,11 @@
         <TabItem Header="Etude">
             <StackPanel RenderTransformOrigin="0.494,0.485" Margin="0,0,-0.4,-3.4">
                 <Grid  Margin="10,10,9.6,10" Height="204">
-                    <DataGrid x:Name="ListeEtudeZone" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="250,0,0,71" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="ListeEtudeZone_SelectionChanged" Width="222" RenderTransformOrigin="0.504,0.48">
+                    <DataGrid x:Name="ListeEtudeZone" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="175,10,0,61" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="ListeEtudeZone_SelectionChanged" Width="417" RenderTransformOrigin="0.504,0.48">
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="Etude :" Binding="{Binding EtudeNameProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Plage :" Binding="{Binding PlageNameProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Utilisateur :" Binding="{Binding UsersNameProperty, Mode=OneWay}" />
                             <DataGridTextColumn Header="Angle 1 :" Binding="{Binding Angle1Property, Mode=OneWay}" />
                             <DataGridTextColumn Header="Angle 2 :" Binding="{Binding Angle2Property, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Angle 3 :" Binding="{Binding Angle3Property, Mode=TwoWay}" />

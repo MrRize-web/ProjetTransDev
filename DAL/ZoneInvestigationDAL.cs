@@ -72,11 +72,11 @@ namespace ProjetTransDev.DAL
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
-        public static void supprimerZoneInvestigation(int id)
+        public static void supprimerZoneInvestigation(int IdZone)
         {
             string query = "DELETE FROM etude_has_plage WHERE IdZone = @ID;";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.OpenConnection());
-            cmd.Parameters.AddWithValue("@ID", id);
+            cmd.Parameters.AddWithValue("@ID", IdZone);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
