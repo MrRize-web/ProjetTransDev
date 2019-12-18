@@ -10,12 +10,12 @@ namespace ProjetTransDev
         public EtudeViewModel IdEtude;
         public PlageViewModel IdPlage;
         public EspeceViewModel IdEspece;
-        public EtudePlageViewModel IdZone;
+        public ZoneInvestigationViewModel IdZone;
         private Decimal Nombre;
         private int IdNombreE;
         public EtudePlageEspeceViewModel() { }
 
-        public EtudePlageEspeceViewModel(int IdNombreE, EtudePlageViewModel IdZone, EspeceViewModel idEspece, PlageViewModel idPlage, EtudeViewModel idEtude, Decimal Nombre )
+        public EtudePlageEspeceViewModel(int IdNombreE, ZoneInvestigationViewModel IdZone, EspeceViewModel idEspece, PlageViewModel idPlage, EtudeViewModel idEtude, Decimal Nombre )
         {
             this.IdNombreE = IdNombreE;
             this.IdZone = IdZone;
@@ -33,7 +33,7 @@ namespace ProjetTransDev
                 OnPropertyChanged("IdNombreEProperty");
             }
         }
-        public EtudePlageViewModel IdZoneProperty
+        public ZoneInvestigationViewModel IdZoneProperty
         {
             get { return IdZone; }
         }

@@ -13,7 +13,7 @@ namespace ProjetTransDev.Vue
     /// </summary>
     public partial class EspeceNombre : Page
     {
-        int selectedEspeceId;
+        int selectedEspeceNombreId;
         int compteur = 0;
 
         EtudePlageEspeceViewModel myDataObject8;
@@ -42,7 +42,7 @@ namespace ProjetTransDev.Vue
         {
             if ((listeZonesCombo.SelectedIndex < lp8.Count) && (listeZonesCombo.SelectedIndex >= 0))
             {
-                selectedEspeceId = (lp8.ElementAt<EtudePlageEspeceViewModel>(listeZonesCombo.SelectedIndex)).IdNombreEProperty;
+                selectedEspeceNombreId = (lp8.ElementAt<EtudePlageEspeceViewModel>(listeZonesCombo.SelectedIndex)).IdNombreEProperty;
             }
         }
 
@@ -53,7 +53,7 @@ namespace ProjetTransDev.Vue
 
             listeZonesCombo.Items.Refresh();
 
-            EtudePlageEspeceORM.supprimerEtudePlageEspece(selectedEspeceId);
+            EtudePlageEspeceORM.supprimerEtudePlageEspece(selectedEspeceNombreId);
             MessageBox.Show("Espece supprimée avec succes ! ");
         }
 

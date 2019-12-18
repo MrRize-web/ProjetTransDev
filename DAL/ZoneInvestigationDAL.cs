@@ -7,10 +7,10 @@ using ProjetTransDev.ORM;
 
 namespace ProjetTransDev.DAL
 {
-   public class EtudePlageDAL
+   public class ZoneInvestigationDAL
    {
        private static MySqlConnection connection;
-       public EtudePlageDAL()
+       public ZoneInvestigationDAL()
        {
            DALConnection.OpenConnection();
            connection = DALConnection.OpenConnection();

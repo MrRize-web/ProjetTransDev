@@ -15,7 +15,7 @@ namespace ProjetTransDev.ORM
             EtudeViewModel a = EtudeORM.getEtude(idEtude);
 
             int idZone = pDAO.IdZoneDAO;
-            EtudePlageViewModel b = EtudePlageORM.getEtudePlage(idZone);
+            ZoneInvestigationViewModel b = ZoneInvestigationORM.getEtudePlage(idZone);
 
             int idEspece = pDAO.IdEspeceDAO;
             EspeceViewModel c = EspeceORM.getEspece(idEspece);
@@ -37,7 +37,7 @@ namespace ProjetTransDev.ORM
                 EtudeViewModel a = EtudeORM.getEtude(idEtude);
 
                 int idZone = element.IdZoneDAO;
-                EtudePlageViewModel b = EtudePlageORM.getEtudePlage(idZone);
+                ZoneInvestigationViewModel b = ZoneInvestigationORM.getEtudePlage(idZone);
 
                 int idEspece = element.IdEspeceDAO;
                 EspeceViewModel c = EspeceORM.getEspece(idEspece);

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ProjetTransDev.Ctrl
 {
   
-        public class EtudePlageViewModel : INotifyPropertyChanged
+        public class ZoneInvestigationViewModel : INotifyPropertyChanged
         {
             private int IdZone;
             private Decimal Angle1;
@@ -22,9 +22,9 @@ namespace ProjetTransDev.Ctrl
             public UsersViewModel Users;
             public PlageViewModel Plage;
 
-        public EtudePlageViewModel() { }
+        public ZoneInvestigationViewModel() { }
 
-            public EtudePlageViewModel(int IdZone, EtudeViewModel Etude, PlageViewModel Plage, UsersViewModel Users, EtudeViewModel EtudeDate, Decimal Angle1, Decimal Angle2, Decimal Angle3, Decimal Angle4)
+            public ZoneInvestigationViewModel(int IdZone, EtudeViewModel Etude, PlageViewModel Plage, UsersViewModel Users, EtudeViewModel EtudeDate, Decimal Angle1, Decimal Angle2, Decimal Angle3, Decimal Angle4)
             {
                 this.IdZone = IdZone;
                 this.Etude = Etude;
@@ -144,7 +144,7 @@ namespace ProjetTransDev.Ctrl
                 if (handler != null)
                 {
                     handler(this, new PropertyChangedEventArgs(info));
-                   EtudePlageORM.updateEtudePlage(this);
+                   ZoneInvestigationORM.updateEtudePlage(this);
                 }
             }
         }

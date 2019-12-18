@@ -3,10 +3,10 @@ using System;
 using System.Collections.ObjectModel;
 namespace ProjetTransDev.ORM
 {
-    public class EtudePlageORM
+    public class ZoneInvestigationORM
     {
 
-        public static EtudePlageViewModel getEtudePlage(int idEtudePlage)
+        public static ZoneInvestigationViewModel getEtudePlage(int idEtudePlage)
         {
 
             EtudePlageDAO pDAO = EtudePlageDAO.getEtudePlage(idEtudePlage);
@@ -23,14 +23,14 @@ namespace ProjetTransDev.ORM
             int idPlage = pDAO.IdPlageDAO;
             PlageViewModel d = PlageORM.getPlage(idPlage);
 
-        EtudePlageViewModel p = new EtudePlageViewModel(pDAO.IdZoneDAO,a,d,c,b,pDAO.Angle1DAO,pDAO.Angle2DAO,pDAO.Angle3DAO,pDAO.Angle4DAO);
+        ZoneInvestigationViewModel p = new ZoneInvestigationViewModel(pDAO.IdZoneDAO,a,d,c,b,pDAO.Angle1DAO,pDAO.Angle2DAO,pDAO.Angle3DAO,pDAO.Angle4DAO);
             return p;
         }
 
-        public static ObservableCollection<EtudePlageViewModel> ListeEtudePlages()
+        public static ObservableCollection<ZoneInvestigationViewModel> ListeEtudePlages()
         {
             ObservableCollection<EtudePlageDAO> lDAO = EtudePlageDAO.listeEtudePlages();
-            ObservableCollection<EtudePlageViewModel> l = new ObservableCollection<EtudePlageViewModel>();
+            ObservableCollection<ZoneInvestigationViewModel> l = new ObservableCollection<ZoneInvestigationViewModel>();
             foreach (EtudePlageDAO element in lDAO)
             {
                 int idEtude = element.IdEtudeDAO;
@@ -44,12 +44,12 @@ namespace ProjetTransDev.ORM
 
                 int idPlage = element.IdPlageDAO;
                 PlageViewModel d = PlageORM.getPlage(idPlage);
-                EtudePlageViewModel p = new EtudePlageViewModel(element.IdZoneDAO,a, d, c, b, element.Angle1DAO, element.Angle2DAO, element.Angle3DAO, element.Angle4DAO);
+                ZoneInvestigationViewModel p = new ZoneInvestigationViewModel(element.IdZoneDAO,a, d, c, b, element.Angle1DAO, element.Angle2DAO, element.Angle3DAO, element.Angle4DAO);
                 l.Add(p);
             }
             return l;
         }
-        public static void updateEtudePlage(EtudePlageViewModel p)
+        public static void updateEtudePlage(ZoneInvestigationViewModel p)
         {
             EtudePlageDAO.updateEtudePlage(new EtudePlageDAO(p.IdZoneProperty,p.EtudeProperty.idEtudeProperty,p.PlageProperty.idPlageProperty,p.UsersProperty.idUsersProperty,p.EtudeProperty.dateCreationProperty,p.Angle1Property,p.Angle2Property,p.Angle3Property,p.Angle4Property));
         }
@@ -58,7 +58,7 @@ namespace ProjetTransDev.ORM
         {
             EtudePlageDAO.supprimerEtudePlage(id);
         }
-        public static void insertEtudePlage(EtudePlageViewModel p)
+        public static void insertEtudePlage(ZoneInvestigationViewModel p)
         {
             EtudePlageDAO.insertEtudePlage(new EtudePlageDAO(p.IdZoneProperty, p.EtudeProperty.idEtudeProperty, p.PlageProperty.idPlageProperty, p.UsersProperty.idUsersProperty, p.EtudeProperty.dateCreationProperty, p.Angle1Property, p.Angle2Property, p.Angle3Property, p.Angle4Property));
         }

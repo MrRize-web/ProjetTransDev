@@ -8,6 +8,7 @@
        d:DesignHeight="500" d:DesignWidth="800"
       Background="#04c582"
       Title="ZoneInvestigation">
+    
     <TabControl Margin="10,0" Height="450" Width="779"  Background="DarkCyan">
         <TabItem  Header="Zone de d'investigation">
             <StackPanel RenderTransformOrigin="0.494,0.485">
@@ -73,7 +74,7 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nom de la plage :" Binding="{Binding PlageEtudeNameProperty, Mode=OneWay}" />
                             <DataGridTextColumn Header="Tire de l'Etude :" Binding="{Binding TitreEtudeProperty, Mode=OneWay}" />
-                            <DataGridTextColumn Header="Angle 1 :" Binding="{Binding Angle1Property, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Angle 1 :" Binding="{Binding EtudePlageView.Angle1Property, Mode=OneWay}" />
                             <DataGridTextColumn Header="Angle 2 :" Binding="{Binding Angle2Property, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Angle 3 :" Binding="{Binding Angle3Property, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Angle 4 :" Binding="{Binding Angle4Property, Mode=TwoWay}" />

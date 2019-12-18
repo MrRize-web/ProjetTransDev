@@ -35,29 +35,29 @@ namespace ProjetTransDev.ORM
 
         public static ObservableCollection<EtudePlageDAO> listeEtudePlages()
         {
-            ObservableCollection<EtudePlageDAO> l = EtudePlageDAL.selectEtudePlages();
+            ObservableCollection<EtudePlageDAO> l = ZoneInvestigationDAL.selectEtudePlages();
             return l;
         }
 
         public static EtudePlageDAO getEtudePlage(int IdZoneDAO)
         {
-            EtudePlageDAO p = EtudePlageDAL.getEtudePlage(IdZoneDAO);
+            EtudePlageDAO p = ZoneInvestigationDAL.getEtudePlage(IdZoneDAO);
             return p;
         }
 
         public static void updateEtudePlage(EtudePlageDAO p)
         {
-            EtudePlageDAL.updateEtudePlage(p);
+            ZoneInvestigationDAL.updateEtudePlage(p);
         }
 
         public static void supprimerEtudePlage(int id)
         {
-            EtudePlageDAL.supprimerEtudePlage(id);
+            ZoneInvestigationDAL.supprimerEtudePlage(id);
         }
 
         public static void insertEtudePlage(EtudePlageDAO p)
         {
-            EtudePlageDAL.insertEtudePlage(p);
+            ZoneInvestigationDAL.insertEtudePlage(p);
         }
     }
 }
