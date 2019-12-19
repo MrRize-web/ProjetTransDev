@@ -32,8 +32,7 @@ namespace ProjetTransDev.Vue
                 sqlCmd.Parameters.AddWithValue("@Password", MotDePasse.Password);
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
                 if (count == 1)
-                {
-            
+                {            
                     String query1 = " SELECT COUNT(1) FROM users WHERE Identifiant=@Username AND MotDePasse=@Password AND Administrateur=@Administrateur";
                     MySqlCommand sqlCmd1 = new MySqlCommand(query1, DALConnection.OpenConnection());
                     sqlCmd1.CommandType = CommandType.Text;
@@ -55,7 +54,7 @@ namespace ProjetTransDev.Vue
                     MessageBox.Show("Identifiant ou mot de passe est incorrecte.");
                     window.Content = new Login();
                 }
-            }
+        }
         
         private void btnRegistre_Click(object sender, RoutedEventArgs e)
         {

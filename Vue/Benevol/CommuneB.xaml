@@ -11,9 +11,9 @@
 
     <TabControl Margin="30,0,30,24.6"  Background="DarkCyan">
         <TabItem Header="Liste des Communes">
-                <StackPanel Margin="25,0,-0.6,1.8">
+            <StackPanel Margin="25,0,-0.6,1.8">
                 <Grid Margin="10,10,9.6,10" Height="204">
-                    <DataGrid Name="listeCommunes" ItemsSource="{Binding lp2}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,-0.4" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunes_SelectionChanged" Width="310">
+                    <DataGrid Name="listeCommunes" ItemsSource="{Binding lp2}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="170,0,0,0" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunes_SelectionChanged" Width="313">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nom de la Commune" Binding="{Binding nomCommuneProperty, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Code Postale" Binding="{Binding CodePostaleProperty, Mode=TwoWay}" />
@@ -22,15 +22,15 @@
                     </DataGrid>
                 </Grid>
                 <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,110,25,50" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
-                        <Button.Background>
-                            <RadialGradientBrush>
-                                <GradientStop Offset="0.0" Color="LightBlue" />
-                                <GradientStop Offset="1.0" Color="Gray" />
-                            </RadialGradientBrush>
-                        </Button.Background>
-                    </Button>
+                    <Button.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Offset="0.0" Color="LightBlue" />
+                            <GradientStop Offset="1.0" Color="Gray" />
+                        </RadialGradientBrush>
+                    </Button.Background>
+                </Button>
 
-                </StackPanel>
-            </TabItem>
-        </TabControl>
-    </Page>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</Page>

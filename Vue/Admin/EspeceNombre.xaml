@@ -89,11 +89,11 @@
                 <Grid  Margin="10,10,9.6,10" Height="204">
                     <DataGrid Name="listeEspecesNombres" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="242,0,0,79" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEspecesNombres_SelectionChanged" Width="325">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Nom de l'espece :" Binding="{Binding EspeceNameProperty, Mode=OneWay}" />
-                            <DataGridTextColumn Header="Nombre :" Binding="{Binding NombreProperty, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Plage :" Binding="{Binding PlageNameProperty, Mode=OneWay}" />
-                            <DataGridTextColumn Header="Etude :" Binding="{Binding EtudeNameProperty, Mode=OneWay}" />
-                            <DataGridTextColumn Header="Zone :" Binding="{Binding NameZoneProperty , Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nom de l'espece" Binding="{Binding EspeceNameProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding NombreProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Plage" Binding="{Binding PlageNameProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Etude" Binding="{Binding EtudeNameProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Zone" Binding="{Binding NameZoneProperty , Mode=OneWay}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

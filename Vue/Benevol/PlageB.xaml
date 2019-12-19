@@ -18,7 +18,6 @@
                         <ColumnDefinition Width="10*"/>
                         <ColumnDefinition Width="529*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="liste Plages" Grid.ColumnSpan="3" Margin="117,0,237.805,0" Height="25" VerticalAlignment="Top"></Label>
                     <DataGrid Name="listePlages" ItemsSource="{Binding lp1}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="215,0,0,10" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listePlages_SelectionChanged" Width="302" Grid.ColumnSpan="3">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nom de la Plage" Binding="{Binding nomPlageProperty, Mode=TwoWay}" />

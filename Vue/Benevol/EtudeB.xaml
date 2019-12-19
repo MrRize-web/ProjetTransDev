@@ -20,7 +20,7 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Margin="0,0,-0.4,-124" Grid.ColumnSpan="5">
                         <Label Content="Nombre de Personne :"></Label>
-                        <ComboBox Name="NbPersonne" Height="20" Margin="0,0,706.6,0" >
+                        <ComboBox Name="NbPersonne" Height="20" Margin="0,0,687,0" >
                             <ComboBoxItem>1</ComboBoxItem>
                             <ComboBoxItem>2</ComboBoxItem>
                             <ComboBoxItem>3</ComboBoxItem>
@@ -81,11 +81,11 @@
                 <Grid  Margin="10,10,9.6,10" Height="204">
                     <DataGrid Name="listeEtudes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="43,5,0,0" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunesCombo_SelectionChanged" Width="625">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Nom de la plage :" Binding="{Binding PlageEtudeNameProperty, Mode=OneWay}" />
-                            <DataGridTextColumn Header="Nombre de participant :" Binding="{Binding NbPersonneEtudeProperty, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Tire de l'Etude :" Binding="{Binding TitreEtudeProperty, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Date de Création d'une Etude :" Binding="{Binding dateCreationProperty, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Date de Fin d'Etude :" Binding="{Binding dateFinProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Nom de la plage" Binding="{Binding PlageEtudeNameProperty, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nombre de participant" Binding="{Binding NbPersonneEtudeProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Tire de l'Etude" Binding="{Binding TitreEtudeProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Date de Création d'une Etude" Binding="{Binding dateCreationProperty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Date de Fin d'Etude" Binding="{Binding dateFinProperty, Mode=TwoWay}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid> 
