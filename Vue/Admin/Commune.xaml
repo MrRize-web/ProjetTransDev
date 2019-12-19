@@ -32,7 +32,7 @@
                                      >
                     </ComboBox>
 
-                    <Button x:Name="VlideCommune" Content="Ajouter une Commune" Click="VlideCommune_Click"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31">
+                    <Button x:Name="ValideCommune" Content="Ajouter une Commune" Click="ValideCommune_Click"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31">
                         <Button.Background>
                             <RadialGradientBrush>
                                 <GradientStop Color="ForestGreen" Offset="0.279"/>
@@ -63,7 +63,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
-                <Button x:Name="supprimerButton2" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick2" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200">
+                <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200">
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Color="Red" Offset="0.279"/>

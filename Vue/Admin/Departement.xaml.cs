@@ -29,7 +29,7 @@ namespace ProjetTransDev.Vue
         }
         /////////////////////////////////////   Departement     /////////////////////////////////////
         /////////////////////////////////////   Departement     /////////////////////////////////////
-        private void VlideDepartement_Click(object sender, RoutedEventArgs e)
+        private void ValideDepartement_Click(object sender, RoutedEventArgs e)
         {
             myDataObject3 = new DepartementViewModel();
             myDataObject3.nomDepartementProperty = NomDepartement.Text;
@@ -51,7 +51,7 @@ namespace ProjetTransDev.Vue
 
             }
         }
-        private void supprimerButton_MouseDoubleClick2(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             DepartementViewModel toRemove = (DepartementViewModel)listeDepartements.SelectedItem;
             lp3.Remove(toRemove);

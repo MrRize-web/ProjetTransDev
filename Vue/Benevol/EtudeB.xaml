@@ -48,7 +48,7 @@
                         <Label Content="Date Fin"/>
 
                         <DatePicker x:Name="dateFinDatePicker1" SelectedDate="{Binding dateFinProperty, StringFormat=dd/MM/yyyy}"  SelectedDateFormat="Long" FirstDayOfWeek="Monday" Height="30" Margin="0,0,461.6,0" />
-                        <Button x:Name="VlideEtude" Content="Ajouter D'une Etude"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="VlideEtude_Click" >
+                        <Button x:Name="ValideEtude" Content="Ajouter D'une Etude"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" Click="ValideEtude_Click" >
                             <Button.Background>
                                 <RadialGradientBrush>
                                     <GradientStop Color="ForestGreen" Offset="0.279"/>

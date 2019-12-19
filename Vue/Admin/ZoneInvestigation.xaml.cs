@@ -50,7 +50,7 @@ namespace ProjetTransDev.Vue
             Thread.CurrentThread.CurrentCulture = culture;
 
         }
-        private void VlideAngle_Click(object sender, RoutedEventArgs e)
+        private void ValideAngle_Click(object sender, RoutedEventArgs e)
         {
             myDataObject7 = new ZoneInvestigationViewModel();
 
@@ -86,7 +86,7 @@ namespace ProjetTransDev.Vue
                 selectedZoneInvestigationId = (lp7.ElementAt<ZoneInvestigationViewModel>(ListeEtudeZone.SelectedIndex)).IdZoneProperty;
             }
         }
-        private void supprimerButton_MouseDoubleClick4(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             ZoneInvestigationViewModel toRemove = (ZoneInvestigationViewModel)ListeEtudeZone.SelectedItem;
             lp7.Remove(toRemove);

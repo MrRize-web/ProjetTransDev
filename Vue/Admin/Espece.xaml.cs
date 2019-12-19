@@ -30,7 +30,7 @@ namespace ProjetTransDev.Vue
         }
         /////////////////////////////////////    ESPECE    /////////////////////////////////////
         /////////////////////////////////////     ESPECE      /////////////////////////////////////
-        private void VlideEspece_Click(object sender, RoutedEventArgs e)
+        private void ValideEspece_Click(object sender, RoutedEventArgs e)
         {
             myDataObject5 = new EspeceViewModel();
             myDataObject5.nomEspeceProperty = nomEspece.Text;
@@ -55,7 +55,7 @@ namespace ProjetTransDev.Vue
             }
         }
  
-        private void supprimerButton_MouseDoubleClick5(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             EspeceViewModel toRemove = (EspeceViewModel)listeEspeces.SelectedItem;
             lp5.Remove(toRemove);

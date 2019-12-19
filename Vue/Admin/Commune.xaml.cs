@@ -37,7 +37,7 @@ namespace ProjetTransDev.Vue
         }
         /////////////////////////////////////   Commune     /////////////////////////////////////
         /////////////////////////////////////   Commune     /////////////////////////////////////
-        private void VlideCommune_Click(object sender, RoutedEventArgs e)
+        private void ValideCommune_Click(object sender, RoutedEventArgs e)
         {
             myDataObject2 = new CommuneViewModel();
             myDataObject2.nomCommuneProperty = NomCommune.Text;
@@ -73,7 +73,7 @@ namespace ProjetTransDev.Vue
 
             }
         }
-        private void supprimerButton_MouseDoubleClick2(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             CommuneViewModel toRemove = (CommuneViewModel)listeCommunes.SelectedItem;
             lp2.Remove(toRemove);

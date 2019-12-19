@@ -51,7 +51,7 @@ namespace ProjetTransDev.Vue
             lp8 = EspeceNombreORM.ListeEspeceNombres();
         }
 
-        private void VlideNombreEspece_Click(object sender, RoutedEventArgs e)
+        private void ValideNombreEspece_Click(object sender, RoutedEventArgs e)
         {
             myDataObject8 = new EspeceNombreViewModel();
             myDataObject8.NombreProperty = Convert.ToDecimal(NbAnimaux.SelectionBoxItem);
@@ -78,7 +78,7 @@ namespace ProjetTransDev.Vue
                 selectedEspeceNombreId = (lp8.ElementAt<EspeceNombreViewModel>(listeEspecesNombres.SelectedIndex)).IdNombreEProperty;
             }
         }
-        private void supprimerButton_MouseDoubleClick4(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
              {EspeceNombreViewModel toRemove = (EspeceNombreViewModel)listeEspecesNombres.SelectedItem;
             lp8.Remove(toRemove);
             listeEspecesNombres.Items.Refresh();

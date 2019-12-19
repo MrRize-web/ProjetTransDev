@@ -30,6 +30,25 @@ namespace ProjetTransDev.Vue.Benevol
             lp8 = EspeceNombreORM.ListeEspeceNombres();
         }
 
+        private void ValideNombreEspece_Click(object sender, RoutedEventArgs e)
+        {
+            myDataObject8 = new EspeceNombreViewModel();
+            myDataObject8.NombreProperty = Convert.ToDecimal(NbAnimaux.SelectionBoxItem);
+            myDataObject8.PlageProperty = (PlageViewModel)listePlagesCombo.SelectedItem;
+            myDataObject8.EtudeProperty = (EtudeViewModel)listeEtudesCombo.SelectedItem;
+            myDataObject8.IdZoneProperty = (ZoneInvestigationViewModel)listeZonesCombo.SelectedItem;
+            myDataObject8.EspeceProperty = (EspeceViewModel)listeEspeceCombo.SelectedItem;
+
+            EspeceNombreViewModel nouveau = new EspeceNombreViewModel(EspeceNombreDAL.getMaxIdEspeceNombre() + 1, myDataObject8.IdZoneProperty, myDataObject8.EspeceProperty, myDataObject8.PlageProperty, myDataObject8.EtudeProperty, myDataObject8.NombreProperty);
+            lp8.Add(nouveau);
+            EspeceNombreORM.insertEspeceNombre(nouveau);
+            compteur = lp8.Count();
+
+            listeEspecesNombres.Items.Refresh();
+            listeEspecesNombres.ItemsSource = lp8;
+            MessageBox.Show("Nombre ajoutée avec succes ! ");
+
+        }
         private void listeEspecesNombres_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if ((listeEspecesNombres.SelectedIndex < lp8.Count) && (listeEspecesNombres.SelectedIndex >= 0))

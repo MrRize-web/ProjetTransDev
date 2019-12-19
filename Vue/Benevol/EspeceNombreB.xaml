@@ -10,6 +10,80 @@
       Title="EspeceNombre" Width="800">
 
     <TabControl Margin="25,0,25,24.6" Width="750"  Background="DarkCyan">
+        <TabItem Header="Comptage">
+            <StackPanel>
+                <Label Content="Nombre d'animaux :"></Label>
+                <ComboBox Name="NbAnimaux" Height="20" Margin="0,0,706.6,0" >
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>6</ComboBoxItem>
+                    <ComboBoxItem>7</ComboBoxItem>
+                    <ComboBoxItem>8</ComboBoxItem>
+                    <ComboBoxItem>9</ComboBoxItem>
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem>11</ComboBoxItem>
+                    <ComboBoxItem>12</ComboBoxItem>
+                    <ComboBoxItem>13</ComboBoxItem>
+                    <ComboBoxItem>14</ComboBoxItem>
+                    <ComboBoxItem>15</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                    <ComboBoxItem>17</ComboBoxItem>
+                    <ComboBoxItem>18</ComboBoxItem>
+                    <ComboBoxItem>19</ComboBoxItem>
+                    <ComboBoxItem>20</ComboBoxItem>
+                </ComboBox>
+
+                <Label Content="Nom de la zone :"></Label>
+                <ComboBox Name="listeZonesCombo"
+                                      DisplayMemberPath="NameZoneProperty" 
+                                      ItemsSource="{Binding}" 
+                                      SelectedItem="{Binding IdZoneProperty}" Margin="0,0,626.6,0" 
+                                     >
+                </ComboBox>
+
+                <Label Content="Nom de l'espece :"></Label>
+                <ComboBox Name="listeEspeceCombo"
+                                      DisplayMemberPath="nomEspeceProperty" 
+                                      ItemsSource="{Binding}" 
+                                      SelectedItem="{Binding idEspeceProperty}" Margin="0,0,626.6,0" 
+                                     >
+                </ComboBox>
+
+                <Label Content="Nom de la plage :"></Label>
+                <ComboBox Name="listePlagesCombo"
+                                      DisplayMemberPath="nomPlageProperty" 
+                                      ItemsSource="{Binding}" 
+                                      SelectedItem="{Binding idPlageProperty}" Margin="0,0,626.6,0" 
+                                     >
+                </ComboBox>
+
+                <Label Content="Nom de l'etude :"></Label>
+                <ComboBox Name="listeEtudesCombo"
+                                      DisplayMemberPath="TitreEtudeProperty" 
+                                      ItemsSource="{Binding}" 
+                                      SelectedItem="{Binding idEtudeProperty}" HorizontalAlignment="Left" Width="147" 
+                                     />
+                <Button x:Name="ValideNombreEspece" Content="Ajoute nombre d'animaux"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="50" Margin="167,5,206.6,0" RenderTransformOrigin="0.5,2.31" Click="ValideNombreEspece_Click" >
+                    <Button.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Color="ForestGreen" Offset="0.279"/>
+                            <GradientStop Color="Green" Offset="0.779"/>
+                        </RadialGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,55,15,50"  HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                    <Button.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Offset="0.0" Color="LightBlue" />
+                            <GradientStop Offset="1.0" Color="Gray" />
+                        </RadialGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </TabItem>
         <TabItem Header="Tableau récapitulatif">
                 <StackPanel Margin="0,0,-0.2,-3.2">
                     <Grid  Margin="10,10,9.6,10" Height="204">

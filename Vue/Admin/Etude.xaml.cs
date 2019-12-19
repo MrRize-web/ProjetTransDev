@@ -43,7 +43,7 @@ namespace ProjetTransDev.Vue
         /////////////////////////////////////    Etudes    /////////////////////////////////////
         /////////////////////////////////////    Etudes    /////////////////////////////////////
         ///
-        private void VlideEtude_Click(object sender, RoutedEventArgs e)
+        private void ValideEtude_Click(object sender, RoutedEventArgs e)
         {
             myDataObject4 = new EtudeViewModel();
             myDataObject4.NbPersonneEtudeProperty = Convert.ToDecimal(NbPersonne.SelectionBoxItem);
@@ -70,7 +70,7 @@ namespace ProjetTransDev.Vue
                 selectedEtudeId = (lp4.ElementAt<EtudeViewModel>(listeEtudes.SelectedIndex)).idEtudeProperty;
             }
         }
-        private void supprimerButton_MouseDoubleClick4(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             EtudeViewModel toRemove = (EtudeViewModel)listeEtudes.SelectedItem;
             lp4.Remove(toRemove);

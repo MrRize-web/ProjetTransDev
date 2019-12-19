@@ -19,7 +19,7 @@
                 <StackPanel Margin="0,0,-0.4,-94" Grid.ColumnSpan="2">
                     <Label Content="Espece :"></Label>
                     <TextBox Name="nomEspece" Height="20"/>
-                    <Button x:Name="VlideEspece" Content="Ajouter une espece"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="50" Margin="0,5,206.4,0" HorizontalAlignment="Right" Width="400" RenderTransformOrigin="0.5,2.31" Click="VlideEspece_Click" >
+                    <Button x:Name="ValideEspece" Content="Ajouter une espece"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="50" Margin="0,5,206.4,0" HorizontalAlignment="Right" Width="400" RenderTransformOrigin="0.5,2.31" Click="ValideEspece_Click" >
                         <Button.Background>
                             <RadialGradientBrush>
                                 <GradientStop Color="ForestGreen" Offset="0.279"/>
@@ -47,7 +47,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
-                <Button x:Name="supprimerButton5" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick5" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="50" Width="200">
+                <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="50" Width="200">
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Color="Red" Offset="0.279"/>

@@ -49,7 +49,7 @@
                 </ComboBox>
                 <Label Content="Nom de la Zone" HorizontalAlignment="Left" Width="157"/>
                 <TextBox x:Name="NomZone" Margin="0,0,616.4,0" Height="29"></TextBox>
-                <Button x:Name="VlideAngle" Content="Ajouter Zone de recherche"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="36" Margin="0,10,199.6,0" HorizontalAlignment="Right" Width="392" RenderTransformOrigin="0.5,2.31" Click="VlideAngle_Click" >
+                <Button x:Name="ValideAngle" Content="Ajouter Zone de recherche"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="36" Margin="0,10,199.6,0" HorizontalAlignment="Right" Width="392" RenderTransformOrigin="0.5,2.31" Click="ValideAngle_Click" >
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Color="ForestGreen" Offset="0.279"/>
@@ -82,7 +82,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
-                <Button x:Name="supprimerButton4" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick4" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" Margin="287,0,286.6,0">
+                <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" Margin="287,0,286.6,0">
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Color="Red" Offset="0.279"/>

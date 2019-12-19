@@ -22,7 +22,7 @@
                     <TextBox Name="NomDepartement" Height="25" Margin="0,0,0.4,0"/>
                     <Label Content="Code Postale :"/>
                     <TextBox Name="CodePostaleDep" Height="25" Margin="0,0,0.4,0" PreviewTextInput="NumberValidationTextBox" MaxLength="5"  />
-                    <Button x:Name="VlideDepartement" Content="Ajouter un Département"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.521,2.714" Click="VlideDepartement_Click">
+                    <Button x:Name="ValideDepartement" Content="Ajouter un Département"  BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.521,2.714" Click="ValideDepartement_Click">
                         <Button.Background>
                             <RadialGradientBrush>
                                 <GradientStop Color="ForestGreen" Offset="0.279"/>
@@ -52,7 +52,7 @@
                     </Grid.ColumnDefinitions>
 
                 </Grid>
-                <Button x:Name="supprimerButton2" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick2" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" Margin="287,0,286.6,0">
+                <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" Margin="287,0,286.6,0">
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Color="Red" Offset="0.279"/>

@@ -43,7 +43,7 @@ namespace ProjetTransDev.Vue.Benevol
         /////////////////////////////////////    Etudes    /////////////////////////////////////
         /////////////////////////////////////    Etudes    /////////////////////////////////////
         ///
-        private void VlideEtude_Click(object sender, RoutedEventArgs e)
+        private void ValideEtude_Click(object sender, RoutedEventArgs e)
         {
             myDataObject4 = new EtudeViewModel();
             myDataObject4.NbPersonneEtudeProperty = Convert.ToDecimal(NbPersonne.SelectionBoxItem);

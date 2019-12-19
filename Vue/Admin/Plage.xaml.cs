@@ -41,7 +41,7 @@ namespace ProjetTransDev.Vue
 
         /////////////////////////////////////   Plage     /////////////////////////////////////
         /////////////////////////////////////    Plage    /////////////////////////////////////
-        private void VlidePlage_Click(object sender, RoutedEventArgs e)
+        private void ValidePlage_Click(object sender, RoutedEventArgs e)
         {
             myDataObject1 = new PlageViewModel();
             myDataObject1.nomPlageProperty = nomPlage.Text;
@@ -67,7 +67,7 @@ namespace ProjetTransDev.Vue
                 listePlages.Items.Refresh();
             }
         }
-        private void supprimerButton_MouseDoubleClick1(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             PlageViewModel toRemove = (PlageViewModel)listePlages.SelectedItem;
             lp1.Remove(toRemove);
