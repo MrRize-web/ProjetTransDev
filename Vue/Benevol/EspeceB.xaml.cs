@@ -15,7 +15,6 @@ namespace ProjetTransDev.Vue.Benevol
         int selectedEspeceId;
         int compteur = 0;
 
-        EspeceViewModel myDataObject5;
         ObservableCollection<EspeceViewModel> lp5;
 
         public EspeceB()

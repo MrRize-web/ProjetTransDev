@@ -21,7 +21,6 @@ namespace ProjetTransDev.Vue.Benevol
         int compteur = 0;
 
 
-        PlageViewModel myDataObject1; // Objet de liaison
         ObservableCollection<PlageViewModel> lp1;
 
         public PlageB()

@@ -19,9 +19,6 @@ namespace ProjetTransDev.Vue
 
         CommuneViewModel myDataObject2; // Objet de liaison
         ObservableCollection<CommuneViewModel> lp2;
-
-
-        DepartementViewModel myDataObject3; // Objet de liaison
         ObservableCollection<DepartementViewModel> lp3;
 
 

@@ -19,7 +19,6 @@ namespace ProjetTransDev.Vue.Benevol
 
         int compteur = 0;
 
-        ZoneInvestigationViewModel myDataObject7; // Objet de liaison
         ObservableCollection<ZoneInvestigationViewModel> lp7;
 
         public ZoneInvestigationB()

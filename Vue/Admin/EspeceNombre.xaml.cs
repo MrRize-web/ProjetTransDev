@@ -21,13 +21,9 @@ namespace ProjetTransDev.Vue
 
         EspeceNombreViewModel myDataObject8;
         ObservableCollection<EspeceNombreViewModel> lp8;
-        ZoneInvestigationViewModel myDataObject7; // Objet de liaison
         ObservableCollection<ZoneInvestigationViewModel> lp7;
-        EtudeViewModel myDataObject4; // Objet de liaison
         ObservableCollection<EtudeViewModel> lp4;
-        PlageViewModel myDataObject1; // Objet de liaison
         ObservableCollection<PlageViewModel> lp1;
-        EspeceViewModel myDataObject5;
         ObservableCollection<EspeceViewModel> lp5;
         public EspeceNombre()
         {

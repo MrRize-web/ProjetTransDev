@@ -11,7 +11,7 @@
 
     <TabControl Margin="10,0,10,24.6" Width="779"  Background="DarkCyan">
         <TabItem Header="Comptage">
-            <StackPanel>
+            <StackPanel Margin="0,0,-0.4,-3.2">
                 <Label Content="Nombre d'animaux :"></Label>
                 <ComboBox Name="NbAnimaux" Height="20" Margin="0,0,706.6,0" >
                     <ComboBoxItem>1</ComboBoxItem>
@@ -74,7 +74,7 @@
                         </RadialGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,80,35,50"  HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
+                <Button x:Name="btnAcceuil1" Content="Acceuil" Click="ouvrirAcceuil" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35"  Margin="0,60,10,50"  HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" >
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Offset="0.0" Color="LightBlue" />

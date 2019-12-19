@@ -21,12 +21,29 @@ namespace ProjetTransDev.Vue.Benevol
 
         EspeceNombreViewModel myDataObject8;
         ObservableCollection<EspeceNombreViewModel> lp8;
+        ObservableCollection<ZoneInvestigationViewModel> lp7;
+        ObservableCollection<EtudeViewModel> lp4;
+        ObservableCollection<PlageViewModel> lp1;
+        ObservableCollection<EspeceViewModel> lp5;
         public EspeceNombreB()
         {
 
             InitializeComponent();
             lp8 = EspeceNombreORM.ListeEspeceNombres();
             listeEspecesNombres.ItemsSource = lp8;
+
+            lp1 = PlageORM.listePlages();
+            listePlagesCombo.ItemsSource = lp1;
+
+            lp4 = EtudeORM.ListeEtude();
+            listeEtudesCombo.ItemsSource = lp4;
+
+            lp5 = EspeceORM.listeEspeces();
+            listeEspeceCombo.ItemsSource = lp5;
+
+            lp7 = ZoneInvestigationORM.ListeZoneInvestigation();
+            listeZonesCombo.ItemsSource = lp7;
+
             lp8 = EspeceNombreORM.ListeEspeceNombres();
         }
 

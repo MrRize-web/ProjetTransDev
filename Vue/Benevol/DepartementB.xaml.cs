@@ -17,7 +17,7 @@ namespace ProjetTransDev.Vue.Benevol
     {
         int selectedDepartementsId;
         int compteur = 0;
-        DepartementViewModel myDataObject3; // Objet de liaison
+
         ObservableCollection<DepartementViewModel> lp3;
 
 

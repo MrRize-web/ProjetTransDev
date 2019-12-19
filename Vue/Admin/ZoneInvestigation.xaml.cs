@@ -21,11 +21,8 @@ namespace ProjetTransDev.Vue
 
         ZoneInvestigationViewModel myDataObject7; // Objet de liaison
         ObservableCollection<ZoneInvestigationViewModel> lp7;
-        PlageViewModel myDataObject1; // Objet de liaison
         ObservableCollection<PlageViewModel> lp1;
-        UsersViewModel myDataObject; // Objet de liaison
         ObservableCollection<UsersViewModel> lp;
-        EtudeViewModel myDataObject4; // Objet de liaison
         ObservableCollection<EtudeViewModel> lp4;
 
         public ZoneInvestigation()

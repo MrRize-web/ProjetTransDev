@@ -17,7 +17,6 @@ namespace ProjetTransDev.Vue
     public partial class Plage : Page
     {
         int selectedPlagesId;
-        int selectedCommunesId;
         int compteur = 0;
 
 
@@ -25,7 +24,6 @@ namespace ProjetTransDev.Vue
         ObservableCollection<PlageViewModel> lp1;
 
 
-        CommuneViewModel myDataObject2; // Objet de liaison
         ObservableCollection<CommuneViewModel> lp2;
 
         public Plage()

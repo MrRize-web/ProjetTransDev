@@ -14,12 +14,9 @@ namespace ProjetTransDev.Vue.Benevol
         int selectedCommunesId;
         int compteur = 0;
 
-        CommuneViewModel myDataObject2; // Objet de liaison
         ObservableCollection<CommuneViewModel> lp2;
 
-
-        DepartementViewModel myDataObject3; // Objet de liaison
-        ObservableCollection<DepartementViewModel> lp3;
+    
 
 
         public CommuneB()
@@ -29,7 +26,7 @@ namespace ProjetTransDev.Vue.Benevol
             lp2 = CommuneORM.ListeCommunes();
             listeCommunes.ItemsSource = lp2;
 
-            lp3 = DepartementORM.ListeDepartements();
+
 
         }
         /////////////////////////////////////   Commune     /////////////////////////////////////
